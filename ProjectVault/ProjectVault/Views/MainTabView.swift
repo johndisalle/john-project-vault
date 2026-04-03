@@ -10,16 +10,20 @@ struct MainTabView: View {
                 HomeView()
             }
 
-            Tab("Domains", systemImage: "books.vertical.fill", value: .domains) {
-                DomainListView()
+            Tab("Study", systemImage: "books.vertical.fill", value: .study) {
+                StudyView()
             }
 
-            Tab("Progress", systemImage: "chart.bar.fill", value: .progress) {
-                ProgressDashboardView()
+            Tab("Quiz", systemImage: "bolt.fill", value: .quiz) {
+                QuickQuizView()
             }
 
-            Tab("Settings", systemImage: "gearshape.fill", value: .settings) {
-                SettingsView()
+            Tab("Mock Exam", systemImage: "clock.badge.checkmark.fill", value: .mockExam) {
+                MockExamView()
+            }
+
+            Tab("Vault", systemImage: "lock.shield.fill", value: .vault) {
+                VaultView()
             }
         }
         .tint(VaultTheme.gold)

@@ -7,7 +7,7 @@ final class AppState {
     var selectedTab: AppTab = .home
 
     enum AppTab: Int, CaseIterable {
-        case home, domains, progress, settings
+        case home, study, quiz, mockExam, vault
     }
 
     init() {
@@ -28,5 +28,11 @@ final class AppState {
         return progress.quizHistory
             .filter { calendar.isDateInToday($0.date) }
             .reduce(0) { $0 + $1.totalQuestions }
+    }
+
+    var dailyGoal: Int { 20 }
+
+    var dailyGoalProgress: Double {
+        min(Double(questionsAnsweredToday) / Double(dailyGoal), 1.0)
     }
 }

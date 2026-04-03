@@ -2,11 +2,27 @@ import SwiftUI
 
 struct HomeView: View {
     @Environment(AppState.self) private var appState
-    @State private var navigateToQuiz = false
-    @State private var quizQuestions: [Question] = []
-    @State private var quizMode: QuizSession.QuizMode = .practice
+    @State private var quoteIndex: Int = 0
 
     private let service = DataService.shared
+
+    private static let quotes: [(String, String)] = [
+        ("The secret of getting ahead is getting started.", "Mark Twain"),
+        ("Success is the sum of small efforts, repeated day in and day out.", "Robert Collier"),
+        ("Don't watch the clock; do what it does. Keep going.", "Sam Levenson"),
+        ("The expert in anything was once a beginner.", "Helen Hayes"),
+        ("Believe you can and you're halfway there.", "Theodore Roosevelt"),
+        ("It always seems impossible until it's done.", "Nelson Mandela"),
+        ("You don't have to be great to start, but you have to start to be great.", "Zig Ziglar"),
+        ("The only way to do great work is to love what you do.", "Steve Jobs"),
+        ("Education is the passport to the future.", "Malcolm X"),
+        ("A project is complete when it starts working for you, rather than you working for it.", "Scott Allen"),
+        ("Quality is never an accident; it is always the result of intelligent effort.", "John Ruskin"),
+        ("Plan your work and work your plan.", "Napoleon Hill"),
+        ("Risk comes from not knowing what you're doing.", "Warren Buffett"),
+        ("The best preparation for tomorrow is doing your best today.", "H. Jackson Brown Jr."),
+        ("Discipline is the bridge between goals and accomplishment.", "Jim Rohn"),
+    ]
 
     var body: some View {
         NavigationStack {
@@ -16,138 +32,228 @@ struct HomeView: View {
                 ScrollView {
                     VStack(spacing: 20) {
                         headerSection
-                        statsCards
-                        quickStartSection
+                        streakAndGoalRow
+                        overallProgressCard
+                        domainSnapshotSection
+                        motivationalQuote
                         recentActivitySection
                     }
                     .padding(.horizontal, 16)
                     .padding(.top, 8)
-                    .padding(.bottom, 32)
+                    .padding(.bottom, 100)
                 }
+                .scrollIndicators(.hidden)
             }
             .navigationTitle("")
             .navigationBarHidden(true)
-            .navigationDestination(isPresented: $navigateToQuiz) {
-                QuizView(
-                    questions: quizQuestions,
-                    mode: quizMode,
-                    domain: nil
-                )
-            }
+        }
+        .onAppear {
+            quoteIndex = Int.random(in: 0..<Self.quotes.count)
         }
     }
 
     // MARK: - Header
 
     private var headerSection: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 4) {
-                Text("Project+ Vault")
-                    .font(VaultTheme.titleFont)
-                    .foregroundStyle(VaultTheme.goldGradient)
+        VStack(alignment: .leading, spacing: 6) {
+            Text(greeting)
+                .font(.system(size: 16, weight: .medium))
+                .foregroundStyle(.white.opacity(0.6))
 
-                Text("PK0-005 Exam Prep")
-                    .font(VaultTheme.captionFont)
-                    .foregroundStyle(.white.opacity(0.6))
+            Text("Project+ Vault")
+                .font(.system(size: 32, weight: .bold, design: .rounded))
+                .foregroundStyle(VaultTheme.goldGradient)
+
+            Text("Your Personal Project+ Treasure Trove")
+                .font(.system(size: 13, weight: .medium))
+                .foregroundStyle(.white.opacity(0.4))
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.top, 12)
+    }
+
+    private var greeting: String {
+        let hour = Calendar.current.component(.hour, from: Date())
+        switch hour {
+        case 5..<12: return "Good Morning"
+        case 12..<17: return "Good Afternoon"
+        default: return "Good Evening"
+        }
+    }
+
+    // MARK: - Streak & Daily Goal
+
+    private var streakAndGoalRow: some View {
+        HStack(spacing: 12) {
+            // Streak
+            HStack(spacing: 10) {
+                ZStack {
+                    Circle()
+                        .fill(Color.orange.opacity(0.15))
+                        .frame(width: 44, height: 44)
+                    Image(systemName: "flame.fill")
+                        .font(.title3)
+                        .foregroundStyle(.orange)
+                }
+
+                VStack(alignment: .leading, spacing: 1) {
+                    Text("\(appState.progress.streak)")
+                        .font(.system(size: 22, weight: .bold, design: .rounded))
+                        .foregroundStyle(.white)
+                    Text("Day Streak")
+                        .font(.system(size: 11, weight: .medium))
+                        .foregroundStyle(.white.opacity(0.5))
+                }
+
+                Spacer()
+            }
+            .padding(14)
+            .vaultCard()
+
+            // Daily Goal
+            HStack(spacing: 10) {
+                ZStack {
+                    Circle()
+                        .stroke(.white.opacity(0.1), lineWidth: 3)
+                        .frame(width: 44, height: 44)
+                    Circle()
+                        .trim(from: 0, to: appState.dailyGoalProgress)
+                        .stroke(VaultTheme.correctGreen, style: StrokeStyle(lineWidth: 3, lineCap: .round))
+                        .frame(width: 44, height: 44)
+                        .rotationEffect(.degrees(-90))
+                    Image(systemName: appState.dailyGoalProgress >= 1.0 ? "checkmark" : "target")
+                        .font(.system(size: 16, weight: .bold))
+                        .foregroundStyle(appState.dailyGoalProgress >= 1.0 ? VaultTheme.correctGreen : .white.opacity(0.7))
+                }
+
+                VStack(alignment: .leading, spacing: 1) {
+                    Text("\(appState.questionsAnsweredToday)/\(appState.dailyGoal)")
+                        .font(.system(size: 22, weight: .bold, design: .rounded))
+                        .foregroundStyle(.white)
+                    Text("Daily Goal")
+                        .font(.system(size: 11, weight: .medium))
+                        .foregroundStyle(.white.opacity(0.5))
+                }
+
+                Spacer()
+            }
+            .padding(14)
+            .vaultCard()
+        }
+    }
+
+    // MARK: - Overall Progress Ring
+
+    private var overallProgressCard: some View {
+        HStack(spacing: 20) {
+            // Accuracy ring
+            ZStack {
+                Circle()
+                    .stroke(.white.opacity(0.08), lineWidth: 10)
+                    .frame(width: 100, height: 100)
+
+                Circle()
+                    .trim(from: 0, to: appState.progress.overallAccuracy / 100)
+                    .stroke(
+                        accuracyColor,
+                        style: StrokeStyle(lineWidth: 10, lineCap: .round)
+                    )
+                    .frame(width: 100, height: 100)
+                    .rotationEffect(.degrees(-90))
+
+                VStack(spacing: 0) {
+                    Text(String(format: "%.0f%%", appState.progress.overallAccuracy))
+                        .font(.system(size: 24, weight: .bold, design: .rounded))
+                        .foregroundStyle(.white)
+                    Text("accuracy")
+                        .font(.system(size: 10))
+                        .foregroundStyle(.white.opacity(0.4))
+                }
+            }
+
+            VStack(alignment: .leading, spacing: 10) {
+                ProgressStatRow(
+                    icon: "checkmark.circle.fill",
+                    color: .cyan,
+                    label: "Answered",
+                    value: "\(appState.progress.totalQuestionsAnswered)"
+                )
+                ProgressStatRow(
+                    icon: "star.fill",
+                    color: VaultTheme.gold,
+                    label: "Correct",
+                    value: "\(appState.progress.totalCorrect)"
+                )
+                ProgressStatRow(
+                    icon: "list.clipboard.fill",
+                    color: .purple,
+                    label: "Quizzes",
+                    value: "\(appState.progress.quizHistory.count)"
+                )
+                ProgressStatRow(
+                    icon: "bookmark.fill",
+                    color: .orange,
+                    label: "Bookmarked",
+                    value: "\(appState.progress.bookmarkedQuestionIds.count)"
+                )
             }
 
             Spacer()
-
-            // Streak Badge
-            VStack(spacing: 2) {
-                Image(systemName: "flame.fill")
-                    .font(.title2)
-                    .foregroundStyle(.orange)
-                Text("\(appState.progress.streak)")
-                    .font(VaultTheme.captionFont)
-                    .foregroundStyle(.white.opacity(0.8))
-            }
-            .padding(12)
-            .background(
-                Circle()
-                    .fill(Color.orange.opacity(0.15))
-            )
         }
-        .padding(.top, 8)
+        .vaultCard()
     }
 
-    // MARK: - Stats
-
-    private var statsCards: some View {
-        HStack(spacing: 12) {
-            StatCard(
-                title: "Answered",
-                value: "\(appState.progress.totalQuestionsAnswered)",
-                icon: "checkmark.circle.fill",
-                color: .cyan
-            )
-            StatCard(
-                title: "Accuracy",
-                value: String(format: "%.0f%%", appState.progress.overallAccuracy),
-                icon: "target",
-                color: VaultTheme.gold
-            )
-            StatCard(
-                title: "Today",
-                value: "\(appState.questionsAnsweredToday)",
-                icon: "calendar",
-                color: .mint
-            )
-        }
+    private var accuracyColor: Color {
+        let acc = appState.progress.overallAccuracy
+        if acc >= 80 { return VaultTheme.correctGreen }
+        if acc >= 65 { return VaultTheme.warningAmber }
+        return VaultTheme.incorrectRed
     }
 
-    // MARK: - Quick Start
+    // MARK: - Domain Snapshot
 
-    private var quickStartSection: some View {
+    private var domainSnapshotSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Quick Start")
-                .font(VaultTheme.headlineFont)
-                .foregroundStyle(.white)
+            HStack {
+                Text("Domain Readiness")
+                    .font(VaultTheme.headlineFont)
+                    .foregroundStyle(.white)
+                Spacer()
+                Text("PK0-005")
+                    .font(.system(size: 12, weight: .semibold, design: .monospaced))
+                    .foregroundStyle(VaultTheme.gold.opacity(0.5))
+            }
 
-            VStack(spacing: 10) {
-                QuickStartButton(
-                    title: "Quick 10",
-                    subtitle: "10 random questions",
-                    icon: "bolt.fill",
-                    color: .cyan
-                ) {
-                    startQuiz(count: 10, mode: .practice)
-                }
-
-                QuickStartButton(
-                    title: "Practice 25",
-                    subtitle: "25 mixed questions",
-                    icon: "book.fill",
-                    color: VaultTheme.gold
-                ) {
-                    startQuiz(count: 25, mode: .practice)
-                }
-
-                QuickStartButton(
-                    title: "Exam Simulation",
-                    subtitle: "65 questions, timed (90 min)",
-                    icon: "clock.badge.checkmark.fill",
-                    color: .purple
-                ) {
-                    quizQuestions = service.examSimulation()
-                    quizMode = .timed
-                    navigateToQuiz = true
-                }
-
-                if !appState.progress.missedQuestionIds.isEmpty {
-                    QuickStartButton(
-                        title: "Review Missed",
-                        subtitle: "\(appState.progress.missedQuestionIds.count) questions to review",
-                        icon: "arrow.counterclockwise",
-                        color: VaultTheme.incorrectRed
-                    ) {
-                        quizQuestions = service.questions(withIds: appState.progress.missedQuestionIds).shuffled()
-                        quizMode = .review
-                        navigateToQuiz = true
-                    }
-                }
+            ForEach(ExamDomain.allCases) { domain in
+                let score = appState.progress.domainScores[domain.rawValue]
+                DomainSnapshotRow(domain: domain, score: score)
             }
         }
+        .vaultCard()
+    }
+
+    // MARK: - Motivational Quote
+
+    private var motivationalQuote: some View {
+        let quote = Self.quotes[quoteIndex]
+        return VStack(spacing: 10) {
+            Image(systemName: "quote.opening")
+                .font(.title3)
+                .foregroundStyle(VaultTheme.gold.opacity(0.4))
+
+            Text(quote.0)
+                .font(.system(size: 15, weight: .medium, design: .serif))
+                .foregroundStyle(.white.opacity(0.8))
+                .multilineTextAlignment(.center)
+                .lineSpacing(4)
+
+            Text("- \(quote.1)")
+                .font(.system(size: 12, weight: .regular, design: .serif))
+                .foregroundStyle(VaultTheme.gold.opacity(0.6))
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 20)
+        .vaultCard()
     }
 
     // MARK: - Recent Activity
@@ -159,15 +265,19 @@ struct HomeView: View {
                 .foregroundStyle(.white)
 
             if appState.progress.quizHistory.isEmpty {
-                HStack {
-                    Image(systemName: "tray")
-                        .foregroundStyle(.white.opacity(0.4))
-                    Text("No quizzes taken yet. Start practicing!")
-                        .font(VaultTheme.bodyFont)
+                VStack(spacing: 8) {
+                    Image(systemName: "sparkles")
+                        .font(.system(size: 32))
+                        .foregroundStyle(VaultTheme.gold.opacity(0.3))
+                    Text("Your journey begins now!")
+                        .font(.system(size: 15, weight: .medium))
                         .foregroundStyle(.white.opacity(0.5))
+                    Text("Take your first quiz to start tracking progress.")
+                        .font(.system(size: 13))
+                        .foregroundStyle(.white.opacity(0.3))
                 }
                 .frame(maxWidth: .infinity)
-                .padding(20)
+                .padding(.vertical, 24)
                 .vaultCard()
             } else {
                 ForEach(appState.progress.quizHistory.suffix(5).reversed()) { result in
@@ -176,74 +286,76 @@ struct HomeView: View {
             }
         }
     }
-
-    // MARK: - Helpers
-
-    private func startQuiz(count: Int, mode: QuizSession.QuizMode) {
-        quizQuestions = service.randomQuestions(count: min(count, service.totalCount))
-        quizMode = mode
-        navigateToQuiz = true
-    }
 }
 
 // MARK: - Supporting Views
 
-struct StatCard: View {
-    let title: String
-    let value: String
+struct ProgressStatRow: View {
     let icon: String
     let color: Color
+    let label: String
+    let value: String
 
     var body: some View {
-        VStack(spacing: 6) {
+        HStack(spacing: 8) {
             Image(systemName: icon)
-                .font(.title3)
+                .font(.system(size: 13))
                 .foregroundStyle(color)
+                .frame(width: 18)
+            Text(label)
+                .font(.system(size: 13))
+                .foregroundStyle(.white.opacity(0.5))
+            Spacer()
             Text(value)
-                .font(.system(size: 20, weight: .bold, design: .rounded))
+                .font(.system(size: 14, weight: .semibold, design: .rounded))
                 .foregroundStyle(.white)
-            Text(title)
-                .font(VaultTheme.captionFont)
-                .foregroundStyle(.white.opacity(0.6))
         }
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 14)
-        .vaultCard()
     }
 }
 
-struct QuickStartButton: View {
-    let title: String
-    let subtitle: String
-    let icon: String
-    let color: Color
-    let action: () -> Void
+struct DomainSnapshotRow: View {
+    let domain: ExamDomain
+    let score: DomainScore?
+
+    private var accuracy: Double { score?.accuracy ?? 0 }
+    private var attempted: Bool { (score?.attempted ?? 0) > 0 }
 
     var body: some View {
-        Button(action: action) {
-            HStack(spacing: 14) {
-                Image(systemName: icon)
-                    .font(.title3)
-                    .foregroundStyle(color)
-                    .frame(width: 36)
+        VStack(spacing: 6) {
+            HStack(spacing: 8) {
+                Image(systemName: domain.icon)
+                    .font(.system(size: 12))
+                    .foregroundStyle(domain.color)
+                    .frame(width: 16)
 
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(title)
-                        .font(.system(size: 16, weight: .semibold))
-                        .foregroundStyle(.white)
-                    Text(subtitle)
-                        .font(VaultTheme.captionFont)
-                        .foregroundStyle(.white.opacity(0.5))
-                }
+                Text(domain.shortTitle)
+                    .font(.system(size: 13, weight: .medium))
+                    .foregroundStyle(.white.opacity(0.8))
 
                 Spacer()
 
-                Image(systemName: "chevron.right")
-                    .font(.caption)
-                    .foregroundStyle(.white.opacity(0.3))
+                if attempted {
+                    Text(String(format: "%.0f%%", accuracy))
+                        .font(.system(size: 13, weight: .bold, design: .rounded))
+                        .foregroundStyle(accuracy >= 65 ? VaultTheme.correctGreen : VaultTheme.warningAmber)
+                } else {
+                    Text("--")
+                        .font(.system(size: 13, weight: .medium))
+                        .foregroundStyle(.white.opacity(0.25))
+                }
             }
-            .padding(14)
-            .vaultCard()
+
+            GeometryReader { geo in
+                ZStack(alignment: .leading) {
+                    Capsule()
+                        .fill(.white.opacity(0.06))
+                        .frame(height: 4)
+                    Capsule()
+                        .fill(domain.color.opacity(attempted ? 1.0 : 0.2))
+                        .frame(width: geo.size.width * min(accuracy / 100, 1.0), height: 4)
+                }
+            }
+            .frame(height: 4)
         }
     }
 }

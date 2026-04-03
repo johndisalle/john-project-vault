@@ -19,10 +19,12 @@
 		A10001011 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000011; };
 		A10001012 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000012; };
 		A10001013 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000013; };
-		A10001014 /* DomainListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000014; };
+		A10001022 /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000022; };
+		A10001023 /* QuickQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000023; };
+		A10001024 /* MockExamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000024; };
+		A10001025 /* VaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000025; };
 		A10001015 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000015; };
 		A10001016 /* QuizResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000016; };
-		A10001017 /* ProgressDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000017; };
 		A10001018 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000018; };
 		A10001019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A10000019; };
 		A10001020 /* ProjectVaultQuestions.json in Resources */ = {isa = PBXBuildFile; fileRef = A10000020; };
@@ -41,10 +43,12 @@
 		A10000011 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		A10000012 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		A10000013 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		A10000014 /* DomainListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainListView.swift; sourceTree = "<group>"; };
+		A10000022 /* StudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
+		A10000023 /* QuickQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickQuizView.swift; sourceTree = "<group>"; };
+		A10000024 /* MockExamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockExamView.swift; sourceTree = "<group>"; };
+		A10000025 /* VaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultView.swift; sourceTree = "<group>"; };
 		A10000015 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		A10000016 /* QuizResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultsView.swift; sourceTree = "<group>"; };
-		A10000017 /* ProgressDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressDashboardView.swift; sourceTree = "<group>"; };
 		A10000018 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A10000019 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A10000020 /* ProjectVaultQuestions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ProjectVaultQuestions.json; sourceTree = "<group>"; };
@@ -118,10 +122,12 @@
 				A10000011 /* SplashScreenView.swift */,
 				A10000012 /* MainTabView.swift */,
 				A10000013 /* HomeView.swift */,
-				A10000014 /* DomainListView.swift */,
+				A10000022 /* StudyView.swift */,
+				A10000023 /* QuickQuizView.swift */,
+				A10000024 /* MockExamView.swift */,
+				A10000025 /* VaultView.swift */,
 				A10000015 /* QuizView.swift */,
 				A10000016 /* QuizResultsView.swift */,
-				A10000017 /* ProgressDashboardView.swift */,
 				A10000018 /* SettingsView.swift */,
 				A10003005 /* Components */,
 			);
@@ -258,10 +264,12 @@
 				A10001011 /* SplashScreenView.swift in Sources */,
 				A10001012 /* MainTabView.swift in Sources */,
 				A10001013 /* HomeView.swift in Sources */,
-				A10001014 /* DomainListView.swift in Sources */,
+				A10001022 /* StudyView.swift in Sources */,
+				A10001023 /* QuickQuizView.swift in Sources */,
+				A10001024 /* MockExamView.swift in Sources */,
+				A10001025 /* VaultView.swift in Sources */,
 				A10001015 /* QuizView.swift in Sources */,
 				A10001016 /* QuizResultsView.swift in Sources */,
-				A10001017 /* ProgressDashboardView.swift in Sources */,
 				A10001018 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
