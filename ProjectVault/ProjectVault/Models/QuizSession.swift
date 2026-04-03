@@ -13,6 +13,7 @@ struct QuizSession: Identifiable {
         case practice = "Practice"
         case timed = "Timed Exam"
         case review = "Review Missed"
+        case mockExam = "Mock Exam"
     }
 }
 

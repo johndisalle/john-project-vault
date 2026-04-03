@@ -22,7 +22,11 @@ struct QuizView: View {
             if viewModel.questions.isEmpty {
                 emptyState
             } else if viewModel.isQuizComplete {
-                QuizResultsView(viewModel: viewModel)
+                if viewModel.mode == .mockExam || viewModel.mode == .timed {
+                    ExamResultsView(viewModel: viewModel)
+                } else {
+                    QuizResultsView(viewModel: viewModel)
+                }
             } else {
                 questionContent
             }
@@ -38,7 +42,7 @@ struct QuizView: View {
                 }
             }
 
-            if viewModel.mode == .timed {
+            if viewModel.mode == .timed || viewModel.mode == .mockExam {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Text(viewModel.timerString)
                         .font(VaultTheme.monoFont)
@@ -53,7 +57,7 @@ struct QuizView: View {
             Text("Your progress in this quiz will be lost.")
         }
         .onAppear {
-            if viewModel.mode == .timed {
+            if viewModel.mode == .timed || viewModel.mode == .mockExam {
                 viewModel.timerActive = true
                 timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
                     viewModel.tickTimer()

@@ -28,6 +28,9 @@ final class QuizViewModel {
         if mode == .timed {
             // ~90 seconds per question
             self.remainingSeconds = questions.count * 90
+        } else if mode == .mockExam {
+            // Real PK0-005 format: 90 minutes
+            self.remainingSeconds = 90 * 60
         }
     }
 

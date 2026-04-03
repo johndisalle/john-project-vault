@@ -26,6 +26,7 @@
 		A10001026 /* FlashcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000026; };
 		A10001015 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000015; };
 		A10001016 /* QuizResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000016; };
+		A10001027 /* ExamResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000027; };
 		A10001018 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000018; };
 		A10001019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A10000019; };
 		A10001020 /* ProjectVaultQuestions.json in Resources */ = {isa = PBXBuildFile; fileRef = A10000020; };
@@ -51,6 +52,7 @@
 		A10000026 /* FlashcardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardView.swift; sourceTree = "<group>"; };
 		A10000015 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		A10000016 /* QuizResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultsView.swift; sourceTree = "<group>"; };
+		A10000027 /* ExamResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamResultsView.swift; sourceTree = "<group>"; };
 		A10000018 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A10000019 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A10000020 /* ProjectVaultQuestions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ProjectVaultQuestions.json; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				A10000026 /* FlashcardView.swift */,
 				A10000015 /* QuizView.swift */,
 				A10000016 /* QuizResultsView.swift */,
+				A10000027 /* ExamResultsView.swift */,
 				A10000018 /* SettingsView.swift */,
 				A10003005 /* Components */,
 			);
@@ -274,6 +277,7 @@
 				A10001026 /* FlashcardView.swift in Sources */,
 				A10001015 /* QuizView.swift in Sources */,
 				A10001016 /* QuizResultsView.swift in Sources */,
+				A10001027 /* ExamResultsView.swift in Sources */,
 				A10001018 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

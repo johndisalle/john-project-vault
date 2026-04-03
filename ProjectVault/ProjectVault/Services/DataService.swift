@@ -157,6 +157,62 @@ final class DataService {
         return result.shuffled()
     }
 
+    /// Seeded 90-question exam matching real PK0-005 format.
+    /// Each examNumber (1-4) produces a deterministic but different question set.
+    func mockExam(number: Int) -> [Question] {
+        let questionCount = 90
+        // Domain weights: 33% / 30% / 19% / 18%
+        let d1Count = Int(Double(questionCount) * 0.33) // 29
+        let d2Count = Int(Double(questionCount) * 0.30) // 27
+        let d3Count = Int(Double(questionCount) * 0.19) // 17
+        let d4Count = questionCount - d1Count - d2Count - d3Count // 17
+
+        func seededShuffle(_ questions: [Question], seed: Int) -> [Question] {
+            var rng = SeededRandomNumberGenerator(seed: UInt64(seed))
+            return questions.shuffled(using: &rng)
+        }
+
+        let seed = number * 7919 // distinct prime-based seeds
+        var result: [Question] = []
+        result.append(contentsOf: Array(seededShuffle(questions(for: .domain1), seed: seed + 1).prefix(d1Count)))
+        result.append(contentsOf: Array(seededShuffle(questions(for: .domain2), seed: seed + 2).prefix(d2Count)))
+        result.append(contentsOf: Array(seededShuffle(questions(for: .domain3), seed: seed + 3).prefix(d3Count)))
+        result.append(contentsOf: Array(seededShuffle(questions(for: .domain4), seed: seed + 4).prefix(d4Count)))
+
+        return seededShuffle(result, seed: seed)
+    }
+
+    /// Compute per-domain breakdown from a set of question results.
+    func domainBreakdown(from questionResults: [QuestionResult]) -> [ExamDomain: (total: Int, correct: Int)] {
+        var breakdown: [ExamDomain: (total: Int, correct: Int)] = [:]
+        for domain in ExamDomain.allCases {
+            breakdown[domain] = (0, 0)
+        }
+        for qr in questionResults {
+            if let q = questionsById[qr.questionId],
+               let domain = ExamDomain.from(domainString: q.domain) {
+                let current = breakdown[domain] ?? (0, 0)
+                breakdown[domain] = (current.total + 1, current.correct + (qr.isCorrect ? 1 : 0))
+            }
+        }
+        return breakdown
+    }
+
+    /// Compute per-difficulty breakdown from a set of question results.
+    func difficultyBreakdown(from questionResults: [QuestionResult]) -> [Question.Difficulty: (total: Int, correct: Int)] {
+        var breakdown: [Question.Difficulty: (total: Int, correct: Int)] = [:]
+        for diff in Question.Difficulty.allCases {
+            breakdown[diff] = (0, 0)
+        }
+        for qr in questionResults {
+            if let q = questionsById[qr.questionId] {
+                let current = breakdown[q.difficulty] ?? (0, 0)
+                breakdown[q.difficulty] = (current.total + 1, current.correct + (qr.isCorrect ? 1 : 0))
+            }
+        }
+        return breakdown
+    }
+
     // MARK: - Stats
 
     var totalCount: Int { allQuestions.count }
@@ -289,5 +345,23 @@ final class DataService {
         }
 
         saveProgress(progress)
+    }
+}
+
+// MARK: - Seeded RNG for deterministic exam generation
+
+struct SeededRandomNumberGenerator: RandomNumberGenerator {
+    private var state: UInt64
+
+    init(seed: UInt64) {
+        self.state = seed
+    }
+
+    mutating func next() -> UInt64 {
+        // xorshift64
+        state ^= state << 13
+        state ^= state >> 7
+        state ^= state << 17
+        return state
     }
 }
