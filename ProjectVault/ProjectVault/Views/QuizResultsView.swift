@@ -135,7 +135,7 @@ struct QuizResultsView: View {
         guard !saved else { return }
         saved = true
         let result = viewModel.buildResult()
-        PersistenceService.shared.saveQuizResult(result, to: &appState.progress)
+        DataService.shared.saveQuizResult(result, to: &appState.progress)
     }
 
     private func formatTime(_ interval: TimeInterval) -> String {

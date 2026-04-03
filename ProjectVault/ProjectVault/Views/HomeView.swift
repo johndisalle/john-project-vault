@@ -6,7 +6,7 @@ struct HomeView: View {
     @State private var quizQuestions: [Question] = []
     @State private var quizMode: QuizSession.QuizMode = .practice
 
-    private let service = QuestionService.shared
+    private let service = DataService.shared
 
     var body: some View {
         NavigationStack {

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct DomainListView: View {
     @Environment(AppState.self) private var appState
-    private let service = QuestionService.shared
+    private let service = DataService.shared
 
     var body: some View {
         NavigationStack {
@@ -110,7 +110,7 @@ struct DomainDetailView: View {
     @State private var selectedCount = 10
     @State private var quizQuestions: [Question] = []
 
-    private let service = QuestionService.shared
+    private let service = DataService.shared
     private let countOptions = [10, 15, 25, 50]
 
     var body: some View {

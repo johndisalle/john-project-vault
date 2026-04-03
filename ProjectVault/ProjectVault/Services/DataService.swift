@@ -1,0 +1,241 @@
+import Foundation
+
+/// Unified data layer: loads questions from the bundled JSON at launch,
+/// provides indexed filtering by domain / difficulty / tag / sub-objective,
+/// and persists user progress via UserDefaults.
+final class DataService {
+    static let shared = DataService()
+
+    // MARK: - Question Storage
+
+    private(set) var allQuestions: [Question] = []
+
+    /// O(1) lookup by question ID
+    private var questionsById: [String: Question] = [:]
+    /// Pre-grouped by ExamDomain
+    private var questionsByDomain: [ExamDomain: [Question]] = [:]
+    /// Pre-grouped by Difficulty
+    private var questionsByDifficulty: [Question.Difficulty: [Question]] = [:]
+    /// Pre-grouped by sub-objective (e.g. "1.4")
+    private var questionsBySubObjective: [String: [Question]] = [:]
+    /// Inverted index: tag → [Question]
+    private var questionsByTag: [String: [Question]] = [:]
+
+    // MARK: - Persistence
+
+    private let defaults = UserDefaults.standard
+    private let progressKey = "pv_user_progress"
+
+    // MARK: - Init
+
+    private init() {
+        loadQuestions()
+    }
+
+    // MARK: - JSON Loading
+
+    private func loadQuestions() {
+        guard let url = Bundle.main.url(forResource: "ProjectVaultQuestions", withExtension: "json") else {
+            print("[DataService] ProjectVaultQuestions.json not found in bundle.")
+            return
+        }
+        do {
+            let data = try Data(contentsOf: url)
+            let bank = try JSONDecoder().decode(QuestionBank.self, from: data)
+            allQuestions = bank.questions
+            buildIndices()
+            print("[DataService] Loaded \(allQuestions.count) questions, \(allTags.count) unique tags.")
+        } catch {
+            print("[DataService] Decode error: \(error)")
+        }
+    }
+
+    private func buildIndices() {
+        questionsById = Dictionary(uniqueKeysWithValues: allQuestions.map { ($0.id, $0) })
+
+        // Domain index
+        var domainMap: [ExamDomain: [Question]] = [:]
+        for q in allQuestions {
+            if let domain = ExamDomain.from(domainString: q.domain) {
+                domainMap[domain, default: []].append(q)
+            }
+        }
+        questionsByDomain = domainMap
+
+        // Difficulty index
+        questionsByDifficulty = Dictionary(grouping: allQuestions, by: \.difficulty)
+
+        // Sub-objective index
+        questionsBySubObjective = Dictionary(grouping: allQuestions, by: \.subObjective)
+
+        // Tag inverted index
+        var tagMap: [String: [Question]] = [:]
+        for q in allQuestions {
+            for tag in q.tags {
+                tagMap[tag, default: []].append(q)
+            }
+        }
+        questionsByTag = tagMap
+    }
+
+    // MARK: - Question Lookup
+
+    func question(byId id: String) -> Question? {
+        questionsById[id]
+    }
+
+    // MARK: - Filtering (all indexed, no linear scans)
+
+    func questions(for domain: ExamDomain) -> [Question] {
+        questionsByDomain[domain] ?? []
+    }
+
+    func questions(for difficulty: Question.Difficulty) -> [Question] {
+        questionsByDifficulty[difficulty] ?? []
+    }
+
+    func questions(forSubObjective sub: String) -> [Question] {
+        questionsBySubObjective[sub] ?? []
+    }
+
+    func questions(withTag tag: String) -> [Question] {
+        questionsByTag[tag] ?? []
+    }
+
+    func questions(withIds ids: Set<String>) -> [Question] {
+        ids.compactMap { questionsById[$0] }
+    }
+
+    /// Compound filter: intersects results across non-nil criteria.
+    func questions(
+        domain: ExamDomain? = nil,
+        difficulty: Question.Difficulty? = nil,
+        tag: String? = nil,
+        subObjective: String? = nil
+    ) -> [Question] {
+        var pool = allQuestions
+
+        if let domain {
+            let indexed = Set(questions(for: domain).map(\.id))
+            pool = pool.filter { indexed.contains($0.id) }
+        }
+        if let difficulty {
+            let indexed = Set(questions(for: difficulty).map(\.id))
+            pool = pool.filter { indexed.contains($0.id) }
+        }
+        if let tag {
+            let indexed = Set(questions(withTag: tag).map(\.id))
+            pool = pool.filter { indexed.contains($0.id) }
+        }
+        if let subObjective {
+            let indexed = Set(questions(forSubObjective: subObjective).map(\.id))
+            pool = pool.filter { indexed.contains($0.id) }
+        }
+
+        return pool
+    }
+
+    // MARK: - Random Selection
+
+    func randomQuestions(count: Int, from domain: ExamDomain? = nil) -> [Question] {
+        let pool = domain != nil ? questions(for: domain!) : allQuestions
+        return Array(pool.shuffled().prefix(count))
+    }
+
+    /// Weighted exam simulation matching PK0-005 domain percentages.
+    func examSimulation(questionCount: Int = 65) -> [Question] {
+        let d1 = Int(Double(questionCount) * 0.33)
+        let d2 = Int(Double(questionCount) * 0.30)
+        let d3 = Int(Double(questionCount) * 0.19)
+        let d4 = questionCount - d1 - d2 - d3
+
+        var result: [Question] = []
+        result.append(contentsOf: randomQuestions(count: d1, from: .domain1))
+        result.append(contentsOf: randomQuestions(count: d2, from: .domain2))
+        result.append(contentsOf: randomQuestions(count: d3, from: .domain3))
+        result.append(contentsOf: randomQuestions(count: d4, from: .domain4))
+        return result.shuffled()
+    }
+
+    // MARK: - Stats
+
+    var totalCount: Int { allQuestions.count }
+
+    func count(for domain: ExamDomain) -> Int {
+        questionsByDomain[domain]?.count ?? 0
+    }
+
+    var allTags: [String] {
+        questionsByTag.keys.sorted()
+    }
+
+    var allSubObjectives: [String] {
+        questionsBySubObjective.keys.sorted()
+    }
+
+    // MARK: - Progress Persistence (UserDefaults)
+
+    func loadProgress() -> UserProgress {
+        guard let data = defaults.data(forKey: progressKey),
+              let progress = try? JSONDecoder().decode(UserProgress.self, from: data) else {
+            return UserProgress()
+        }
+        return progress
+    }
+
+    func saveProgress(_ progress: UserProgress) {
+        if let data = try? JSONEncoder().encode(progress) {
+            defaults.set(data, forKey: progressKey)
+        }
+    }
+
+    func resetProgress() {
+        defaults.removeObject(forKey: progressKey)
+    }
+
+    // MARK: - Quiz Result Recording
+
+    func saveQuizResult(_ result: QuizResult, to progress: inout UserProgress) {
+        progress.quizHistory.append(result)
+        progress.totalQuestionsAnswered += result.totalQuestions
+        progress.totalCorrect += result.correctCount
+
+        for qr in result.questionResults {
+            if qr.isCorrect {
+                progress.missedQuestionIds.remove(qr.questionId)
+            } else {
+                progress.missedQuestionIds.insert(qr.questionId)
+            }
+        }
+
+        if let domainId = result.domainId {
+            var score = progress.domainScores[domainId] ?? DomainScore()
+            score.attempted += result.totalQuestions
+            score.correct += result.correctCount
+            progress.domainScores[domainId] = score
+        } else {
+            for qr in result.questionResults {
+                if let q = questionsById[qr.questionId],
+                   let domain = ExamDomain.from(domainString: q.domain) {
+                    var score = progress.domainScores[domain.rawValue] ?? DomainScore()
+                    score.attempted += 1
+                    if qr.isCorrect { score.correct += 1 }
+                    progress.domainScores[domain.rawValue] = score
+                }
+            }
+        }
+
+        saveProgress(progress)
+    }
+
+    // MARK: - Bookmarks
+
+    func toggleBookmark(questionId: String, in progress: inout UserProgress) {
+        if progress.bookmarkedQuestionIds.contains(questionId) {
+            progress.bookmarkedQuestionIds.remove(questionId)
+        } else {
+            progress.bookmarkedQuestionIds.insert(questionId)
+        }
+        saveProgress(progress)
+    }
+}

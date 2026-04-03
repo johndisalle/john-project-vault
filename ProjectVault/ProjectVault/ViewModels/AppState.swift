@@ -11,15 +11,15 @@ final class AppState {
     }
 
     init() {
-        self.progress = PersistenceService.shared.loadProgress()
+        self.progress = DataService.shared.loadProgress()
     }
 
     func refreshProgress() {
-        progress = PersistenceService.shared.loadProgress()
+        progress = DataService.shared.loadProgress()
     }
 
     func resetAllProgress() {
-        PersistenceService.shared.resetProgress()
+        DataService.shared.resetProgress()
         progress = UserProgress()
     }
 

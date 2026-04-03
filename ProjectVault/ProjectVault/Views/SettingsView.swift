@@ -4,7 +4,7 @@ struct SettingsView: View {
     @Environment(AppState.self) private var appState
     @State private var showResetAlert = false
 
-    private let service = QuestionService.shared
+    private let service = DataService.shared
 
     var body: some View {
         NavigationStack {

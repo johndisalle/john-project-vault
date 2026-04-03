@@ -9,14 +9,14 @@ struct QuizSession: Identifiable {
 
     var totalQuestions: Int { questions.count }
 
-    enum QuizMode: String {
+    enum QuizMode: String, Sendable {
         case practice = "Practice"
         case timed = "Timed Exam"
         case review = "Review Missed"
     }
 }
 
-struct QuizResult: Codable, Identifiable {
+struct QuizResult: Codable, Identifiable, Sendable {
     let id: UUID
     let date: Date
     let domainId: String?
@@ -36,7 +36,7 @@ struct QuizResult: Codable, Identifiable {
     }
 }
 
-struct QuestionResult: Codable, Identifiable {
+struct QuestionResult: Codable, Identifiable, Sendable {
     let id: String
     let questionId: String
     let selectedAnswers: [String]
@@ -44,7 +44,7 @@ struct QuestionResult: Codable, Identifiable {
     let timeSpent: TimeInterval
 }
 
-struct UserProgress: Codable {
+struct UserProgress: Codable, Sendable {
     var totalQuestionsAnswered: Int = 0
     var totalCorrect: Int = 0
     var quizHistory: [QuizResult] = []
@@ -57,17 +57,25 @@ struct UserProgress: Codable {
         return Double(totalCorrect) / Double(totalQuestionsAnswered) * 100
     }
 
+    /// Consecutive calendar days with at least one quiz completed, ending today.
     var streak: Int {
-        var count = 0
-        let sorted = quizHistory.sorted { $0.date > $1.date }
-        let calendar = Calendar.current
-        var lastDate = Date()
+        guard !quizHistory.isEmpty else { return 0 }
 
-        for result in sorted {
-            if calendar.isDate(result.date, inSameDayAs: lastDate) ||
-               calendar.isDate(result.date, inSameDayAs: calendar.date(byAdding: .day, value: -1, to: lastDate)!) {
+        let calendar = Calendar.current
+        // Unique days that have quiz activity, sorted descending
+        let uniqueDays = Set(quizHistory.map { calendar.startOfDay(for: $0.date) })
+            .sorted(by: >)
+
+        guard let mostRecent = uniqueDays.first,
+              calendar.isDateInToday(mostRecent) || calendar.isDateInYesterday(mostRecent) else {
+            return 0
+        }
+
+        var count = 1
+        for i in 1..<uniqueDays.count {
+            let expected = calendar.date(byAdding: .day, value: -1, to: uniqueDays[i - 1])!
+            if calendar.isDate(uniqueDays[i], inSameDayAs: expected) {
                 count += 1
-                lastDate = result.date
             } else {
                 break
             }
@@ -76,7 +84,7 @@ struct UserProgress: Codable {
     }
 }
 
-struct DomainScore: Codable {
+struct DomainScore: Codable, Sendable {
     var attempted: Int = 0
     var correct: Int = 0
 

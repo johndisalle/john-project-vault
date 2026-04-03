@@ -1,6 +1,6 @@
 import Foundation
 
-struct Question: Codable, Identifiable, Hashable {
+struct Question: Codable, Identifiable, Hashable, Sendable {
     let id: String
     let domain: String
     let subObjective: String
@@ -13,12 +13,12 @@ struct Question: Codable, Identifiable, Hashable {
     let tags: [String]
     let reference: String
 
-    enum QuestionType: String, Codable {
+    enum QuestionType: String, Codable, Sendable {
         case multipleChoice
         case multipleSelect
     }
 
-    enum Difficulty: String, Codable {
+    enum Difficulty: String, Codable, CaseIterable, Sendable {
         case Easy
         case Medium
         case Hard
@@ -31,8 +31,16 @@ struct Question: Codable, Identifiable, Hashable {
     var domainNumber: String {
         String(domain.prefix(3))
     }
+
+    var subObjectiveNumber: String {
+        subObjective
+    }
+
+    var isMultiSelect: Bool {
+        type == .multipleSelect
+    }
 }
 
-struct QuestionBank: Codable {
+struct QuestionBank: Codable, Sendable {
     let questions: [Question]
 }

@@ -13,8 +13,7 @@
 		A10001004 /* Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000004; };
 		A10001005 /* QuizSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000005; };
 		A10001006 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000006; };
-		A10001007 /* QuestionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000007; };
-		A10001008 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000008; };
+		A10001021 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000021; };
 		A10001009 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000009; };
 		A10001010 /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000010; };
 		A10001011 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000011; };
@@ -36,8 +35,7 @@
 		A10000004 /* Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain.swift; sourceTree = "<group>"; };
 		A10000005 /* QuizSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizSession.swift; sourceTree = "<group>"; };
 		A10000006 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		A10000007 /* QuestionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionService.swift; sourceTree = "<group>"; };
-		A10000008 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		A10000021 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		A10000009 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		A10000010 /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
 		A10000011 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
@@ -149,8 +147,7 @@
 		A10003007 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				A10000007 /* QuestionService.swift */,
-				A10000008 /* PersistenceService.swift */,
+				A10000021 /* DataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -255,8 +252,7 @@
 				A10001004 /* Domain.swift in Sources */,
 				A10001005 /* QuizSession.swift in Sources */,
 				A10001006 /* Theme.swift in Sources */,
-				A10001007 /* QuestionService.swift in Sources */,
-				A10001008 /* PersistenceService.swift in Sources */,
+				A10001021 /* DataService.swift in Sources */,
 				A10001009 /* AppState.swift in Sources */,
 				A10001010 /* QuizViewModel.swift in Sources */,
 				A10001011 /* SplashScreenView.swift in Sources */,
