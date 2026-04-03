@@ -5,6 +5,7 @@ final class AppState {
     var progress: UserProgress
     var showSplash = true
     var selectedTab: AppTab = .home
+    var showPaywall = false
 
     enum AppTab: Int, CaseIterable {
         case home, study, quiz, mockExam, vault

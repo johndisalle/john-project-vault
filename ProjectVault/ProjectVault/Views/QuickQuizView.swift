@@ -2,10 +2,12 @@ import SwiftUI
 
 struct QuickQuizView: View {
     @Environment(AppState.self) private var appState
+    @Environment(StoreKitManager.self) private var store
     @State private var navigateToQuiz = false
     @State private var quizQuestions: [Question] = []
     @State private var quizMode: QuizSession.QuizMode = .practice
     @State private var quizDomain: ExamDomain?
+    @State private var showPaywall = false
 
     @State private var selectedDomain: ExamDomain?
     @State private var selectedDifficulty: Question.Difficulty?
@@ -21,6 +23,9 @@ struct QuickQuizView: View {
 
                 ScrollView {
                     VStack(spacing: 20) {
+                        if !store.isPremium {
+                            dailyLimitBanner
+                        }
                         headerSection
                         quickActions
                         customQuizBuilder
@@ -39,6 +44,53 @@ struct QuickQuizView: View {
             .navigationDestination(isPresented: $navigateToQuiz) {
                 QuizView(questions: quizQuestions, mode: quizMode, domain: quizDomain)
             }
+            .sheet(isPresented: $showPaywall) {
+                PaywallView()
+            }
+        }
+    }
+
+    // MARK: - Daily Limit Banner
+
+    private var dailyLimitBanner: some View {
+        let remaining = store.remainingFreeQuestions(questionsAnsweredToday: appState.questionsAnsweredToday)
+        let atLimit = remaining <= 0
+
+        return VStack(spacing: 8) {
+            HStack(spacing: 10) {
+                Image(systemName: atLimit ? "lock.fill" : "hourglass")
+                    .foregroundStyle(atLimit ? VaultTheme.incorrectRed : VaultTheme.warningAmber)
+
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(atLimit ? "Daily Limit Reached" : "\(remaining) free questions left today")
+                        .font(.system(size: 14, weight: .bold))
+                        .foregroundStyle(.white)
+                    Text("Upgrade to Premium for unlimited access")
+                        .font(.system(size: 11))
+                        .foregroundStyle(.white.opacity(0.4))
+                }
+
+                Spacer()
+
+                Button { showPaywall = true } label: {
+                    Text("Upgrade")
+                        .font(.system(size: 12, weight: .bold))
+                        .foregroundStyle(.black)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
+                        .background(VaultTheme.goldGradient)
+                        .clipShape(Capsule())
+                }
+            }
+            .padding(14)
+            .background(
+                RoundedRectangle(cornerRadius: 14)
+                    .fill((atLimit ? VaultTheme.incorrectRed : VaultTheme.warningAmber).opacity(0.08))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 14)
+                            .stroke((atLimit ? VaultTheme.incorrectRed : VaultTheme.warningAmber).opacity(0.2), lineWidth: 1)
+                    )
+            )
         }
     }
 
@@ -264,6 +316,10 @@ struct QuickQuizView: View {
     }
 
     private func launchQuiz(count: Int) {
+        guard store.canAnswerMoreToday(questionsAnsweredToday: appState.questionsAnsweredToday) else {
+            showPaywall = true
+            return
+        }
         quizQuestions = service.randomQuestions(count: min(count, service.totalCount))
         quizMode = .practice
         quizDomain = nil

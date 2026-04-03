@@ -2,8 +2,10 @@ import SwiftUI
 
 struct MockExamView: View {
     @Environment(AppState.self) private var appState
+    @Environment(StoreKitManager.self) private var store
     @State private var navigateToExam = false
     @State private var examQuestions: [Question] = []
+    @State private var showPaywall = false
 
     private let service = DataService.shared
 
@@ -43,6 +45,18 @@ struct MockExamView: View {
             .navigationDestination(isPresented: $navigateToExam) {
                 QuizView(questions: examQuestions, mode: .mockExam, domain: nil)
             }
+            .sheet(isPresented: $showPaywall) {
+                PaywallView()
+            }
+        }
+    }
+
+    private func launchExamIfPremium(questions: [Question]) {
+        if store.isPremium {
+            examQuestions = questions
+            navigateToExam = true
+        } else {
+            showPaywall = true
         }
     }
 
@@ -97,12 +111,17 @@ struct MockExamView: View {
 
     private var examPresetCards: some View {
         VStack(spacing: 12) {
+            if !store.isPremium {
+                PremiumBanner(message: "Unlock all 4 mock exams + analytics") {
+                    showPaywall = true
+                }
+            }
+
             ForEach(Self.presetExams, id: \.number) { exam in
                 let attempt = attemptForExam(exam.number)
 
                 Button {
-                    examQuestions = service.mockExam(number: exam.number)
-                    navigateToExam = true
+                    launchExamIfPremium(questions: service.mockExam(number: exam.number))
                 } label: {
                     HStack(spacing: 14) {
                         ZStack {
@@ -226,8 +245,7 @@ struct MockExamView: View {
 
     private var randomExamButton: some View {
         Button {
-            examQuestions = service.examSimulation(questionCount: 90)
-            navigateToExam = true
+            launchExamIfPremium(questions: service.examSimulation(questionCount: 90))
         } label: {
             HStack(spacing: 12) {
                 Image(systemName: "shuffle")
