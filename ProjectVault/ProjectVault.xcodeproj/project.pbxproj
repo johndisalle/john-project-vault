@@ -16,6 +16,7 @@
 		A10001021 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000021; };
 		A10001028 /* StoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000028; };
 		A10001029 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000029; };
+		A10001030 /* StatsDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000030; };
 		A10001009 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000009; };
 		A10001010 /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000010; };
 		A10001011 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000011; };
@@ -44,6 +45,7 @@
 		A10000021 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		A10000028 /* StoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitManager.swift; sourceTree = "<group>"; };
 		A10000029 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
+		A10000030 /* StatsDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsDashboardView.swift; sourceTree = "<group>"; };
 		A10000009 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		A10000010 /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
 		A10000011 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				A10000016 /* QuizResultsView.swift */,
 				A10000027 /* ExamResultsView.swift */,
 				A10000029 /* PaywallView.swift */,
+				A10000030 /* StatsDashboardView.swift */,
 				A10000018 /* SettingsView.swift */,
 				A10003005 /* Components */,
 			);
@@ -273,6 +276,7 @@
 				A10001021 /* DataService.swift in Sources */,
 				A10001028 /* StoreKitManager.swift in Sources */,
 				A10001029 /* PaywallView.swift in Sources */,
+				A10001030 /* StatsDashboardView.swift in Sources */,
 				A10001009 /* AppState.swift in Sources */,
 				A10001010 /* QuizViewModel.swift in Sources */,
 				A10001011 /* SplashScreenView.swift in Sources */,

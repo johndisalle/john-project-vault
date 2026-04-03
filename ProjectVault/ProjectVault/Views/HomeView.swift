@@ -34,6 +34,7 @@ struct HomeView: View {
                         headerSection
                         streakAndGoalRow
                         overallProgressCard
+                        viewAllStatsLink
                         domainSnapshotSection
                         motivationalQuote
                         recentActivitySection
@@ -214,6 +215,39 @@ struct HomeView: View {
         if acc >= 80 { return VaultTheme.correctGreen }
         if acc >= 65 { return VaultTheme.warningAmber }
         return VaultTheme.incorrectRed
+    }
+
+    // MARK: - Stats Link
+
+    private var viewAllStatsLink: some View {
+        NavigationLink(destination: StatsDashboardView()) {
+            HStack(spacing: 12) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.cyan.opacity(0.12))
+                        .frame(width: 40, height: 40)
+                    Image(systemName: "chart.bar.xaxis.ascending")
+                        .font(.system(size: 18))
+                        .foregroundStyle(.cyan)
+                }
+
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Statistics & Analytics")
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundStyle(.white)
+                    Text("Charts, trends, weak areas, streaks")
+                        .font(.system(size: 12))
+                        .foregroundStyle(.white.opacity(0.4))
+                }
+
+                Spacer()
+
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 13))
+                    .foregroundStyle(.white.opacity(0.2))
+            }
+            .vaultCard()
+        }
     }
 
     // MARK: - Domain Snapshot
