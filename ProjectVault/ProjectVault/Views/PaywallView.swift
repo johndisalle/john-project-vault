@@ -153,6 +153,7 @@ struct PaywallView: View {
     private var purchaseButton: some View {
         VStack(spacing: 8) {
             Button {
+                Haptics.medium()
                 Task { await purchaseSelected() }
             } label: {
                 HStack(spacing: 8) {

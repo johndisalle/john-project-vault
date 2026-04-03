@@ -33,6 +33,7 @@
 		A10001018 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000018; };
 		A10001019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A10000019; };
 		A10001020 /* ProjectVaultQuestions.json in Resources */ = {isa = PBXBuildFile; fileRef = A10000020; };
+		A10001031 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A10000031; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		A10000027 /* ExamResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamResultsView.swift; sourceTree = "<group>"; };
 		A10000018 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A10000019 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A10000031 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		A10000020 /* ProjectVaultQuestions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ProjectVaultQuestions.json; sourceTree = "<group>"; };
 		A10000099 /* ProjectVault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectVault.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				A10000019 /* Assets.xcassets */,
+				A10000031 /* PrivacyInfo.xcprivacy */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			files = (
 				A10001019 /* Assets.xcassets in Resources */,
 				A10001020 /* ProjectVaultQuestions.json in Resources */,
+				A10001031 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

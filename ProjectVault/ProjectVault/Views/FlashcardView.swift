@@ -130,6 +130,7 @@ struct FlashcardView: View {
                             }
                     )
                     .onTapGesture {
+                        Haptics.light()
                         withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
                             isFlipped.toggle()
                         }
@@ -441,6 +442,8 @@ struct FlashcardView: View {
 
     private func recordAndAdvance(quality: Int) {
         guard currentIndex < cards.count else { return }
+
+        quality >= 3 ? Haptics.success() : Haptics.warning()
 
         let questionId = cards[currentIndex].id
         service.recordFlashcardResult(questionId: questionId, quality: quality, in: &appState.progress)

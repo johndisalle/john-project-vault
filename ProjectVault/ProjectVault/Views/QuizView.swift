@@ -148,6 +148,7 @@ struct QuizView: View {
                     isCorrect: viewModel.hasSubmitted ? viewModel.currentQuestion.correctLetters.contains(viewModel.letterForOption(option)) : nil,
                     hasSubmitted: viewModel.hasSubmitted
                 ) {
+                    Haptics.selection()
                     viewModel.toggleAnswer(viewModel.letterForOption(option))
                 }
             }
@@ -176,6 +177,7 @@ struct QuizView: View {
                 .vaultCard()
 
                 Button {
+                    Haptics.light()
                     viewModel.nextQuestion()
                 } label: {
                     HStack {
@@ -186,7 +188,11 @@ struct QuizView: View {
                 .buttonStyle(GoldButtonStyle())
             } else {
                 Button {
+                    Haptics.medium()
                     viewModel.submitAnswer()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                        viewModel.isCorrect ? Haptics.success() : Haptics.error()
+                    }
                 } label: {
                     Text("Submit Answer")
                 }
