@@ -191,6 +191,12 @@ struct HomeView: View {
                     value: "\(appState.progress.quizHistory.count)"
                 )
                 ProgressStatRow(
+                    icon: "crown.fill",
+                    color: VaultTheme.gold,
+                    label: "Mastered",
+                    value: "\(appState.progress.masteredQuestionIds.count)"
+                )
+                ProgressStatRow(
                     icon: "bookmark.fill",
                     color: .orange,
                     label: "Bookmarked",
@@ -226,7 +232,9 @@ struct HomeView: View {
 
             ForEach(ExamDomain.allCases) { domain in
                 let score = appState.progress.domainScores[domain.rawValue]
-                DomainSnapshotRow(domain: domain, score: score)
+                let mastered = service.masteredCount(for: domain, in: appState.progress)
+                let total = service.count(for: domain)
+                DomainSnapshotRow(domain: domain, score: score, masteredCount: mastered, totalCount: total)
             }
         }
         .vaultCard()
@@ -316,9 +324,12 @@ struct ProgressStatRow: View {
 struct DomainSnapshotRow: View {
     let domain: ExamDomain
     let score: DomainScore?
+    let masteredCount: Int
+    let totalCount: Int
 
     private var accuracy: Double { score?.accuracy ?? 0 }
     private var attempted: Bool { (score?.attempted ?? 0) > 0 }
+    private var masteryFraction: Double { totalCount > 0 ? Double(masteredCount) / Double(totalCount) : 0 }
 
     var body: some View {
         VStack(spacing: 6) {
@@ -332,7 +343,22 @@ struct DomainSnapshotRow: View {
                     .font(.system(size: 13, weight: .medium))
                     .foregroundStyle(.white.opacity(0.8))
 
+                Text("\(domain.examWeight)%")
+                    .font(.system(size: 9, weight: .bold, design: .monospaced))
+                    .foregroundStyle(domain.color.opacity(0.5))
+
                 Spacer()
+
+                if masteredCount > 0 {
+                    HStack(spacing: 3) {
+                        Image(systemName: "crown.fill")
+                            .font(.system(size: 8))
+                            .foregroundStyle(VaultTheme.gold)
+                        Text("\(masteredCount)")
+                            .font(.system(size: 11, weight: .bold, design: .monospaced))
+                            .foregroundStyle(VaultTheme.gold.opacity(0.7))
+                    }
+                }
 
                 if attempted {
                     Text(String(format: "%.0f%%", accuracy))
@@ -345,17 +371,24 @@ struct DomainSnapshotRow: View {
                 }
             }
 
+            // Dual bars: accuracy + mastery
             GeometryReader { geo in
-                ZStack(alignment: .leading) {
-                    Capsule()
-                        .fill(.white.opacity(0.06))
-                        .frame(height: 4)
-                    Capsule()
-                        .fill(domain.color.opacity(attempted ? 1.0 : 0.2))
-                        .frame(width: geo.size.width * min(accuracy / 100, 1.0), height: 4)
+                VStack(spacing: 2) {
+                    ZStack(alignment: .leading) {
+                        Capsule().fill(.white.opacity(0.06)).frame(height: 3)
+                        Capsule()
+                            .fill(domain.color.opacity(attempted ? 1.0 : 0.2))
+                            .frame(width: geo.size.width * min(accuracy / 100, 1.0), height: 3)
+                    }
+                    ZStack(alignment: .leading) {
+                        Capsule().fill(.white.opacity(0.04)).frame(height: 3)
+                        Capsule()
+                            .fill(VaultTheme.gold.opacity(masteredCount > 0 ? 0.8 : 0.1))
+                            .frame(width: geo.size.width * min(masteryFraction, 1.0), height: 3)
+                    }
                 }
             }
-            .frame(height: 4)
+            .frame(height: 8)
         }
     }
 }

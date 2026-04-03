@@ -238,4 +238,56 @@ final class DataService {
         }
         saveProgress(progress)
     }
+
+    // MARK: - Mastery
+
+    func toggleMastered(questionId: String, in progress: inout UserProgress) {
+        if progress.masteredQuestionIds.contains(questionId) {
+            progress.masteredQuestionIds.remove(questionId)
+        } else {
+            progress.masteredQuestionIds.insert(questionId)
+        }
+        saveProgress(progress)
+    }
+
+    func masteredCount(for domain: ExamDomain, in progress: UserProgress) -> Int {
+        let domainQuestionIds = Set(questions(for: domain).map(\.id))
+        return progress.masteredQuestionIds.intersection(domainQuestionIds).count
+    }
+
+    // MARK: - Spaced Repetition
+
+    /// Returns questions due for review, prioritized by overdue amount.
+    func flashcardsDue(in progress: UserProgress, domain: ExamDomain? = nil) -> [Question] {
+        let pool = domain != nil ? questions(for: domain!) : allQuestions
+        let now = Date()
+
+        // Include questions never seen + questions due for review. Exclude mastered.
+        return pool.filter { q in
+            guard !progress.masteredQuestionIds.contains(q.id) else { return false }
+            guard let state = progress.flashcardStates[q.id] else { return true }
+            return now >= state.nextReviewDate
+        }
+        .sorted { a, b in
+            let stateA = progress.flashcardStates[a.id]
+            let stateB = progress.flashcardStates[b.id]
+            // Unseen questions first, then most overdue
+            let dateA = stateA?.nextReviewDate ?? Date.distantPast
+            let dateB = stateB?.nextReviewDate ?? Date.distantPast
+            return dateA < dateB
+        }
+    }
+
+    func recordFlashcardResult(questionId: String, quality: Int, in progress: inout UserProgress) {
+        var state = progress.flashcardStates[questionId] ?? FlashcardState()
+        state.update(quality: quality)
+        progress.flashcardStates[questionId] = state
+
+        // Auto-master if quality 5 and 3+ successful reps
+        if quality >= 5 && state.repetitions >= 3 {
+            progress.masteredQuestionIds.insert(questionId)
+        }
+
+        saveProgress(progress)
+    }
 }

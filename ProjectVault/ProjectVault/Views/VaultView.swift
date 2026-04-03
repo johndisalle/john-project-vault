@@ -167,6 +167,7 @@ struct VaultView: View {
                         question: question,
                         isExpanded: expandedQuestionId == question.id,
                         isBookmarked: appState.progress.bookmarkedQuestionIds.contains(question.id),
+                        isMastered: appState.progress.masteredQuestionIds.contains(question.id),
                         wasMissed: appState.progress.missedQuestionIds.contains(question.id),
                         onTap: {
                             withAnimation(.easeInOut(duration: 0.25)) {
@@ -175,6 +176,9 @@ struct VaultView: View {
                         },
                         onBookmark: {
                             DataService.shared.toggleBookmark(questionId: question.id, in: &appState.progress)
+                        },
+                        onToggleMastered: {
+                            DataService.shared.toggleMastered(questionId: question.id, in: &appState.progress)
                         }
                     )
                 }
@@ -192,9 +196,11 @@ struct VaultQuestionCard: View {
     let question: Question
     let isExpanded: Bool
     let isBookmarked: Bool
+    let isMastered: Bool
     let wasMissed: Bool
     let onTap: () -> Void
     let onBookmark: () -> Void
+    let onToggleMastered: () -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -216,6 +222,12 @@ struct VaultQuestionCard: View {
                                 .padding(.vertical, 1)
                                 .background(VaultTheme.warningAmber.opacity(0.15))
                                 .clipShape(RoundedRectangle(cornerRadius: 3))
+                        }
+
+                        if isMastered {
+                            Image(systemName: "crown.fill")
+                                .font(.system(size: 10))
+                                .foregroundStyle(VaultTheme.gold.opacity(0.7))
                         }
 
                         if wasMissed {
@@ -284,20 +296,41 @@ struct VaultQuestionCard: View {
                     .background(.white.opacity(0.03))
                     .clipShape(RoundedRectangle(cornerRadius: 8))
 
-                    // Tags
-                    if !question.tags.isEmpty {
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 6) {
-                                ForEach(question.tags, id: \.self) { tag in
-                                    Text(tag)
-                                        .font(.system(size: 10, weight: .medium))
-                                        .foregroundStyle(.white.opacity(0.4))
-                                        .padding(.horizontal, 8)
-                                        .padding(.vertical, 3)
-                                        .background(.white.opacity(0.06))
-                                        .clipShape(Capsule())
+                    // Tags + Mastery toggle row
+                    HStack {
+                        if !question.tags.isEmpty {
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack(spacing: 6) {
+                                    ForEach(question.tags, id: \.self) { tag in
+                                        Text(tag)
+                                            .font(.system(size: 10, weight: .medium))
+                                            .foregroundStyle(.white.opacity(0.4))
+                                            .padding(.horizontal, 8)
+                                            .padding(.vertical, 3)
+                                            .background(.white.opacity(0.06))
+                                            .clipShape(Capsule())
+                                    }
                                 }
                             }
+                        }
+
+                        Spacer()
+
+                        Button(action: onToggleMastered) {
+                            HStack(spacing: 4) {
+                                Image(systemName: isMastered ? "crown.fill" : "crown")
+                                    .font(.system(size: 10))
+                                Text(isMastered ? "Mastered" : "Master")
+                                    .font(.system(size: 10, weight: .semibold))
+                            }
+                            .foregroundStyle(isMastered ? .black : VaultTheme.gold)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 5)
+                            .background(isMastered ? VaultTheme.goldGradient : LinearGradient(colors: [.clear], startPoint: .leading, endPoint: .trailing))
+                            .clipShape(Capsule())
+                            .overlay(
+                                Capsule().stroke(VaultTheme.gold.opacity(isMastered ? 0 : 0.4), lineWidth: 1)
+                            )
                         }
                     }
                 }

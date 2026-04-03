@@ -23,6 +23,7 @@
 		A10001023 /* QuickQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000023; };
 		A10001024 /* MockExamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000024; };
 		A10001025 /* VaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000025; };
+		A10001026 /* FlashcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000026; };
 		A10001015 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000015; };
 		A10001016 /* QuizResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000016; };
 		A10001018 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000018; };
@@ -47,6 +48,7 @@
 		A10000023 /* QuickQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickQuizView.swift; sourceTree = "<group>"; };
 		A10000024 /* MockExamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockExamView.swift; sourceTree = "<group>"; };
 		A10000025 /* VaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultView.swift; sourceTree = "<group>"; };
+		A10000026 /* FlashcardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardView.swift; sourceTree = "<group>"; };
 		A10000015 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		A10000016 /* QuizResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultsView.swift; sourceTree = "<group>"; };
 		A10000018 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				A10000023 /* QuickQuizView.swift */,
 				A10000024 /* MockExamView.swift */,
 				A10000025 /* VaultView.swift */,
+				A10000026 /* FlashcardView.swift */,
 				A10000015 /* QuizView.swift */,
 				A10000016 /* QuizResultsView.swift */,
 				A10000018 /* SettingsView.swift */,
@@ -268,6 +271,7 @@
 				A10001023 /* QuickQuizView.swift in Sources */,
 				A10001024 /* MockExamView.swift in Sources */,
 				A10001025 /* VaultView.swift in Sources */,
+				A10001026 /* FlashcardView.swift in Sources */,
 				A10001015 /* QuizView.swift in Sources */,
 				A10001016 /* QuizResultsView.swift in Sources */,
 				A10001018 /* SettingsView.swift in Sources */,
