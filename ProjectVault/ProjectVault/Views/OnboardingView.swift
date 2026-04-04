@@ -131,7 +131,7 @@ struct OnboardingView: View {
                 .datePickerStyle(.graphical)
                 .tint(VaultTheme.gold)
 
-                if let examDate = appState.examDate {
+                if appState.examDate != nil {
                     let days = appState.daysUntilExam ?? 0
                     HStack {
                         Image(systemName: "hourglass")
