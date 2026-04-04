@@ -7,7 +7,7 @@ import Foundation
 /// persisted locally via UserDefaults. No network required.
 ///
 /// Provides indexed filtering by domain / difficulty / tag / sub-objective.
-final class DataService {
+final class DataService: @unchecked Sendable {
     static let shared = DataService()
 
     // MARK: - Question Storage
