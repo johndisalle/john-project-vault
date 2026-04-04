@@ -2,6 +2,7 @@ import StoreKit
 import SwiftUI
 
 /// Manages all StoreKit 2 interactions for the freemium model.
+@MainActor
 @Observable
 final class StoreKitManager {
     // MARK: - Product IDs
@@ -36,9 +37,16 @@ final class StoreKitManager {
     // MARK: - Init
 
     init() {
-        transactionListener = listenForTransactions()
-        Task { await loadProducts() }
-        Task { await updateEntitlements() }
+        transactionListener = Task {
+            for await result in Transaction.updates {
+                if let transaction = try? result.payloadValue {
+                    await transaction.finish()
+                    await self.updateEntitlements()
+                }
+            }
+        }
+        Task { await self.loadProducts() }
+        Task { await self.updateEntitlements() }
     }
 
     deinit {
@@ -47,7 +55,6 @@ final class StoreKitManager {
 
     // MARK: - Load Products
 
-    @MainActor
     func loadProducts() async {
         do {
             let storeProducts = try await Product.products(for: Self.productIDs)
@@ -60,7 +67,6 @@ final class StoreKitManager {
 
     // MARK: - Purchase
 
-    @MainActor
     func purchase(_ product: Product) async {
         purchaseInProgress = true
         errorMessage = nil
@@ -93,7 +99,6 @@ final class StoreKitManager {
 
     // MARK: - Restore Purchases
 
-    @MainActor
     func restorePurchases() async {
         errorMessage = nil
         do {
@@ -110,7 +115,6 @@ final class StoreKitManager {
 
     // MARK: - Entitlement Check
 
-    @MainActor
     func updateEntitlements() async {
         var hasPremium = false
 
@@ -127,7 +131,6 @@ final class StoreKitManager {
         if !hasPremium, let result = await Transaction.latest(for: Self.premiumMonthlyID) {
             if case .verified(let transaction) = result {
                 if transaction.revocationDate == nil && !transaction.isUpgraded {
-                    // Check expiration
                     if let expirationDate = transaction.expirationDate, expirationDate > Date() {
                         hasPremium = true
                     }
@@ -136,19 +139,6 @@ final class StoreKitManager {
         }
 
         isPremium = hasPremium
-    }
-
-    // MARK: - Transaction Listener
-
-    private func listenForTransactions() -> Task<Void, Never> {
-        Task.detached { [weak self] in
-            for await result in Transaction.updates {
-                if let transaction = try? result.payloadValue {
-                    await transaction.finish()
-                    await self?.updateEntitlements()
-                }
-            }
-        }
     }
 
     // MARK: - Verification
