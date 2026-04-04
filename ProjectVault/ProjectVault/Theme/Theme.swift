@@ -107,40 +107,33 @@ extension View {
 
 // MARK: - Haptics
 
-@MainActor
 enum Haptics {
-    private static let lightGenerator = UIImpactFeedbackGenerator(style: .light)
-    private static let mediumGenerator = UIImpactFeedbackGenerator(style: .medium)
-    private static let heavyGenerator = UIImpactFeedbackGenerator(style: .heavy)
-    private static let notificationGenerator = UINotificationFeedbackGenerator()
-    private static let selectionGenerator = UISelectionFeedbackGenerator()
-
-    static func light() {
-        lightGenerator.impactOccurred()
+    @MainActor static func light() {
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
     }
 
-    static func medium() {
-        mediumGenerator.impactOccurred()
+    @MainActor static func medium() {
+        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
     }
 
-    static func heavy() {
-        heavyGenerator.impactOccurred()
+    @MainActor static func heavy() {
+        UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
     }
 
-    static func success() {
-        notificationGenerator.notificationOccurred(.success)
+    @MainActor static func success() {
+        UINotificationFeedbackGenerator().notificationOccurred(.success)
     }
 
-    static func warning() {
-        notificationGenerator.notificationOccurred(.warning)
+    @MainActor static func warning() {
+        UINotificationFeedbackGenerator().notificationOccurred(.warning)
     }
 
-    static func error() {
-        notificationGenerator.notificationOccurred(.error)
+    @MainActor static func error() {
+        UINotificationFeedbackGenerator().notificationOccurred(.error)
     }
 
-    static func selection() {
-        selectionGenerator.selectionChanged()
+    @MainActor static func selection() {
+        UISelectionFeedbackGenerator().selectionChanged()
     }
 }
 
