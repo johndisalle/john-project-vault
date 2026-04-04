@@ -187,6 +187,8 @@ struct QuizView: View {
                     }
                 }
                 .buttonStyle(GoldButtonStyle())
+                .accessibilityLabel(viewModel.currentIndex + 1 < viewModel.questions.count ? "Next Question" : "View Results")
+                .accessibilityHint("Move to the next question or view your results")
             } else {
                 Button {
                     Haptics.medium()
@@ -200,6 +202,8 @@ struct QuizView: View {
                 .buttonStyle(GoldButtonStyle())
                 .disabled(viewModel.selectedAnswers.isEmpty)
                 .opacity(viewModel.selectedAnswers.isEmpty ? 0.5 : 1.0)
+                .accessibilityLabel("Submit Answer")
+                .accessibilityHint("Submit your selected answer and receive feedback")
             }
         }
     }
@@ -273,6 +277,8 @@ struct OptionButton: View {
         }
         .disabled(hasSubmitted)
         .animation(.easeInOut(duration: 0.2), value: isSelected)
+        .accessibilityLabel("Option: \(option)")
+        .accessibilityHint(hasSubmitted ? (isCorrect == true ? "Correct answer" : (isSelected ? "Your incorrect answer" : "Incorrect option")) : (isSelected ? "Selected" : "Not selected"))
     }
 }
 

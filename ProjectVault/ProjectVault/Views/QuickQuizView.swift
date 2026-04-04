@@ -12,6 +12,7 @@ struct QuickQuizView: View {
     @State private var selectedDomain: ExamDomain?
     @State private var selectedDifficulty: Question.Difficulty?
     @State private var selectedCount: Int = 10
+    @State private var useAdaptiveMode = false
 
     private let service = DataService.shared
     private let countOptions = [5, 10, 15, 25]
@@ -128,6 +129,8 @@ struct QuickQuizView: View {
                 ) {
                     launchQuiz(count: 5)
                 }
+                .accessibilityLabel("Lightning 5 Quiz")
+                .accessibilityHint("Start a 5-question practice quiz")
 
                 QuizOptionCard(
                     title: "Quick 10",
@@ -137,6 +140,8 @@ struct QuickQuizView: View {
                 ) {
                     launchQuiz(count: 10)
                 }
+                .accessibilityLabel("Quick 10 Quiz")
+                .accessibilityHint("Start a 10-question practice quiz")
             }
 
             HStack(spacing: 10) {
@@ -148,6 +153,8 @@ struct QuickQuizView: View {
                 ) {
                     launchQuiz(count: 15)
                 }
+                .accessibilityLabel("Focused 15 Quiz")
+                .accessibilityHint("Start a 15-question practice quiz")
 
                 QuizOptionCard(
                     title: "Marathon 25",
@@ -157,6 +164,8 @@ struct QuickQuizView: View {
                 ) {
                     launchQuiz(count: 25)
                 }
+                .accessibilityLabel("Marathon 25 Quiz")
+                .accessibilityHint("Start a 25-question practice quiz")
             }
         }
     }
@@ -219,6 +228,26 @@ struct QuickQuizView: View {
                 }
             }
 
+            // Adaptive Mode
+            let weakAreas = appState.getWeakSubObjectives()
+            if !weakAreas.isEmpty {
+                Toggle(isOn: $useAdaptiveMode) {
+                    HStack(spacing: 8) {
+                        Image(systemName: "sparkles")
+                            .foregroundStyle(VaultTheme.gold)
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Adaptive Mode")
+                                .font(.system(size: 14, weight: .semibold))
+                                .foregroundStyle(.white)
+                            Text("Focus on weak areas")
+                                .font(.system(size: 11))
+                                .foregroundStyle(.white.opacity(0.4))
+                        }
+                    }
+                }
+                .tint(VaultTheme.gold)
+            }
+
             // Count selector
             VStack(alignment: .leading, spacing: 6) {
                 Text("Questions")
@@ -271,6 +300,9 @@ struct QuickQuizView: View {
             .buttonStyle(GoldButtonStyle())
             .disabled(available == 0)
             .opacity(available == 0 ? 0.5 : 1.0)
+            .accessibilityLabel("Start Custom Quiz")
+            .accessibilityHint("Starts a quiz with \(selectedCount) questions from your selected filters")
+            .accessibilityValue("\(available) questions match your filters")
         }
         .vaultCard()
     }
@@ -295,6 +327,8 @@ struct QuickQuizView: View {
                     quizDomain = nil
                     navigateToQuiz = true
                 }
+                .accessibilityLabel("Review Missed Questions")
+                .accessibilityHint("Review \(appState.progress.missedQuestionIds.count) questions you missed previously")
             }
         }
     }
@@ -317,6 +351,8 @@ struct QuickQuizView: View {
                     quizDomain = nil
                     navigateToQuiz = true
                 }
+                .accessibilityLabel("Bookmarked Questions")
+                .accessibilityHint("Practice with \(appState.progress.bookmarkedQuestionIds.count) bookmarked questions")
             }
         }
     }
@@ -324,7 +360,24 @@ struct QuickQuizView: View {
     // MARK: - Helpers
 
     private var filteredPool: [Question] {
-        service.questions(domain: selectedDomain, difficulty: selectedDifficulty)
+        if useAdaptiveMode {
+            let weakAreas = appState.getWeakSubObjectives()
+            var adaptiveQuestions: [Question] = []
+            for subObj in weakAreas {
+                adaptiveQuestions.append(contentsOf: service.questions(forSubObjective: subObj))
+            }
+            // If we have adaptive questions, filter by difficulty/domain if specified
+            var result = adaptiveQuestions
+            if let domain = selectedDomain {
+                result = result.filter { service.question(byId: $0.id).flatMap { ExamDomain.from(domainString: $0.domain) } == domain }
+            }
+            if let difficulty = selectedDifficulty {
+                result = result.filter { $0.difficulty == difficulty }
+            }
+            return result
+        } else {
+            return service.questions(domain: selectedDomain, difficulty: selectedDifficulty)
+        }
     }
 
     private func launchQuiz(count: Int) {
