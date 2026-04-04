@@ -72,10 +72,10 @@ struct OnboardingView: View {
             .padding(.horizontal, 20)
 
             VStack(spacing: 12) {
-                FeatureRow(icon: "book.fill", title: "525+ Questions", subtitle: "Full PK0-005 coverage")
-                FeatureRow(icon: "doc.text.fill", title: "Mock Exams", subtitle: "Real exam format")
-                FeatureRow(icon: "repeat.circle.fill", title: "Spaced Repetition", subtitle: "Learn to remember")
-                FeatureRow(icon: "chart.line.uptrend.xyaxis", title: "Analytics", subtitle: "Track your progress")
+                OnboardingFeatureRow(icon: "book.fill", title: "525+ Questions", subtitle: "Full PK0-005 coverage")
+                OnboardingFeatureRow(icon: "doc.text.fill", title: "Mock Exams", subtitle: "Real exam format")
+                OnboardingFeatureRow(icon: "repeat.circle.fill", title: "Spaced Repetition", subtitle: "Learn to remember")
+                OnboardingFeatureRow(icon: "chart.line.uptrend.xyaxis", title: "Analytics", subtitle: "Track your progress")
             }
             .padding(.horizontal, 20)
 
@@ -331,7 +331,7 @@ struct OnboardingView: View {
 
 // MARK: - Supporting Views
 
-struct FeatureRow: View {
+struct OnboardingFeatureRow: View {
     let icon: String
     let title: String
     let subtitle: String
