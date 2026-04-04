@@ -11,11 +11,14 @@ struct ContentView: View {
                 SplashScreenView()
             } else if let error = service.loadError {
                 errorView(error)
+            } else if !appState.hasCompletedOnboarding {
+                OnboardingView()
             } else {
                 MainTabView()
             }
         }
         .animation(.easeInOut(duration: 0.5), value: appState.showSplash)
+        .animation(.easeInOut(duration: 0.4), value: appState.hasCompletedOnboarding)
     }
 
     private func errorView(_ message: String) -> some View {
