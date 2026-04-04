@@ -369,7 +369,13 @@ struct QuickQuizView: View {
             // If we have adaptive questions, filter by difficulty/domain if specified
             var result = adaptiveQuestions
             if let domain = selectedDomain {
-                result = result.filter { service.question(byId: $0.id).flatMap { ExamDomain.from(domainString: $0.domain) } == domain }
+                result = result.filter { q in
+                    if let question = service.question(byId: q.id),
+                       let qDomain = ExamDomain.from(domainString: question.domain) {
+                        return qDomain == domain
+                    }
+                    return false
+                }
             }
             if let difficulty = selectedDifficulty {
                 result = result.filter { $0.difficulty == difficulty }

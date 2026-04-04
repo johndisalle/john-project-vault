@@ -80,7 +80,7 @@ final class AppState {
 
     var passPredictionPercentage: Int {
         guard !progress.quizHistory.isEmpty else { return 0 }
-        let recentResults = progress.quizHistory.suffix(10)
+        let recentResults = Array(progress.quizHistory.suffix(10))
         let avgScore = recentResults.map(\.scorePercentage).reduce(0, +) / Double(recentResults.count)
 
         // Predict based on recent average, with confidence adjustment
@@ -107,7 +107,7 @@ final class AppState {
 
         for result in progress.quizHistory {
             for qResult in result.questionResults {
-                if let question = DataService.shared.question(withId: qResult.questionId) {
+                if let question = DataService.shared.question(byId: qResult.questionId) {
                     let subObj = question.subObjective
                     if subObjectivePerformance[subObj] == nil {
                         subObjectivePerformance[subObj] = (0, 0)
@@ -120,12 +120,16 @@ final class AppState {
             }
         }
 
-        return subObjectivePerformance
-            .filter { $0.value.attempted >= 3 && ($0.value.correct / Double($0.value.attempted)) < 0.7 }
-            .sorted { $0.value.correct / Double($0.value.attempted) < $1.value.correct / Double($1.value.attempted) }
-            .map(\.key)
-            .prefix(4)
-            .map(String.init)
+        let filtered = subObjectivePerformance.filter { entry in
+            entry.value.attempted >= 3 && (Double(entry.value.correct) / Double(entry.value.attempted)) < 0.7
+        }
+        let sorted = filtered.sorted { a, b in
+            let aAccuracy = Double(a.value.correct) / Double(a.value.attempted)
+            let bAccuracy = Double(b.value.correct) / Double(b.value.attempted)
+            return aAccuracy < bAccuracy
+        }
+        let keys = sorted.map(\.key)
+        return Array(keys.prefix(4))
     }
 
     // MARK: - Badges
