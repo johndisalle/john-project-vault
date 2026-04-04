@@ -60,7 +60,7 @@ struct QuizView: View {
             if viewModel.mode == .timed || viewModel.mode == .mockExam {
                 viewModel.timerActive = true
                 timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-                    viewModel.tickTimer()
+                    Task { @MainActor in viewModel.tickTimer() }
                 }
             }
         }

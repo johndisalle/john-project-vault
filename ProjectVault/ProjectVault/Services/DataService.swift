@@ -151,7 +151,7 @@ final class DataService: @unchecked Sendable {
     // MARK: - Random Selection
 
     func randomQuestions(count: Int, from domain: ExamDomain? = nil) -> [Question] {
-        let pool = domain != nil ? questions(for: domain!) : allQuestions
+        let pool: [Question] = if let domain { questions(for: domain) } else { allQuestions }
         return Array(pool.shuffled().prefix(count))
     }
 
@@ -336,7 +336,7 @@ final class DataService: @unchecked Sendable {
 
     /// Returns questions due for review, prioritized by overdue amount.
     func flashcardsDue(in progress: UserProgress, domain: ExamDomain? = nil) -> [Question] {
-        let pool = domain != nil ? questions(for: domain!) : allQuestions
+        let pool: [Question] = if let domain { questions(for: domain) } else { allQuestions }
         let now = Date()
 
         // Include questions never seen + questions due for review. Exclude mastered.

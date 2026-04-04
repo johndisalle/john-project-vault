@@ -30,14 +30,12 @@ final class StoreKitManager: @unchecked Sendable {
 
     static let freeQuestionLimit = 50
 
-    // MARK: - Private
-
-    private var transactionListener: Task<Void, Never>?
-
     // MARK: - Init
 
     init() {
-        transactionListener = Task {
+        Task { await self.loadProducts() }
+        Task { await self.updateEntitlements() }
+        Task {
             for await result in Transaction.updates {
                 if let transaction = try? result.payloadValue {
                     await transaction.finish()
@@ -45,12 +43,6 @@ final class StoreKitManager: @unchecked Sendable {
                 }
             }
         }
-        Task { await self.loadProducts() }
-        Task { await self.updateEntitlements() }
-    }
-
-    deinit {
-        transactionListener?.cancel()
     }
 
     // MARK: - Load Products
