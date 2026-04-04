@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-enum ExamDomain: String, CaseIterable, Identifiable {
+enum ExamDomain: String, CaseIterable, Identifiable, Sendable {
     case domain1 = "1.0"
     case domain2 = "2.0"
     case domain3 = "3.0"

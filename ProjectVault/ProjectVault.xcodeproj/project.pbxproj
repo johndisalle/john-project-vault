@@ -63,6 +63,7 @@
 		A10000018 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A10000019 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A10000031 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		A10000032 /* ProjectVaultProducts.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = ProjectVaultProducts.storekit; sourceTree = "<group>"; };
 		A10000020 /* ProjectVaultQuestions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ProjectVaultQuestions.json; sourceTree = "<group>"; };
 		A10000099 /* ProjectVault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectVault.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -196,6 +197,7 @@
 			children = (
 				A10000019 /* Assets.xcassets */,
 				A10000031 /* PrivacyInfo.xcprivacy */,
+				A10000032 /* ProjectVaultProducts.storekit */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

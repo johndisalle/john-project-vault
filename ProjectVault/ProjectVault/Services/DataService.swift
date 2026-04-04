@@ -1,8 +1,12 @@
 import Foundation
 
-/// Unified data layer: loads questions from the bundled JSON at launch,
-/// provides indexed filtering by domain / difficulty / tag / sub-objective,
-/// and persists user progress via UserDefaults.
+/// Unified data layer — offline-first design.
+///
+/// All questions are bundled in the app binary and loaded from
+/// `ProjectVaultQuestions.json` at launch. All user progress is
+/// persisted locally via UserDefaults. No network required.
+///
+/// Provides indexed filtering by domain / difficulty / tag / sub-objective.
 final class DataService {
     static let shared = DataService()
 
@@ -21,6 +25,9 @@ final class DataService {
     /// Inverted index: tag → [Question]
     private var questionsByTag: [String: [Question]] = [:]
 
+    /// Error state for UI display
+    private(set) var loadError: String?
+
     // MARK: - Persistence
 
     private let defaults = UserDefaults.standard
@@ -32,10 +39,11 @@ final class DataService {
         loadQuestions()
     }
 
-    // MARK: - JSON Loading
+    // MARK: - JSON Loading (offline-first: bundled in app binary)
 
     private func loadQuestions() {
         guard let url = Bundle.main.url(forResource: "ProjectVaultQuestions", withExtension: "json") else {
+            loadError = "Question bank not found in app bundle."
             print("[DataService] ProjectVaultQuestions.json not found in bundle.")
             return
         }
@@ -44,9 +52,14 @@ final class DataService {
             let bank = try JSONDecoder().decode(QuestionBank.self, from: data)
             allQuestions = bank.questions
             buildIndices()
+            loadError = nil
             print("[DataService] Loaded \(allQuestions.count) questions, \(allTags.count) unique tags.")
+        } catch let decodingError as DecodingError {
+            loadError = "Failed to parse question data."
+            print("[DataService] Decode error: \(decodingError)")
         } catch {
-            print("[DataService] Decode error: \(error)")
+            loadError = "Failed to load questions: \(error.localizedDescription)"
+            print("[DataService] Load error: \(error)")
         }
     }
 
@@ -217,6 +230,8 @@ final class DataService {
 
     var totalCount: Int { allQuestions.count }
 
+    var isLoaded: Bool { !allQuestions.isEmpty }
+
     func count(for domain: ExamDomain) -> Int {
         questionsByDomain[domain]?.count ?? 0
     }
@@ -229,14 +244,20 @@ final class DataService {
         questionsBySubObjective.keys.sorted()
     }
 
-    // MARK: - Progress Persistence (UserDefaults)
+    // MARK: - Progress Persistence (offline-first: UserDefaults, no network)
 
     func loadProgress() -> UserProgress {
-        guard let data = defaults.data(forKey: progressKey),
-              let progress = try? JSONDecoder().decode(UserProgress.self, from: data) else {
+        guard let data = defaults.data(forKey: progressKey) else {
             return UserProgress()
         }
-        return progress
+        do {
+            return try JSONDecoder().decode(UserProgress.self, from: data)
+        } catch {
+            // Corrupted data — preserve a backup before returning fresh state
+            defaults.set(data, forKey: progressKey + "_backup_\(Int(Date().timeIntervalSince1970))")
+            print("[DataService] Progress decode failed, backed up and reset: \(error)")
+            return UserProgress()
+        }
     }
 
     func saveProgress(_ progress: UserProgress) {

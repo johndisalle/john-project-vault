@@ -112,7 +112,7 @@ struct QuizResultsView: View {
                     Image(systemName: result.isCorrect ? "checkmark.circle.fill" : "xmark.circle.fill")
                         .foregroundStyle(result.isCorrect ? VaultTheme.correctGreen : VaultTheme.incorrectRed)
 
-                    Text(viewModel.questions[index].question)
+                    Text(index < viewModel.questions.count ? viewModel.questions[index].question : "Question \(index + 1)")
                         .font(.system(size: 13))
                         .foregroundStyle(.white.opacity(0.7))
                         .lineLimit(2)

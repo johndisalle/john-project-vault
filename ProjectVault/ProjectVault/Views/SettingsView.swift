@@ -11,26 +11,25 @@ struct SettingsView: View {
     private let service = DataService.shared
 
     var body: some View {
-        NavigationStack {
-            ZStack {
-                VaultTheme.backgroundGradient.ignoresSafeArea()
+        ZStack {
+            VaultTheme.backgroundGradient.ignoresSafeArea()
 
-                List {
-                    appInfoSection
-                    subscriptionSection
-                    questionBankSection
-                    examInfoSection
-                    appearanceSection
-                    legalSection
-                    aboutSection
-                    dangerZoneSection
-                }
-                .scrollContentBackground(.hidden)
-                .listStyle(.insetGrouped)
+            List {
+                appInfoSection
+                subscriptionSection
+                questionBankSection
+                examInfoSection
+                appearanceSection
+                legalSection
+                aboutSection
+                dangerZoneSection
             }
-            .navigationTitle("Settings")
-            .navigationBarTitleDisplayMode(.large)
-            .toolbarBackground(Color.clear, for: .navigationBar)
+            .scrollContentBackground(.hidden)
+            .listStyle(.insetGrouped)
+        }
+        .navigationTitle("Settings")
+        .navigationBarTitleDisplayMode(.large)
+        .toolbarBackground(Color.clear, for: .navigationBar)
             .toolbar {
                 if !store.isPremium {
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -64,9 +63,8 @@ struct SettingsView: View {
             } message: {
                 Text("This will permanently delete all quiz history, scores, bookmarks, mastery data, and flashcard progress. This action cannot be undone.")
             }
-            .sheet(isPresented: $showPaywall) {
-                PaywallView()
-            }
+        .sheet(isPresented: $showPaywall) {
+            PaywallView()
         }
     }
 
