@@ -293,8 +293,10 @@ struct HomeView: View {
 
                 VStack(alignment: .leading, spacing: 1) {
                     Text("\(appState.questionsAnsweredToday)/\(appState.dailyGoal)")
-                        .font(.system(size: 22, weight: .bold, design: .rounded))
+                        .font(.system(size: 20, weight: .bold, design: .rounded))
                         .foregroundStyle(.white)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.7)
                     Text("Daily Goal")
                         .font(.system(size: 11, weight: .medium))
                         .foregroundStyle(.white.opacity(0.5))
