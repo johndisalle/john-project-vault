@@ -7,6 +7,7 @@ final class QuizViewModel {
     let questions: [Question]
     let mode: QuizSession.QuizMode
     let domain: ExamDomain?
+    let examNumber: Int?
 
     // MARK: - State
     var currentIndex = 0
@@ -21,10 +22,11 @@ final class QuizViewModel {
     var remainingSeconds: Int = 0
     var timerActive = false
 
-    init(questions: [Question], mode: QuizSession.QuizMode, domain: ExamDomain?) {
+    init(questions: [Question], mode: QuizSession.QuizMode, domain: ExamDomain?, examNumber: Int? = nil) {
         self.questions = questions
         self.mode = mode
         self.domain = domain
+        self.examNumber = examNumber
 
         if mode == .timed {
             // ~90 seconds per question
@@ -127,7 +129,8 @@ final class QuizViewModel {
             totalQuestions: questions.count,
             correctCount: correctCount,
             timeSpent: Date().timeIntervalSince(sessionStartTime),
-            questionResults: questionResults
+            questionResults: questionResults,
+            examNumber: examNumber
         )
     }
 

@@ -26,6 +26,7 @@ struct QuizResult: Codable, Identifiable, Sendable {
     let correctCount: Int
     let timeSpent: TimeInterval
     let questionResults: [QuestionResult]
+    var examNumber: Int?
 
     var scorePercentage: Double {
         guard totalQuestions > 0 else { return 0 }

@@ -5,6 +5,7 @@ struct MockExamView: View {
     @Environment(StoreKitManager.self) private var store
     @State private var navigateToExam = false
     @State private var examQuestions: [Question] = []
+    @State private var selectedExamNumber: Int?
     @State private var showPaywall = false
 
     private let service = DataService.shared
@@ -43,7 +44,7 @@ struct MockExamView: View {
             .navigationBarTitleDisplayMode(.large)
             .toolbarBackground(Color.clear, for: .navigationBar)
             .navigationDestination(isPresented: $navigateToExam) {
-                QuizView(questions: examQuestions, mode: .mockExam, domain: nil)
+                QuizView(questions: examQuestions, mode: .mockExam, domain: nil, examNumber: selectedExamNumber)
             }
             .sheet(isPresented: $showPaywall) {
                 PaywallView()
@@ -51,9 +52,10 @@ struct MockExamView: View {
         }
     }
 
-    private func launchExamIfPremium(questions: [Question]) {
+    private func launchExamIfPremium(questions: [Question], examNumber: Int? = nil) {
         if store.isPremium {
             examQuestions = questions
+            selectedExamNumber = examNumber
             navigateToExam = true
         } else {
             showPaywall = true
@@ -121,7 +123,7 @@ struct MockExamView: View {
                 let attempt = attemptForExam(exam.number)
 
                 Button {
-                    launchExamIfPremium(questions: service.mockExam(number: exam.number))
+                    launchExamIfPremium(questions: service.mockExam(number: exam.number), examNumber: exam.number)
                 } label: {
                     HStack(spacing: 14) {
                         ZStack {
@@ -341,9 +343,8 @@ struct MockExamView: View {
     // MARK: - Helpers
 
     private func attemptForExam(_ number: Int) -> QuizResult? {
-        // Match by mode containing the exam label
         appState.progress.quizHistory
-            .filter { $0.mode == "Mock Exam" }
+            .filter { $0.mode == "Mock Exam" && $0.examNumber == number }
             .last
     }
 

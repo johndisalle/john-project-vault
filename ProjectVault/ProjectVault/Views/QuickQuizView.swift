@@ -253,6 +253,10 @@ struct QuickQuizView: View {
                 .foregroundStyle(.white.opacity(0.35))
 
             Button {
+                guard store.canAnswerMoreToday(questionsAnsweredToday: appState.questionsAnsweredToday) else {
+                    showPaywall = true
+                    return
+                }
                 quizQuestions = Array(filteredPool.shuffled().prefix(selectedCount))
                 quizMode = .practice
                 quizDomain = selectedDomain
@@ -282,6 +286,10 @@ struct QuickQuizView: View {
                     title: "Review Missed",
                     subtitle: "\(appState.progress.missedQuestionIds.count) questions to revisit"
                 ) {
+                    guard store.canAnswerMoreToday(questionsAnsweredToday: appState.questionsAnsweredToday) else {
+                        showPaywall = true
+                        return
+                    }
                     quizQuestions = service.questions(withIds: appState.progress.missedQuestionIds).shuffled()
                     quizMode = .review
                     quizDomain = nil
@@ -300,6 +308,10 @@ struct QuickQuizView: View {
                     title: "Bookmarked Questions",
                     subtitle: "\(appState.progress.bookmarkedQuestionIds.count) saved questions"
                 ) {
+                    guard store.canAnswerMoreToday(questionsAnsweredToday: appState.questionsAnsweredToday) else {
+                        showPaywall = true
+                        return
+                    }
                     quizQuestions = service.questions(withIds: appState.progress.bookmarkedQuestionIds).shuffled()
                     quizMode = .practice
                     quizDomain = nil

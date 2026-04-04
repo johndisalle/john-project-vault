@@ -331,6 +331,13 @@ struct SettingsView: View {
                         .font(.system(size: 12))
                         .foregroundStyle(.white.opacity(0.3))
                 }
+
+                Divider().background(.white.opacity(0.08))
+
+                Text("CompTIA\u{00AE}, Project+\u{00AE}, and PK0-005 are registered trademarks of CompTIA, Inc. This app is not affiliated with, endorsed by, or sponsored by CompTIA. All exam content is independently developed for educational purposes.")
+                    .font(.system(size: 10))
+                    .foregroundStyle(.white.opacity(0.25))
+                    .lineSpacing(2)
             }
             .padding(.vertical, 4)
         }

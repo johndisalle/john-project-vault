@@ -7,11 +7,12 @@ struct QuizView: View {
     @State private var showExitAlert = false
     @State private var timer: Timer?
 
-    init(questions: [Question], mode: QuizSession.QuizMode, domain: ExamDomain?) {
+    init(questions: [Question], mode: QuizSession.QuizMode, domain: ExamDomain?, examNumber: Int? = nil) {
         _viewModel = State(initialValue: QuizViewModel(
             questions: questions,
             mode: mode,
-            domain: domain
+            domain: domain,
+            examNumber: examNumber
         ))
     }
 
