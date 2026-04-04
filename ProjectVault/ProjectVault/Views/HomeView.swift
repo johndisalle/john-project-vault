@@ -2,7 +2,10 @@ import SwiftUI
 
 struct HomeView: View {
     @Environment(AppState.self) private var appState
+    @Environment(StoreKitManager.self) private var store
     @State private var quoteIndex: Int = 0
+    @State private var showSettings = false
+    @State private var showPaywall = false
 
     private let service = DataService.shared
 
@@ -51,25 +54,73 @@ struct HomeView: View {
         .onAppear {
             quoteIndex = Int.random(in: 0..<Self.quotes.count)
         }
+        .sheet(isPresented: $showSettings) {
+            NavigationStack {
+                SettingsView()
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Button {
+                                showSettings = false
+                            } label: {
+                                Text("Done")
+                                    .font(.system(size: 15, weight: .semibold))
+                                    .foregroundStyle(VaultTheme.gold)
+                            }
+                        }
+                    }
+            }
+        }
+        .sheet(isPresented: $showPaywall) {
+            PaywallView()
+        }
     }
 
     // MARK: - Header
 
     private var headerSection: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Text(greeting)
-                .font(.system(size: 16, weight: .medium))
-                .foregroundStyle(.white.opacity(0.6))
+        HStack(alignment: .top) {
+            VStack(alignment: .leading, spacing: 6) {
+                Text(greeting)
+                    .font(.system(size: 16, weight: .medium))
+                    .foregroundStyle(.white.opacity(0.6))
 
-            Text("Project+ Vault")
-                .font(.system(size: 32, weight: .bold, design: .rounded))
-                .foregroundStyle(VaultTheme.goldGradient)
+                Text("Project+ Vault")
+                    .font(.system(size: 32, weight: .bold, design: .rounded))
+                    .foregroundStyle(VaultTheme.goldGradient)
 
-            Text("Your Personal Project+ Treasure Trove")
-                .font(.system(size: 13, weight: .medium))
-                .foregroundStyle(.white.opacity(0.4))
+                Text("Your Personal Project+ Treasure Trove")
+                    .font(.system(size: 13, weight: .medium))
+                    .foregroundStyle(.white.opacity(0.4))
+            }
+
+            Spacer()
+
+            VStack(spacing: 12) {
+                Button {
+                    Haptics.light()
+                    showSettings = true
+                } label: {
+                    Image(systemName: "gearshape.fill")
+                        .font(.system(size: 20))
+                        .foregroundStyle(.white.opacity(0.5))
+                        .frame(width: 40, height: 40)
+                        .background(.white.opacity(0.08), in: Circle())
+                }
+
+                if !store.isPremium {
+                    Button {
+                        Haptics.medium()
+                        showPaywall = true
+                    } label: {
+                        Image(systemName: "crown.fill")
+                            .font(.system(size: 16))
+                            .foregroundStyle(VaultTheme.gold)
+                            .frame(width: 40, height: 40)
+                            .background(VaultTheme.gold.opacity(0.15), in: Circle())
+                    }
+                }
+            }
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.top, 12)
     }
 
