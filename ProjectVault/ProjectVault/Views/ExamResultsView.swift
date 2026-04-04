@@ -8,6 +8,7 @@ struct ExamResultsView: View {
     @State private var saved = false
     @State private var animateScore = false
     @State private var selectedReviewFilter: ReviewFilter = .all
+    @State private var showShareSheet = false
 
     private let service = DataService.shared
 
@@ -30,9 +31,22 @@ struct ExamResultsView: View {
                 domainBreakdownCards
                 questionReviewSection
 
-                Button { dismiss() } label: { Text("Done") }
-                    .buttonStyle(GoldButtonStyle())
-                    .padding(.bottom, 40)
+                HStack(spacing: 12) {
+                    Button {
+                        showShareSheet = true
+                    } label: {
+                        HStack {
+                            Image(systemName: "square.and.arrow.up")
+                            Text("Share")
+                        }
+                    }
+                    .buttonStyle(SecondaryButtonStyle())
+                    .accessibilityLabel("Share Results")
+
+                    Button { dismiss() } label: { Text("Done") }
+                        .buttonStyle(GoldButtonStyle())
+                }
+                .padding(.bottom, 40)
             }
             .padding(.horizontal, 16)
             .padding(.top, 16)
@@ -43,6 +57,9 @@ struct ExamResultsView: View {
             withAnimation(.easeOut(duration: 1.2).delay(0.3)) {
                 animateScore = true
             }
+        }
+        .sheet(isPresented: $showShareSheet) {
+            ShareSheet(items: [examShareText])
         }
     }
 
@@ -498,6 +515,21 @@ struct ExamResultsView: View {
         saved = true
         let result = viewModel.buildResult()
         DataService.shared.saveQuizResult(result, to: &appState.progress)
+    }
+
+    private var examShareText: String {
+        let score = String(format: "%.0f%%", viewModel.scorePercentage)
+        let status = viewModel.scorePercentage >= 65 ? "PASSED" : "Keep studying"
+        let examLabel = viewModel.examNumber.map { "Mock Exam \($0)" } ?? "Mock Exam"
+        return """
+        \(status)! I scored \(score) on \(examLabel) in Project+ Vault!
+
+        \(viewModel.correctCount)/\(viewModel.questions.count) correct
+        Time: \(formatTime(Date().timeIntervalSince(viewModel.sessionStartTime)))
+
+        Preparing for CompTIA Project+ (PK0-005) with Project+ Vault
+        #ProjectPlus #CompTIA #PK0005
+        """
     }
 }
 

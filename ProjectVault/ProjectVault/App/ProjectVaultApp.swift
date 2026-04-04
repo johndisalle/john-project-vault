@@ -11,6 +11,17 @@ struct ProjectVaultApp: App {
                 .environment(appState)
                 .environment(storeKit)
                 .preferredColorScheme(.dark)
+                .onAppear {
+                    // Sync progress from iCloud if available
+                    if let cloudProgress = DataService.shared.syncFromiCloud() {
+                        appState.progress = cloudProgress
+                    }
+                }
+                .onReceive(NotificationCenter.default.publisher(for: NSUbiquitousKeyValueStore.didChangeExternallyNotification)) { _ in
+                    if let cloudProgress = DataService.shared.syncFromiCloud() {
+                        appState.progress = cloudProgress
+                    }
+                }
         }
     }
 }

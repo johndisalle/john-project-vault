@@ -6,6 +6,7 @@ struct QuizResultsView: View {
     let viewModel: QuizViewModel
     @State private var saved = false
     @State private var animateScore = false
+    @State private var showShareSheet = false
 
     var body: some View {
         ScrollView {
@@ -14,12 +15,25 @@ struct QuizResultsView: View {
                 breakdownSection
                 questionReviewSection
 
-                Button {
-                    dismiss()
-                } label: {
-                    Text("Done")
+                HStack(spacing: 12) {
+                    Button {
+                        showShareSheet = true
+                    } label: {
+                        HStack {
+                            Image(systemName: "square.and.arrow.up")
+                            Text("Share")
+                        }
+                    }
+                    .buttonStyle(SecondaryButtonStyle())
+                    .accessibilityLabel("Share Results")
+
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("Done")
+                    }
+                    .buttonStyle(GoldButtonStyle())
                 }
-                .buttonStyle(GoldButtonStyle())
                 .padding(.bottom, 32)
             }
             .padding(.horizontal, 16)
@@ -30,6 +44,9 @@ struct QuizResultsView: View {
             withAnimation(.easeOut(duration: 1.0).delay(0.3)) {
                 animateScore = true
             }
+        }
+        .sheet(isPresented: $showShareSheet) {
+            ShareSheet(items: [shareText])
         }
     }
 
@@ -143,6 +160,33 @@ struct QuizResultsView: View {
         let seconds = Int(interval) % 60
         return String(format: "%d:%02d", minutes, seconds)
     }
+
+    private var shareText: String {
+        let score = String(format: "%.0f%%", viewModel.scorePercentage)
+        let status = viewModel.scorePercentage >= 65 ? "PASSED" : "Keep studying"
+        let mode = viewModel.mode.rawValue
+        return """
+        \(status)! I scored \(score) on a \(mode) quiz in Project+ Vault!
+
+        \(viewModel.correctCount)/\(viewModel.questions.count) correct
+        Time: \(formatTime(Date().timeIntervalSince(viewModel.sessionStartTime)))
+
+        Studying for CompTIA Project+ (PK0-005) with Project+ Vault
+        #ProjectPlus #CompTIA #PK0005
+        """
+    }
+}
+
+// MARK: - Share Sheet
+
+struct ShareSheet: UIViewControllerRepresentable {
+    let items: [Any]
+
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        UIActivityViewController(activityItems: items, applicationActivities: nil)
+    }
+
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
 }
 
 struct ResultStatBox: View {

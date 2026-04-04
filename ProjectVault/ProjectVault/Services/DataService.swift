@@ -32,6 +32,7 @@ final class DataService: @unchecked Sendable {
 
     private let defaults = UserDefaults.standard
     private let progressKey = "pv_user_progress"
+    private let iCloud = NSUbiquitousKeyValueStore.default
 
     // MARK: - Init
 
@@ -263,11 +264,35 @@ final class DataService: @unchecked Sendable {
     func saveProgress(_ progress: UserProgress) {
         if let data = try? JSONEncoder().encode(progress) {
             defaults.set(data, forKey: progressKey)
+            // Sync to iCloud
+            iCloud.set(data, forKey: progressKey)
+            iCloud.synchronize()
         }
     }
 
     func resetProgress() {
         defaults.removeObject(forKey: progressKey)
+        iCloud.removeObject(forKey: progressKey)
+        iCloud.synchronize()
+    }
+
+    /// Merges iCloud progress with local, keeping whichever has more data.
+    func syncFromiCloud() -> UserProgress? {
+        guard let cloudData = iCloud.data(forKey: progressKey),
+              let cloudProgress = try? JSONDecoder().decode(UserProgress.self, from: cloudData) else {
+            return nil
+        }
+        let localProgress = loadProgress()
+
+        // Keep whichever has more quiz history (more study data = more valuable)
+        if cloudProgress.quizHistory.count > localProgress.quizHistory.count {
+            // Cloud has more data — adopt it locally
+            if let data = try? JSONEncoder().encode(cloudProgress) {
+                defaults.set(data, forKey: progressKey)
+            }
+            return cloudProgress
+        }
+        return nil
     }
 
     // MARK: - Question Reports
