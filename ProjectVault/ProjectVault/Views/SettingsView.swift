@@ -313,7 +313,7 @@ struct SettingsView: View {
                     .font(.system(size: 15, weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
 
-                Text("Your personal treasure trove for CompTIA Project+ (PK0-005) exam preparation. Featuring 200+ original practice questions, spaced repetition flashcards, mock exams, and detailed analytics — everything you need to ace the exam.")
+                Text("Your personal treasure trove for CompTIA Project+ (PK0-005) exam preparation. Featuring 525+ original practice questions, spaced repetition flashcards, mock exams, and detailed analytics — everything you need to ace the exam.")
                     .font(.system(size: 13))
                     .foregroundStyle(.white.opacity(0.5))
                     .lineSpacing(3)
