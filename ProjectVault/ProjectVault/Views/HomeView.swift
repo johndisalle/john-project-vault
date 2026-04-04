@@ -144,39 +144,45 @@ struct HomeView: View {
     // MARK: - Exam Countdown
 
     private func examCountdownCard(text: String) -> some View {
-        HStack(spacing: 14) {
-            ZStack {
-                Circle()
-                    .fill(VaultTheme.warningAmber.opacity(0.15))
-                    .frame(width: 50, height: 50)
-                Image(systemName: "calendar.badge.clock")
-                    .font(.system(size: 22))
-                    .foregroundStyle(VaultTheme.warningAmber)
-            }
+        NavigationLink(destination: StudyRoadmapView()) {
+            HStack(spacing: 14) {
+                ZStack {
+                    Circle()
+                        .fill(VaultTheme.warningAmber.opacity(0.15))
+                        .frame(width: 50, height: 50)
+                    Image(systemName: "calendar.badge.clock")
+                        .font(.system(size: 22))
+                        .foregroundStyle(VaultTheme.warningAmber)
+                }
 
-            VStack(alignment: .leading, spacing: 3) {
-                Text("Exam Countdown")
-                    .font(.system(size: 13, weight: .semibold))
-                    .foregroundStyle(.white.opacity(0.6))
-                Text(text)
-                    .font(.system(size: 18, weight: .bold, design: .rounded))
-                    .foregroundStyle(.white)
-            }
+                VStack(alignment: .leading, spacing: 3) {
+                    Text("Exam Countdown")
+                        .font(.system(size: 13, weight: .semibold))
+                        .foregroundStyle(.white.opacity(0.6))
+                    Text(text)
+                        .font(.system(size: 18, weight: .bold, design: .rounded))
+                        .foregroundStyle(.white)
+                }
 
-            Spacer()
+                Spacer()
 
-            VStack(alignment: .trailing, spacing: 2) {
-                Text("Focus today:")
-                    .font(.system(size: 10))
-                    .foregroundStyle(.white.opacity(0.4))
-                let weakAreas = appState.getWeakSubObjectives().prefix(1).first ?? "Domain 1"
-                Text(weakAreas)
-                    .font(.system(size: 12, weight: .semibold))
-                    .foregroundStyle(VaultTheme.gold)
+                VStack(alignment: .trailing, spacing: 2) {
+                    Text("Focus today:")
+                        .font(.system(size: 10))
+                        .foregroundStyle(.white.opacity(0.4))
+                    let weakAreas = appState.getWeakSubObjectives().prefix(1).first ?? "Domain 1"
+                    Text(weakAreas)
+                        .font(.system(size: 12, weight: .semibold))
+                        .foregroundStyle(VaultTheme.gold)
+                }
+
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 12))
+                    .foregroundStyle(.white.opacity(0.2))
             }
+            .padding(14)
+            .vaultCard()
         }
-        .padding(14)
-        .vaultCard()
     }
 
     // MARK: - Pass Prediction

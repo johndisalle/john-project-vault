@@ -13,6 +13,7 @@ struct StudyView: View {
 
                 ScrollView {
                     VStack(spacing: 16) {
+                        studyRoadmapLink
                         examOverviewCard
                         flashcardBanner
                         masteryOverviewCard
@@ -31,6 +32,47 @@ struct StudyView: View {
                 FlashcardView(domain: flashcardDomain)
             }
         }
+    }
+
+    // MARK: - Study Roadmap Link
+
+    private var studyRoadmapLink: some View {
+        NavigationLink(destination: StudyRoadmapView()) {
+            HStack(spacing: 12) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.purple.opacity(0.12))
+                        .frame(width: 40, height: 40)
+                    Image(systemName: "map.fill")
+                        .font(.system(size: 18))
+                        .foregroundStyle(.purple)
+                }
+
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Study Roadmap")
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundStyle(.white)
+                    if let days = appState.daysUntilExam {
+                        Text("\(days) days until exam - view your personalized plan")
+                            .font(.system(size: 12))
+                            .foregroundStyle(.white.opacity(0.4))
+                    } else {
+                        Text("Set your exam date and get a personalized plan")
+                            .font(.system(size: 12))
+                            .foregroundStyle(.white.opacity(0.4))
+                    }
+                }
+
+                Spacer()
+
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 13))
+                    .foregroundStyle(.white.opacity(0.2))
+            }
+            .vaultCard()
+        }
+        .accessibilityLabel("Study Roadmap")
+        .accessibilityHint("View your personalized study plan")
     }
 
     // MARK: - Exam Overview
