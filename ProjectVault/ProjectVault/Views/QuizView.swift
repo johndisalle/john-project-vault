@@ -5,6 +5,9 @@ struct QuizView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var viewModel: QuizViewModel
     @State private var showExitAlert = false
+    @State private var showReportSheet = false
+    @State private var reportReason = ""
+    @State private var reportSubmitted = false
     @State private var timer: Timer?
 
     init(questions: [Question], mode: QuizSession.QuizMode, domain: ExamDomain?, examNumber: Int? = nil) {
@@ -160,22 +163,65 @@ struct QuizView: View {
         VStack(spacing: 12) {
             if viewModel.hasSubmitted {
                 // Explanation
-                VStack(alignment: .leading, spacing: 8) {
+                VStack(alignment: .leading, spacing: 10) {
                     HStack {
                         Image(systemName: viewModel.isCorrect ? "checkmark.circle.fill" : "xmark.circle.fill")
                             .foregroundStyle(viewModel.isCorrect ? VaultTheme.correctGreen : VaultTheme.incorrectRed)
                         Text(viewModel.isCorrect ? "Correct!" : "Incorrect")
                             .font(.system(size: 16, weight: .bold))
                             .foregroundStyle(viewModel.isCorrect ? VaultTheme.correctGreen : VaultTheme.incorrectRed)
+                        Spacer()
+                        Button {
+                            showReportSheet = true
+                        } label: {
+                            Image(systemName: "flag")
+                                .font(.system(size: 14))
+                                .foregroundStyle(.white.opacity(0.4))
+                        }
+                        .accessibilityLabel("Report Question")
+                        .accessibilityHint("Report an issue with this question")
                     }
 
+                    // Show correct answer if wrong
+                    if !viewModel.isCorrect {
+                        HStack(spacing: 6) {
+                            Text("Correct answer:")
+                                .font(.system(size: 13, weight: .medium))
+                                .foregroundStyle(VaultTheme.correctGreen.opacity(0.7))
+                            Text(viewModel.currentQuestion.correctAnswers.joined(separator: ", "))
+                                .font(.system(size: 13, weight: .bold))
+                                .foregroundStyle(VaultTheme.correctGreen)
+                        }
+                    }
+
+                    Divider().background(.white.opacity(0.1))
+
+                    // Explanation
                     Text(viewModel.currentQuestion.explanation)
                         .font(.system(size: 14))
                         .foregroundStyle(.white.opacity(0.8))
                         .lineSpacing(3)
+
+                    // Objective reference
+                    HStack(spacing: 8) {
+                        Text(viewModel.currentQuestion.subObjective)
+                            .font(.system(size: 11, weight: .bold, design: .monospaced))
+                            .foregroundStyle(VaultTheme.gold.opacity(0.6))
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
+                            .background(VaultTheme.gold.opacity(0.1))
+                            .clipShape(Capsule())
+
+                        Text(viewModel.currentQuestion.reference)
+                            .font(.system(size: 11, weight: .medium))
+                            .foregroundStyle(.white.opacity(0.4))
+                    }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .vaultCard()
+                .sheet(isPresented: $showReportSheet) {
+                    reportQuestionSheet
+                }
 
                 Button {
                     Haptics.light()
@@ -218,6 +264,97 @@ struct QuizView: View {
                 .foregroundStyle(.white.opacity(0.5))
             Button("Go Back") { dismiss() }
                 .buttonStyle(SecondaryButtonStyle())
+        }
+    }
+
+    // MARK: - Report Question Sheet
+
+    private var reportQuestionSheet: some View {
+        NavigationStack {
+            ZStack {
+                VaultTheme.backgroundGradient.ignoresSafeArea()
+
+                VStack(alignment: .leading, spacing: 16) {
+                    Text("Report Question")
+                        .font(.system(size: 22, weight: .bold, design: .rounded))
+                        .foregroundStyle(.white)
+
+                    Text("ID: \(viewModel.currentQuestion.id)")
+                        .font(.system(size: 12, weight: .medium, design: .monospaced))
+                        .foregroundStyle(.white.opacity(0.4))
+
+                    Text(viewModel.currentQuestion.question)
+                        .font(.system(size: 14))
+                        .foregroundStyle(.white.opacity(0.7))
+                        .lineLimit(3)
+
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("What's wrong?")
+                            .font(.system(size: 14, weight: .semibold))
+                            .foregroundStyle(.white)
+
+                        ForEach(["Incorrect answer", "Unclear question", "Typo/grammar", "Wrong explanation", "Duplicate question", "Other"], id: \.self) { reason in
+                            Button {
+                                reportReason = reason
+                            } label: {
+                                HStack(spacing: 10) {
+                                    Image(systemName: reportReason == reason ? "checkmark.circle.fill" : "circle")
+                                        .foregroundStyle(reportReason == reason ? VaultTheme.gold : .white.opacity(0.3))
+                                    Text(reason)
+                                        .font(.system(size: 14))
+                                        .foregroundStyle(.white.opacity(0.8))
+                                    Spacer()
+                                }
+                                .padding(.vertical, 6)
+                            }
+                        }
+                    }
+
+                    if reportSubmitted {
+                        HStack(spacing: 8) {
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundStyle(VaultTheme.correctGreen)
+                            Text("Report saved. Thank you!")
+                                .font(.system(size: 14, weight: .medium))
+                                .foregroundStyle(VaultTheme.correctGreen)
+                        }
+                        .padding(12)
+                        .background(VaultTheme.correctGreen.opacity(0.1))
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                    }
+
+                    Spacer()
+
+                    Button {
+                        guard !reportReason.isEmpty else { return }
+                        DataService.shared.saveQuestionReport(
+                            questionId: viewModel.currentQuestion.id,
+                            reason: reportReason
+                        )
+                        reportSubmitted = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            showReportSheet = false
+                            reportReason = ""
+                            reportSubmitted = false
+                        }
+                    } label: {
+                        Text("Submit Report")
+                    }
+                    .buttonStyle(GoldButtonStyle())
+                    .disabled(reportReason.isEmpty)
+                    .opacity(reportReason.isEmpty ? 0.5 : 1.0)
+                }
+                .padding(20)
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Cancel") {
+                        showReportSheet = false
+                        reportReason = ""
+                    }
+                    .foregroundStyle(VaultTheme.gold)
+                }
+            }
         }
     }
 }

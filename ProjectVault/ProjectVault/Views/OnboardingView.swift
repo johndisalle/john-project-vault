@@ -4,6 +4,7 @@ struct OnboardingView: View {
     @Environment(AppState.self) private var appState
     @Environment(StoreKitManager.self) private var store
     @State private var currentPage = 0
+    @State private var showPaywall = false
 
     var body: some View {
         ZStack {
@@ -305,7 +306,8 @@ struct OnboardingView: View {
             VStack(spacing: 12) {
                 if !store.isPremium {
                     Button {
-                        Haptics.light()
+                        Haptics.medium()
+                        showPaywall = true
                     } label: {
                         HStack {
                             Image(systemName: "crown.fill")
@@ -313,6 +315,9 @@ struct OnboardingView: View {
                         }
                     }
                     .buttonStyle(GoldButtonStyle())
+                    .sheet(isPresented: $showPaywall) {
+                        PaywallView()
+                    }
                 }
 
                 Button {

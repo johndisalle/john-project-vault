@@ -270,6 +270,19 @@ final class DataService: @unchecked Sendable {
         defaults.removeObject(forKey: progressKey)
     }
 
+    // MARK: - Question Reports
+
+    func saveQuestionReport(questionId: String, reason: String) {
+        var reports = defaults.dictionary(forKey: "question_reports") as? [String: String] ?? [:]
+        reports[questionId] = reason
+        defaults.set(reports, forKey: "question_reports")
+        print("[DataService] Question \(questionId) reported: \(reason)")
+    }
+
+    func getQuestionReports() -> [String: String] {
+        defaults.dictionary(forKey: "question_reports") as? [String: String] ?? [:]
+    }
+
     // MARK: - Quiz Result Recording
 
     func saveQuizResult(_ result: QuizResult, to progress: inout UserProgress) {

@@ -42,6 +42,7 @@ struct HomeView: View {
                         streakAndGoalRow
                         overallProgressCard
                         viewAllStatsLink
+                        badgesLink
                         domainSnapshotSection
                         motivationalQuote
                         recentActivitySection
@@ -414,6 +415,41 @@ struct HomeView: View {
             }
             .vaultCard()
         }
+    }
+
+    // MARK: - Badges Link
+
+    private var badgesLink: some View {
+        NavigationLink(destination: BadgesView()) {
+            HStack(spacing: 12) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.orange.opacity(0.12))
+                        .frame(width: 40, height: 40)
+                    Image(systemName: "medal.fill")
+                        .font(.system(size: 18))
+                        .foregroundStyle(.orange)
+                }
+
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Achievements")
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundStyle(.white)
+                    Text("\(appState.earnedBadges.count)/\(Badge.allBadges.count) badges earned")
+                        .font(.system(size: 12))
+                        .foregroundStyle(.white.opacity(0.4))
+                }
+
+                Spacer()
+
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 13))
+                    .foregroundStyle(.white.opacity(0.2))
+            }
+            .vaultCard()
+        }
+        .accessibilityLabel("Achievements")
+        .accessibilityHint("View your earned badges")
     }
 
     // MARK: - Domain Snapshot
