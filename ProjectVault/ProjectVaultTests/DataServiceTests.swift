@@ -61,8 +61,8 @@ final class DataServiceTests: XCTestCase {
     }
 
     func testFilterByDifficulty() {
-        let easyQuestions = service.questions(for: .easy)
-        XCTAssertTrue(easyQuestions.allSatisfy { $0.difficulty == .easy })
+        let easyQuestions = service.questions(for: .Easy)
+        XCTAssertTrue(easyQuestions.allSatisfy { $0.difficulty == .Easy })
     }
 
     func testFilterBySubObjective() {
