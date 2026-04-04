@@ -4,7 +4,7 @@ import SwiftUI
 /// Manages all StoreKit 2 interactions for the freemium model.
 @MainActor
 @Observable
-final class StoreKitManager {
+final class StoreKitManager: @unchecked Sendable {
     // MARK: - Product IDs
 
     static let premiumLifetimeID = "com.projectvault.premium.lifetime"
