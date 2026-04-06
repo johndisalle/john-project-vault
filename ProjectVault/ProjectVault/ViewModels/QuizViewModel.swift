@@ -18,9 +18,16 @@ final class QuizViewModel {
     var questionStartTime = Date()
     var sessionStartTime = Date()
 
+    // Shuffled options for current question
+    var shuffledOptions: [String] = []
+    // Maps display letter (A,B,C,D) → original letter
+    private var letterMap: [String: String] = [:]
+
     // Timer for timed mode
     var remainingSeconds: Int = 0
     var timerActive = false
+
+    private static let letters = ["A", "B", "C", "D", "E", "F"]
 
     init(questions: [Question], mode: QuizSession.QuizMode, domain: ExamDomain?, examNumber: Int? = nil) {
         self.questions = questions
@@ -29,12 +36,12 @@ final class QuizViewModel {
         self.examNumber = examNumber
 
         if mode == .timed {
-            // ~90 seconds per question
             self.remainingSeconds = questions.count * 90
         } else if mode == .mockExam {
-            // Real PK0-005 format: 90 minutes
             self.remainingSeconds = 90 * 60
         }
+
+        shuffleCurrentOptions()
     }
 
     // MARK: - Computed
@@ -60,7 +67,9 @@ final class QuizViewModel {
     }
 
     var isCorrect: Bool {
-        selectedAnswers == currentQuestion.correctLetters
+        // Map selected display letters back to original letters
+        let originalAnswers = Set(selectedAnswers.compactMap { letterMap[$0] })
+        return originalAnswers == currentQuestion.correctLetters
     }
 
     var correctCount: Int {
@@ -99,10 +108,12 @@ final class QuizViewModel {
         hasSubmitted = true
 
         let timeSpent = Date().timeIntervalSince(questionStartTime)
+        // Store original letters in results for consistency
+        let originalAnswers = selectedAnswers.compactMap { letterMap[$0] }.sorted()
         let result = QuestionResult(
             id: UUID().uuidString,
             questionId: currentQuestion.id,
-            selectedAnswers: Array(selectedAnswers).sorted(),
+            selectedAnswers: originalAnswers,
             isCorrect: isCorrect,
             timeSpent: timeSpent
         )
@@ -115,6 +126,7 @@ final class QuizViewModel {
             selectedAnswers = []
             hasSubmitted = false
             questionStartTime = Date()
+            shuffleCurrentOptions()
         } else {
             isQuizComplete = true
         }
@@ -144,6 +156,36 @@ final class QuizViewModel {
     }
 
     func letterForOption(_ option: String) -> String {
-        String(option.prefix(1))
+        // Return the NEW display letter for this shuffled option
+        if let index = shuffledOptions.firstIndex(of: option), index < Self.letters.count {
+            return Self.letters[index]
+        }
+        return String(option.prefix(1))
+    }
+
+    /// Get the original correct answer letters mapped to display letters
+    var displayCorrectAnswers: [String] {
+        let reverseMap = Dictionary(uniqueKeysWithValues: letterMap.map { ($1, $0) })
+        return currentQuestion.correctAnswers.compactMap { reverseMap[$0] }.sorted()
+    }
+
+    // MARK: - Option Shuffling
+
+    private func shuffleCurrentOptions() {
+        guard currentIndex < questions.count else { return }
+        let question = questions[currentIndex]
+        let originalOptions = question.options
+
+        // Shuffle the options
+        let shuffled = originalOptions.shuffled()
+        shuffledOptions = shuffled
+
+        // Build mapping: new display letter → original letter
+        letterMap = [:]
+        for (newIndex, option) in shuffled.enumerated() {
+            let originalLetter = String(option.prefix(1))
+            let newLetter = Self.letters[newIndex]
+            letterMap[newLetter] = originalLetter
+        }
     }
 }

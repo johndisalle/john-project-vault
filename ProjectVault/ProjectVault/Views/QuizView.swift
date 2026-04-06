@@ -3,6 +3,15 @@ import SwiftUI
 struct QuizView: View {
     @Environment(AppState.self) private var appState
     @Environment(\.dismiss) private var dismiss
+
+    /// Strips the leading letter prefix (e.g. "B. ") from an option string.
+    static func stripLetterPrefix(_ option: String) -> String {
+        // Handles "A. text", "B. text", etc.
+        if option.count > 2, option[option.index(option.startIndex, offsetBy: 1)] == "." {
+            return String(option.dropFirst(3))
+        }
+        return option
+    }
     @State private var viewModel: QuizViewModel
     @State private var showExitAlert = false
     @State private var showReportSheet = false
@@ -145,15 +154,18 @@ struct QuizView: View {
 
     private var optionsList: some View {
         VStack(spacing: 10) {
-            ForEach(viewModel.currentQuestion.options, id: \.self) { option in
+            ForEach(Array(viewModel.shuffledOptions.enumerated()), id: \.element) { index, option in
+                let displayLetter = viewModel.letterForOption(option)
+                let displayText = "\(displayLetter). \(Self.stripLetterPrefix(option))"
+                let isCorrectOption = viewModel.hasSubmitted ? viewModel.displayCorrectAnswers.contains(displayLetter) : nil
                 OptionButton(
-                    option: option,
-                    isSelected: viewModel.selectedAnswers.contains(viewModel.letterForOption(option)),
-                    isCorrect: viewModel.hasSubmitted ? viewModel.currentQuestion.correctLetters.contains(viewModel.letterForOption(option)) : nil,
+                    option: displayText,
+                    isSelected: viewModel.selectedAnswers.contains(displayLetter),
+                    isCorrect: isCorrectOption,
                     hasSubmitted: viewModel.hasSubmitted
                 ) {
                     Haptics.selection()
-                    viewModel.toggleAnswer(viewModel.letterForOption(option))
+                    viewModel.toggleAnswer(displayLetter)
                 }
             }
         }
@@ -188,7 +200,7 @@ struct QuizView: View {
                             Text("Correct answer:")
                                 .font(.system(size: 13, weight: .medium))
                                 .foregroundStyle(VaultTheme.correctGreen.opacity(0.7))
-                            Text(viewModel.currentQuestion.correctAnswers.joined(separator: ", "))
+                            Text(viewModel.displayCorrectAnswers.joined(separator: ", "))
                                 .font(.system(size: 13, weight: .bold))
                                 .foregroundStyle(VaultTheme.correctGreen)
                         }
