@@ -809,8 +809,8 @@
       "options": [
         "A. Replaces the project manager on all projects",
         "B. Standardizes project governance and provides support across projects",
-        "C. Only manages the project budget",
-        "D. Is required only for Agile projects"
+        "C. Only manages the project budget within the approved cost baseline",
+        "D. Is required only for Agile projects during sprint planning and execution"
       ],
       "correctAnswers": [
         "B"
@@ -903,7 +903,7 @@
       "type": "multipleChoice",
       "question": "Which of the following BEST describes a project deliverable?",
       "options": [
-        "A. A risk identified during planning",
+        "A. A risk identified during planning as identified in the risk register",
         "B. A tangible or intangible product produced as part of the project",
         "C. A meeting agenda for the kickoff",
         "D. The project manager's authority level"
@@ -1089,10 +1089,10 @@
       "type": "multipleChoice",
       "question": "A strong matrix organization is characterized by:",
       "options": [
-        "A. No project manager role",
+        "A. No project manager role for the benefit of all project stakeholders",
         "B. Project manager with more authority than functional managers over project work",
         "C. Functional managers making all project decisions",
-        "D. Team members working only on operations"
+        "D. Team members working only on operations involving team members and project staff"
       ],
       "correctAnswers": [
         "B"
@@ -1208,9 +1208,9 @@
       "type": "multipleChoice",
       "question": "The cone of uncertainty in project management describes:",
       "options": [
-        "A. How project risks increase over time",
+        "A. How project risks increase over time per the risk management plan",
         "B. The decreasing range of estimation uncertainty as the project progresses",
-        "C. The shape of the project budget curve",
+        "C. The shape of the project budget curve according to the budget allocation plan",
         "D. The team's decreasing motivation over time"
       ],
       "correctAnswers": [
@@ -1534,7 +1534,7 @@
       "type": "multipleChoice",
       "question": "A sprint review in Scrum is PRIMARILY used to:",
       "options": [
-        "A. Plan the next sprint",
+        "A. Plan the next sprint to support effective project delivery",
         "B. Demonstrate completed work to stakeholders and gather feedback",
         "C. Discuss team process improvements",
         "D. Assign blame for incomplete user stories"
@@ -1651,10 +1651,10 @@
       "type": "multipleChoice",
       "question": "Velocity in Agile refers to:",
       "options": [
-        "A. How fast team members type code",
+        "A. How fast team members type code within the iterative development framework",
         "B. The amount of work a team completes in a sprint, measured in story points",
-        "C. The speed of project approval",
-        "D. The rate at which requirements change"
+        "C. The speed of project approval within the iterative development framework",
+        "D. The rate at which requirements change during sprint planning and execution"
       ],
       "correctAnswers": [
         "B"
@@ -1723,7 +1723,7 @@
         "A. Software development language",
         "B. Process-based project management method from the UK",
         "C. Type of Agile framework",
-        "D. Risk analysis tool"
+        "D. Risk analysis tool per the risk management plan"
       ],
       "correctAnswers": [
         "B"
@@ -1812,10 +1812,10 @@
       "type": "multipleChoice",
       "question": "The change control board (CCB) is responsible for:",
       "options": [
-        "A. Writing the project code",
+        "A. Writing the project code following the change control process",
         "B. Reviewing, evaluating, and approving or rejecting change requests",
-        "C. Managing the project budget only",
-        "D. Conducting daily standup meetings"
+        "C. Managing the project budget only within the approved cost baseline",
+        "D. Conducting daily standup meetings following the change control process"
       ],
       "correctAnswers": [
         "B"
@@ -1957,7 +1957,7 @@
         "A. How the project budget will be managed",
         "B. The project deliverables, boundaries, and acceptance criteria",
         "C. The team's vacation schedule",
-        "D. The vendor contract terms"
+        "D. The vendor contract terms as defined in the scope baseline and WBS"
       ],
       "correctAnswers": [
         "B"
@@ -2069,10 +2069,10 @@
       "type": "multipleChoice",
       "question": "The probability and impact matrix is used to:",
       "options": [
-        "A. Calculate the project budget",
+        "A. Calculate the project budget according to the budget allocation plan",
         "B. Prioritize risks based on their likelihood and potential effect",
         "C. Assign team roles and responsibilities",
-        "D. Schedule project activities"
+        "D. Schedule project activities as outlined in the schedule baseline"
       ],
       "correctAnswers": [
         "B"
@@ -2117,7 +2117,7 @@
       "options": [
         "A. Extra budget for scope changes requested by the sponsor",
         "B. Budget set aside for identified risks with planned responses",
-        "C. The total project budget",
+        "C. The total project budget within the approved cost baseline",
         "D. Funds for celebrating project completion"
       ],
       "correctAnswers": [
@@ -2213,7 +2213,7 @@
       "options": [
         "A. The person responsible for managing a risk",
         "B. An event or condition that indicates a risk is about to occur",
-        "C. The financial impact of a risk",
+        "C. The financial impact of a risk as identified in the risk register",
         "D. A tool for calculating risk probability"
       ],
       "correctAnswers": [
@@ -2280,10 +2280,10 @@
       "type": "multipleChoice",
       "question": "A decision tree analysis helps a project manager:",
       "options": [
-        "A. Organize the WBS",
+        "A. Organize the WBS, during the planning and execution phases",
         "B. Evaluate multiple options by comparing expected monetary values of different paths",
-        "C. Assign resources to tasks",
-        "D. Create the project schedule"
+        "C. Assign resources to tasks based on resource availability and allocation",
+        "D. Create the project schedule based on the project timeline and milestones"
       ],
       "correctAnswers": [
         "B"
@@ -2303,10 +2303,10 @@
       "type": "multipleChoice",
       "question": "Monte Carlo simulation is a quantitative risk analysis technique that:",
       "options": [
-        "A. Eliminates all project risks",
+        "A. Eliminates all project risks, as identified in the risk register",
         "B. Uses random sampling to model uncertainty and produce probability distributions",
-        "C. Is only applicable to IT projects",
-        "D. Replaces the need for a risk register"
+        "C. Is only applicable to IT projects as identified in the risk register",
+        "D. Replaces the need for a risk register, per the risk management plan"
       ],
       "correctAnswers": [
         "B"
@@ -2329,7 +2329,7 @@
         "A. Risks are always positive; issues are always negative",
         "B. A risk is a potential future event; an issue is a current problem",
         "C. Risks affect schedule; issues affect budget",
-        "D. There is no difference"
+        "D. There is no difference, per the risk management plan"
       ],
       "correctAnswers": [
         "B"
@@ -2352,7 +2352,7 @@
         "A. Track project budget expenditures",
         "B. Record, track, and manage issues that arise during the project",
         "C. Store team member resumes",
-        "D. Document the project charter"
+        "D. Document the project charter per the project charter and governance"
       ],
       "correctAnswers": [
         "B"
@@ -2397,7 +2397,7 @@
       "options": [
         "A. Assign blame to team members",
         "B. Identify the underlying cause of a problem to prevent recurrence",
-        "C. Calculate project costs",
+        "C. Calculate project costs according to the project management plan",
         "D. Create the project schedule"
       ],
       "correctAnswers": [
@@ -2418,10 +2418,10 @@
       "type": "multipleChoice",
       "question": "A decision log records:",
       "options": [
-        "A. Only rejected decisions",
+        "A. Only rejected decisions, in accordance with industry best practices",
         "B. Key decisions made during the project, their rationale, and stakeholders involved",
-        "C. The project budget history",
-        "D. Team member attendance at meetings"
+        "C. The project budget history, according to the budget allocation plan",
+        "D. Team member attendance at meetings involving team members and project staff"
       ],
       "correctAnswers": [
         "B"
@@ -2489,9 +2489,9 @@
       "type": "multipleChoice",
       "question": "Float (slack) in project scheduling refers to:",
       "options": [
-        "A. Extra budget for risk responses",
+        "A. Extra budget for risk responses according to the budget allocation plan",
         "B. The amount of time an activity can be delayed without delaying the project",
-        "C. The time between project phases",
+        "C. The time between project phases to ensure alignment with project goals",
         "D. Buffer time added at the end of the project"
       ],
       "correctAnswers": [
@@ -2581,10 +2581,10 @@
       "type": "multipleChoice",
       "question": "Resource leveling is used when:",
       "options": [
-        "A. The project is ahead of schedule",
+        "A. The project is ahead of schedule per the resource management plan",
         "B. Resources are over-allocated and conflicts need to be resolved",
-        "C. The budget needs to be reduced",
-        "D. New stakeholders are identified"
+        "C. The budget needs to be reduced per the resource management plan",
+        "D. New stakeholders are identified per the resource management plan"
       ],
       "correctAnswers": [
         "B"
@@ -2746,8 +2746,8 @@
       "options": [
         "A. Inspecting final deliverables for defects",
         "B. The processes used to produce deliverables, ensuring they follow standards",
-        "C. Reworking defective products",
-        "D. Testing software code"
+        "C. Reworking defective products as defined by quality metrics and criteria",
+        "D. Testing software code as defined by quality metrics and criteria"
       ],
       "correctAnswers": [
         "B"
@@ -2770,7 +2770,7 @@
         "A. The critical path in a schedule",
         "B. The most significant causes of defects using the 80/20 rule",
         "C. Team member skill levels",
-        "D. Budget variances"
+        "D. Budget variances within the approved cost baseline"
       ],
       "correctAnswers": [
         "B"
@@ -2905,10 +2905,10 @@
       "type": "multipleChoice",
       "question": "Push communication is BEST described as:",
       "options": [
-        "A. Stakeholders actively seeking information",
+        "A. Stakeholders actively seeking information based on stakeholder analysis and engagement",
         "B. Information sent to recipients without their request, such as emails or reports",
-        "C. Real-time video conferences",
-        "D. Walking to someone's desk for a conversation"
+        "C. Real-time video conferences, as outlined in the communication plan",
+        "D. Walking to someone's desk for a conversation as outlined in the communication plan"
       ],
       "correctAnswers": [
         "B"
@@ -2953,8 +2953,8 @@
       "options": [
         "A. Assign blame for past project failures",
         "B. Formally introduce the project, team, objectives, and expectations",
-        "C. Conduct a detailed risk analysis",
-        "D. Close out the project"
+        "C. Conduct a detailed risk analysis as identified in the risk register",
+        "D. Close out the project to support effective project delivery"
       ],
       "correctAnswers": [
         "B"
@@ -2976,8 +2976,8 @@
       "options": [
         "A. Daily status updates from the development team",
         "B. Senior stakeholders reviewing project progress and making strategic decisions",
-        "C. Coding sessions for the development team",
-        "D. Individual performance reviews"
+        "C. Coding sessions for the development team involving team members and project staff",
+        "D. Individual performance reviews to support effective project delivery"
       ],
       "correctAnswers": [
         "B"
@@ -3112,10 +3112,10 @@
       "type": "multipleChoice",
       "question": "A Request for Information (RFI) is used to:",
       "options": [
-        "A. Award a contract to a vendor",
+        "A. Award a contract to a vendor through the vendor management process",
         "B. Gather information about vendor capabilities before issuing an RFP",
         "C. Negotiate the final contract price",
-        "D. Close out a vendor contract"
+        "D. Close out a vendor contract in coordination with external vendors"
       ],
       "correctAnswers": [
         "B"
@@ -3161,7 +3161,7 @@
         "A. Projects with a well-defined scope and deliverables",
         "B. Projects where the scope is uncertain and work is difficult to estimate",
         "C. Large construction projects with fixed budgets",
-        "D. Projects with no budget constraints"
+        "D. Projects with no budget constraints within the approved cost baseline"
       ],
       "correctAnswers": [
         "B"
@@ -3183,7 +3183,7 @@
       "options": [
         "A. Which team members to hire",
         "B. Whether to produce work internally or outsource to a vendor",
-        "C. The project's risk tolerance",
+        "C. The project's risk tolerance as identified in the risk register",
         "D. The optimal sprint length"
       ],
       "correctAnswers": [
@@ -3296,10 +3296,10 @@
       "type": "multipleChoice",
       "question": "A project proposal typically includes:",
       "options": [
-        "A. Detailed code specifications",
+        "A. Detailed code specifications to facilitate project success and outcomes",
         "B. Problem statement, proposed solution, estimated costs, and expected benefits",
-        "C. Team member performance reviews",
-        "D. Final test results"
+        "C. Team member performance reviews across the project team and functional groups",
+        "D. Final test results, to support effective project delivery"
       ],
       "correctAnswers": [
         "B"
@@ -3392,8 +3392,8 @@
       "options": [
         "A. Provide detailed technical specifications",
         "B. Formally authorize the project and grant the PM authority",
-        "C. Define the complete WBS",
-        "D. Document lessons learned"
+        "C. Define the complete WBS as authorized in the project charter",
+        "D. Document lessons learned as authorized in the project charter"
       ],
       "correctAnswers": [
         "B"
@@ -3440,10 +3440,10 @@
       "type": "multipleChoice",
       "question": "A stakeholder register documents:",
       "options": [
-        "A. Only the project sponsor's information",
+        "A. Only the project sponsor's information based on stakeholder analysis and engagement",
         "B. All identified stakeholders, their interests, influence, and engagement level",
-        "C. The project schedule",
-        "D. Team member technical skills only"
+        "C. The project schedule, according to stakeholder requirements",
+        "D. Team member technical skills only based on stakeholder analysis and engagement"
       ],
       "correctAnswers": [
         "B"
@@ -3463,10 +3463,10 @@
       "type": "multipleChoice",
       "question": "A power/interest grid classifies stakeholders by:",
       "options": [
-        "A. Their job title and salary",
+        "A. Their job title and salary based on stakeholder analysis and engagement",
         "B. Their level of authority (power) and concern about the project (interest)",
         "C. Their technical skills and availability",
-        "D. Their geographic location and time zone"
+        "D. Their geographic location and time zone according to stakeholder requirements"
       ],
       "correctAnswers": [
         "B"
@@ -3512,7 +3512,7 @@
         "A. A list sorted by team member assignments",
         "B. A hierarchical decomposition of deliverables into smaller work packages",
         "C. A chronological sequence of activities",
-        "D. A budget spreadsheet by department"
+        "D. A budget spreadsheet by department within the approved cost baseline"
       ],
       "correctAnswers": [
         "B"
@@ -3532,10 +3532,10 @@
       "type": "multipleChoice",
       "question": "A WBS dictionary provides:",
       "options": [
-        "A. Translations of project terms into multiple languages",
+        "A. Translations of project terms into multiple languages to address project requirements effectively",
         "B. Detailed descriptions of each WBS element including scope, deliverables, and acceptance criteria",
-        "C. A list of project risks",
-        "D. Team member contact information"
+        "C. A list of project risks, per the risk management plan",
+        "D. Team member contact information, involving team members and project staff"
       ],
       "correctAnswers": [
         "B"
@@ -3555,10 +3555,10 @@
       "type": "multipleChoice",
       "question": "A requirements traceability matrix (RTM) links:",
       "options": [
-        "A. Budget items to cost codes",
+        "A. Budget items to cost codes according to the budget allocation plan",
         "B. Requirements to their origin and the deliverables that satisfy them",
         "C. Team members to their parking spots",
-        "D. Risks to their probability scores"
+        "D. Risks to their probability scores as identified in the risk register"
       ],
       "correctAnswers": [
         "B"
@@ -3580,8 +3580,8 @@
       "options": [
         "A. The entire project is planned in detail from start to finish",
         "B. Near-term work is planned in detail while future work is planned at a high level",
-        "C. Planning is done only during the last phase",
-        "D. No planning occurs until execution begins"
+        "C. Planning is done only during the last phase according to the project management plan",
+        "D. No planning occurs until execution begins according to the project management plan"
       ],
       "correctAnswers": [
         "B"
@@ -3674,10 +3674,10 @@
       "type": "multipleChoice",
       "question": "During the execution phase, the project manager spends MOST time on:",
       "options": [
-        "A. Creating the project charter",
+        "A. Creating the project charter as authorized in the project charter",
         "B. Directing work, managing the team, and communicating with stakeholders",
-        "C. Conducting the feasibility study",
-        "D. Archiving project documents"
+        "C. Conducting the feasibility study to ensure alignment with project goals",
+        "D. Archiving project documents according to the project management plan"
       ],
       "correctAnswers": [
         "B"
@@ -3722,7 +3722,7 @@
       "options": [
         "A. Only financial metrics",
         "B. Raw observations and measurements about activity status",
-        "C. The project charter",
+        "C. The project charter as authorized in the project charter",
         "D. Lessons learned from past projects"
       ],
       "correctAnswers": [
@@ -3745,7 +3745,7 @@
       "options": [
         "A. Prevent potential future problems",
         "B. Bring expected future project performance in line with the plan",
-        "C. Celebrate project milestones",
+        "C. Celebrate project milestones aligned with key project milestones",
         "D. Add new features to the project"
       ],
       "correctAnswers": [
@@ -3789,7 +3789,7 @@
       "type": "multipleChoice",
       "question": "A project has a Schedule Performance Index (SPI) of 0.85. This means:",
       "options": [
-        "A. The project is ahead of schedule",
+        "A. The project is ahead of schedule as outlined in the schedule baseline",
         "B. The project is behind schedule, completing only 85% of planned work",
         "C. The project is exactly on schedule",
         "D. The schedule cannot be measured"
@@ -3812,10 +3812,10 @@
       "type": "multipleChoice",
       "question": "A CPI of 1.15 indicates the project is:",
       "options": [
-        "A. Over budget by 15%",
+        "A. Over budget by 15% according to the budget allocation plan",
         "B. Under budget, getting $1.15 of value for every $1 spent",
         "C. Behind schedule by 15%",
-        "D. Exactly on budget"
+        "D. Exactly on budget according to the budget allocation plan"
       ],
       "correctAnswers": [
         "B"
@@ -3837,8 +3837,8 @@
       "options": [
         "A. The PM inspecting deliverables for quality",
         "B. The customer formally accepting completed deliverables",
-        "C. Updating the risk register",
-        "D. Creating the WBS"
+        "C. Updating the risk register per the risk management plan",
+        "D. Creating the WBS as defined in the scope baseline and WBS"
       ],
       "correctAnswers": [
         "B"
@@ -3858,10 +3858,10 @@
       "type": "multipleChoice",
       "question": "Estimate at Completion (EAC) represents:",
       "options": [
-        "A. The original project budget",
+        "A. The original project budget within the approved cost baseline",
         "B. The expected total cost of the project based on current performance",
-        "C. The amount of work remaining",
-        "D. The actual cost spent to date"
+        "C. The amount of work remaining to support effective project delivery",
+        "D. The actual cost spent to date within the constraints of the project"
       ],
       "correctAnswers": [
         "B"
@@ -3883,8 +3883,8 @@
       "options": [
         "A. Assign blame for project failures",
         "B. Capture knowledge for future projects and organizational improvement",
-        "C. Justify additional budget requests",
-        "D. Extend the project timeline"
+        "C. Justify additional budget requests according to the budget allocation plan",
+        "D. Extend the project timeline within the constraints of the project"
       ],
       "correctAnswers": [
         "B"
@@ -3956,7 +3956,7 @@
       "options": [
         "A. The project manager retains exclusive knowledge",
         "B. The operations team can support and maintain the deliverables",
-        "C. No documentation is needed",
+        "C. No documentation is needed throughout the project life cycle",
         "D. The project can be restarted at any time"
       ],
       "correctAnswers": [
@@ -3977,9 +3977,9 @@
       "type": "multipleChoice",
       "question": "A post-implementation review is conducted to:",
       "options": [
-        "A. Approve the project charter",
+        "A. Approve the project charter per the project charter and governance",
         "B. Evaluate whether the project achieved its intended business objectives",
-        "C. Create the risk register",
+        "C. Create the risk register, per the risk management plan",
         "D. Assign resources to the next project"
       ],
       "correctAnswers": [
@@ -4026,7 +4026,7 @@
         "A. Detailed source code listings",
         "B. A high-level visual summary of project health and key metrics",
         "C. Team member vacation schedules",
-        "D. Vendor contract details"
+        "D. Vendor contract details in coordination with external vendors"
       ],
       "correctAnswers": [
         "B"
@@ -4115,10 +4115,10 @@
       "type": "multipleChoice",
       "question": "A flowchart in project management is used to:",
       "options": [
-        "A. Calculate earned value metrics",
+        "A. Calculate earned value metrics for the benefit of all project stakeholders",
         "B. Display a process or workflow showing steps, decisions, and outcomes",
-        "C. Track team member hours",
-        "D. Plan the project budget"
+        "C. Track team member hours across the project team and functional groups",
+        "D. Plan the project budget within the approved cost baseline"
       ],
       "correctAnswers": [
         "B"
@@ -4138,10 +4138,10 @@
       "type": "multipleChoice",
       "question": "An affinity diagram is used to:",
       "options": [
-        "A. Calculate project costs",
+        "A. Calculate project costs for the benefit of all project stakeholders",
         "B. Group ideas or data into categories based on natural relationships",
-        "C. Schedule project activities",
-        "D. Measure quality defects"
+        "C. Schedule project activities based on the project timeline and milestones",
+        "D. Measure quality defects in accordance with quality standards"
       ],
       "correctAnswers": [
         "B"
@@ -4188,7 +4188,7 @@
       "options": [
         "A. How fast team members type",
         "B. The amount of work completed per sprint over multiple sprints",
-        "C. Network traffic speed",
+        "C. Network traffic speed in alignment with organizational standards",
         "D. The critical path duration"
       ],
       "correctAnswers": [
@@ -4211,8 +4211,8 @@
       "options": [
         "A. The project's technical architecture",
         "B. What information will be communicated, to whom, how, and when",
-        "C. The project budget breakdown",
-        "D. Team member job descriptions"
+        "C. The project budget breakdown as outlined in the communication plan",
+        "D. Team member job descriptions as outlined in the communication plan"
       ],
       "correctAnswers": [
         "B"
@@ -4232,10 +4232,10 @@
       "type": "multipleChoice",
       "question": "A change log records:",
       "options": [
-        "A. Only approved changes",
+        "A. Only approved changes through the integrated change control board",
         "B. All change requests and their current status (pending, approved, rejected)",
-        "C. Team member attendance",
-        "D. Budget expenditures only"
+        "C. Team member attendance involving team members and project staff",
+        "D. Budget expenditures only through the integrated change control board"
       ],
       "correctAnswers": [
         "B"
@@ -4255,10 +4255,10 @@
       "type": "multipleChoice",
       "question": "A Statement of Work (SOW) describes:",
       "options": [
-        "A. The project manager's authority level",
+        "A. The project manager's authority level, throughout the project life cycle",
         "B. The specific work to be performed under a contract, including deliverables and timeline",
-        "C. The team's daily standup agenda",
-        "D. The organization's strategic plan"
+        "C. The team's daily standup agenda across the project team and functional groups",
+        "D. The organization's strategic plan, to support informed decision-making"
       ],
       "correctAnswers": [
         "B"
@@ -4301,10 +4301,10 @@
       "type": "multipleChoice",
       "question": "A project closure report typically includes:",
       "options": [
-        "A. Sprint backlog items for the next project",
+        "A. Sprint backlog items for the next project to support informed decision-making",
         "B. Summary of project performance, lessons learned, and final deliverable status",
-        "C. Detailed source code documentation",
-        "D. Vendor marketing materials"
+        "C. Detailed source code documentation during the planning and execution phases",
+        "D. Vendor marketing materials, through the vendor management process"
       ],
       "correctAnswers": [
         "B"
@@ -4464,7 +4464,7 @@
       "type": "multipleChoice",
       "question": "Variance at Completion (VAC) tells the project manager:",
       "options": [
-        "A. How many resources are available",
+        "A. How many resources are available per the resource management plan",
         "B. The expected budget surplus or deficit at project completion",
         "C. The current schedule status",
         "D. How many risks have been identified"
@@ -4513,7 +4513,7 @@
         "A. The amount invoiced to the client",
         "B. The value of the work actually completed, measured against the budget",
         "C. The actual cost of resources used",
-        "D. The profit earned by the project"
+        "D. The profit earned by the project throughout the project life cycle"
       ],
       "correctAnswers": [
         "B"
@@ -4604,9 +4604,9 @@
       "type": "multipleChoice",
       "question": "Infrastructure as a Service (IaaS) provides:",
       "options": [
-        "A. Fully managed applications",
+        "A. Fully managed applications to ensure alignment with project goals",
         "B. Virtualized computing resources like servers, storage, and networking",
-        "C. Only email services",
+        "C. Only email services to facilitate project success and outcomes",
         "D. Pre-built software platforms for development"
       ],
       "correctAnswers": [
@@ -4652,7 +4652,7 @@
       "options": [
         "A. Only public cloud services from multiple providers",
         "B. Public and private cloud environments with data sharing between them",
-        "C. Only on-premises infrastructure",
+        "C. Only on-premises infrastructure throughout the project life cycle",
         "D. Cloud and manual paper-based systems"
       ],
       "correctAnswers": [
@@ -4673,10 +4673,10 @@
       "type": "multipleChoice",
       "question": "DevOps is BEST described as:",
       "options": [
-        "A. A software programming language",
+        "A. A software programming language in alignment with organizational standards",
         "B. A culture and set of practices that unify software development and IT operations",
-        "C. A type of cloud service",
-        "D. A project management methodology"
+        "C. A type of cloud service based on established project management practices",
+        "D. A project management methodology in alignment with organizational standards"
       ],
       "correctAnswers": [
         "B"
@@ -4719,10 +4719,10 @@
       "type": "multipleChoice",
       "question": "A VPN (Virtual Private Network) is used to:",
       "options": [
-        "A. Increase internet speed",
+        "A. Increase internet speed to support effective project delivery",
         "B. Create a secure, encrypted connection over a public network",
         "C. Replace the need for antivirus software",
-        "D. Store files in the cloud"
+        "D. Store files in the cloud to ensure alignment with project goals"
       ],
       "correctAnswers": [
         "B"
@@ -4742,9 +4742,9 @@
       "type": "multipleChoice",
       "question": "A disaster recovery plan (DRP) differs from a business continuity plan (BCP) in that a DRP:",
       "options": [
-        "A. Is only needed for natural disasters",
+        "A. Is only needed for natural disasters according to the project management plan",
         "B. Focuses specifically on restoring IT systems and data after a disruption",
-        "C. Replaces the need for data backups",
+        "C. Replaces the need for data backups to ensure alignment with project goals",
         "D. Is the same as a project management plan"
       ],
       "correctAnswers": [
@@ -4765,7 +4765,7 @@
       "type": "multipleChoice",
       "question": "An API (Application Programming Interface) allows:",
       "options": [
-        "A. Users to access the internet",
+        "A. Users to access the internet throughout the project life cycle",
         "B. Different software applications to communicate with each other",
         "C. Hardware components to be physically connected",
         "D. Project managers to create Gantt charts"
@@ -4815,10 +4815,10 @@
       "type": "multipleChoice",
       "question": "Version control (source control) systems are used to:",
       "options": [
-        "A. Track project budgets",
+        "A. Track project budgets within the approved cost baseline",
         "B. Track and manage changes to code, documents, or files over time",
-        "C. Schedule team meetings",
-        "D. Monitor network performance"
+        "C. Schedule team meetings involving team members and project staff",
+        "D. Monitor network performance to ensure alignment with project goals"
       ],
       "correctAnswers": [
         "B"
@@ -4863,8 +4863,8 @@
       "options": [
         "A. Cloud computing infrastructure",
         "B. Heavyweight, documentation-driven software development processes",
-        "C. Team member compensation",
-        "D. Hardware manufacturing"
+        "C. Team member compensation within the iterative development framework",
+        "D. Hardware manufacturing within the iterative development framework"
       ],
       "correctAnswers": [
         "B"
@@ -4886,8 +4886,8 @@
       "options": [
         "A. The exact hours needed to complete a user story",
         "B. The relative effort, complexity, and uncertainty of a user story",
-        "C. The number of lines of code",
-        "D. The cost of development"
+        "C. The number of lines of code during sprint planning and execution",
+        "D. The cost of development during sprint planning and execution"
       ],
       "correctAnswers": [
         "B"
@@ -4910,7 +4910,7 @@
         "A. Team members play cards for fun during breaks",
         "B. Team members simultaneously reveal their estimates to avoid anchoring bias",
         "C. The project manager assigns estimates to each task",
-        "D. Only the Scrum Master provides estimates"
+        "D. Only the Scrum Master provides estimates during sprint planning and execution"
       ],
       "correctAnswers": [
         "B"
@@ -4930,10 +4930,10 @@
       "type": "multipleChoice",
       "question": "A Minimum Viable Product (MVP) is:",
       "options": [
-        "A. A product with no features",
+        "A. A product with no features for the benefit of all project stakeholders",
         "B. The simplest version of a product that delivers value and enables learning",
-        "C. The final, feature-complete product",
-        "D. A product that fails quality testing"
+        "C. The final, feature-complete product in accordance with industry best practices",
+        "D. A product that fails quality testing in accordance with quality standards"
       ],
       "correctAnswers": [
         "B"
@@ -4955,7 +4955,7 @@
       "options": [
         "A. Deleting all items from the backlog",
         "B. Reviewing, updating, and adding detail to product backlog items",
-        "C. Closing the project",
+        "C. Closing the project for the benefit of all project stakeholders",
         "D. Conducting performance reviews"
       ],
       "correctAnswers": [
@@ -4978,8 +4978,8 @@
       "options": [
         "A. A very small task that takes less than an hour",
         "B. A large body of work that can be broken down into smaller user stories",
-        "C. A type of sprint",
-        "D. The same as a bug report"
+        "C. A type of sprint within the iterative development framework",
+        "D. The same as a bug report within the iterative development framework"
       ],
       "correctAnswers": [
         "B"
@@ -5001,7 +5001,7 @@
       "options": [
         "A. The salary requirements for team members",
         "B. The conditions that must be met for the story to be considered complete",
-        "C. The project sponsor's expectations for ROI",
+        "C. The project sponsor's expectations for ROI as directed by the project sponsor",
         "D. The number of sprints needed"
       ],
       "correctAnswers": [
@@ -5068,10 +5068,10 @@
       "type": "multipleChoice",
       "question": "SOX (Sarbanes-Oxley Act) primarily affects:",
       "options": [
-        "A. Healthcare organizations",
+        "A. Healthcare organizations to address project requirements effectively",
         "B. Publicly traded companies' financial reporting and internal controls",
-        "C. Social media companies",
-        "D. Non-profit organizations"
+        "C. Social media companies based on established project management practices",
+        "D. Non-profit organizations for the benefit of all project stakeholders"
       ],
       "correctAnswers": [
         "B"
@@ -5114,10 +5114,10 @@
       "type": "multipleChoice",
       "question": "Personally Identifiable Information (PII) includes:",
       "options": [
-        "A. Only social security numbers",
+        "A. Only social security numbers as required by the project methodology",
         "B. Any data that can identify a specific individual, such as name, email, or SSN",
-        "C. Only medical records",
-        "D. Public company financial statements"
+        "C. Only medical records, to address project requirements effectively",
+        "D. Public company financial statements based on lessons learned and historical data"
       ],
       "correctAnswers": [
         "B"
@@ -5165,7 +5165,7 @@
         "A. Adding privacy features after the product launches",
         "B. Integrating privacy protections into the system from the beginning of development",
         "C. Hiding all project documentation from stakeholders",
-        "D. Encrypting only the database"
+        "D. Encrypting only the database, as required by the project methodology"
       ],
       "correctAnswers": [
         "B"
@@ -5208,9 +5208,9 @@
       "type": "multipleChoice",
       "question": "A Change Advisory Board (CAB) in IT governance:",
       "options": [
-        "A. Only manages project budgets",
+        "A. Only manages project budgets following the change control process",
         "B. Reviews and approves changes to IT systems to minimize risk",
-        "C. Writes software code",
+        "C. Writes software code following the change control process",
         "D. Conducts employee performance reviews"
       ],
       "correctAnswers": [
@@ -5277,10 +5277,10 @@
       "type": "multipleChoice",
       "question": "Organizational change management (OCM) focuses on:",
       "options": [
-        "A. Managing source code changes",
+        "A. Managing source code changes following the change control process",
         "B. Helping people adopt new processes, tools, or organizational structures",
-        "C. Tracking budget changes",
-        "D. Modifying the project schedule"
+        "C. Tracking budget changes following the change control process",
+        "D. Modifying the project schedule following the change control process"
       ],
       "correctAnswers": [
         "B"
@@ -5300,10 +5300,10 @@
       "type": "multipleChoice",
       "question": "Data governance ensures:",
       "options": [
-        "A. All data is deleted after the project ends",
+        "A. All data is deleted after the project ends under the project governance framework",
         "B. Data is properly managed, secured, and used according to policies and regulations",
-        "C. Only the DBA can access any data",
-        "D. Data is never shared between departments"
+        "C. Only the DBA can access any data per organizational governance policies",
+        "D. Data is never shared between departments under the project governance framework"
       ],
       "correctAnswers": [
         "B"
@@ -5351,7 +5351,7 @@
         "A. All team members receive bonuses",
         "B. The project delivers the intended business value and benefits",
         "C. The project stays under budget",
-        "D. Vendors are paid on time"
+        "D. Vendors are paid on time through the vendor management process"
       ],
       "correctAnswers": [
         "B"
@@ -5394,10 +5394,10 @@
       "type": "multipleChoice",
       "question": "T-shirt sizing in Agile estimation uses:",
       "options": [
-        "A. Exact hour estimates",
+        "A. Exact hour estimates within the iterative development framework",
         "B. Relative sizes like XS, S, M, L, XL for quick high-level estimation",
-        "C. Dollar amounts",
-        "D. Fibonacci numbers only"
+        "C. Dollar amounts within the iterative development framework",
+        "D. Fibonacci numbers only during sprint planning and execution"
       ],
       "correctAnswers": [
         "B"
@@ -5419,7 +5419,7 @@
       "options": [
         "A. The project scope has not changed since initiation",
         "B. Completed deliverables are formally accepted by the customer",
-        "C. All risks have been mitigated",
+        "C. All risks have been mitigated as identified in the risk register",
         "D. The budget has not been exceeded"
       ],
       "correctAnswers": [
@@ -5440,10 +5440,10 @@
       "type": "multipleChoice",
       "question": "Risk sharing is a positive risk response strategy where:",
       "options": [
-        "A. The risk is transferred to a third party",
+        "A. The risk is transferred to a third party as identified in the risk register",
         "B. The opportunity is allocated to a third party best able to capture it",
-        "C. The team ignores the risk",
-        "D. The risk is eliminated entirely"
+        "C. The team ignores the risk across the project team and functional groups",
+        "D. The risk is eliminated entirely as identified in the risk register"
       ],
       "correctAnswers": [
         "B"
@@ -5465,8 +5465,8 @@
       "options": [
         "A. A risk that is less important than the primary risk",
         "B. A new risk that arises as a result of implementing a risk response",
-        "C. A risk identified during project closure",
-        "D. A risk that has been accepted"
+        "C. A risk identified during project closure per the risk management plan",
+        "D. A risk that has been accepted as identified in the risk register"
       ],
       "correctAnswers": [
         "B"
@@ -5486,10 +5486,10 @@
       "type": "multipleChoice",
       "question": "A workaround is:",
       "options": [
-        "A. A pre-planned risk response",
+        "A. A pre-planned risk response, per the risk management plan",
         "B. An unplanned response to a risk that has occurred without a planned response",
-        "C. A permanent fix for a known issue",
-        "D. An alternative project methodology"
+        "C. A permanent fix for a known issue as required by the project methodology",
+        "D. An alternative project methodology within the constraints of the project"
       ],
       "correctAnswers": [
         "B"
@@ -5558,7 +5558,7 @@
         "A. Expert judgment from similar projects",
         "B. Statistical relationships between historical data and project variables",
         "C. A single point estimate from the sponsor",
-        "D. Random number generation"
+        "D. Random number generation within the constraints of the project"
       ],
       "correctAnswers": [
         "B"
@@ -5578,9 +5578,9 @@
       "type": "multipleChoice",
       "question": "Six Sigma aims to:",
       "options": [
-        "A. Increase project scope",
+        "A. Increase project scope as defined in the scope baseline and WBS",
         "B. Reduce defects to fewer than 3.4 per million opportunities",
-        "C. Eliminate all project risks",
+        "C. Eliminate all project risks as identified in the risk register",
         "D. Shorten the project schedule by 50%"
       ],
       "correctAnswers": [
@@ -5624,10 +5624,10 @@
       "type": "multipleChoice",
       "question": "An information radiator is:",
       "options": [
-        "A. A heating device in the server room",
+        "A. A heating device in the server room as documented in the project management framework",
         "B. A highly visible display of project information like Kanban boards or burndown charts",
-        "C. A type of email filter",
-        "D. A stakeholder communication report"
+        "C. A type of email filter, throughout the project life cycle",
+        "D. A stakeholder communication report through established communication channels"
       ],
       "correctAnswers": [
         "B"
@@ -5810,8 +5810,8 @@
       "options": [
         "A. Only technical knowledge",
         "B. Self-awareness, empathy, social skills, and self-regulation",
-        "C. Budget management skills",
-        "D. Scheduling expertise"
+        "C. Budget management skills within the approved cost baseline",
+        "D. Scheduling expertise according to the project management plan"
       ],
       "correctAnswers": [
         "B"
@@ -5854,10 +5854,10 @@
       "type": "multipleChoice",
       "question": "A Service Level Agreement (SLA) defines:",
       "options": [
-        "A. The project team's working hours",
+        "A. The project team's working hours across the project team and functional groups",
         "B. Expected performance standards and metrics between service provider and customer",
-        "C. The project charter content",
-        "D. Team member job descriptions"
+        "C. The project charter content, as authorized in the project charter",
+        "D. Team member job descriptions involving team members and project staff"
       ],
       "correctAnswers": [
         "B"
@@ -5902,7 +5902,7 @@
       "options": [
         "A. The interest rate on the project's bank loan",
         "B. The discount rate that makes the NPV of a project equal to zero",
-        "C. The project's profit margin",
+        "C. The project's profit margin to ensure project objectives are met",
         "D. The rate of team member turnover"
       ],
       "correctAnswers": [
@@ -5923,10 +5923,10 @@
       "type": "multipleChoice",
       "question": "Enterprise Environmental Factors (EEFs) that influence projects include:",
       "options": [
-        "A. Only internal company policies",
+        "A. Only internal company policies in accordance with industry best practices",
         "B. Market conditions, regulations, organizational culture, and industry standards",
-        "C. The project management plan",
-        "D. Lessons learned from past projects"
+        "C. The project management plan, within the constraints of the project",
+        "D. Lessons learned from past projects according to the project management plan"
       ],
       "correctAnswers": [
         "B"
@@ -5948,8 +5948,8 @@
       "options": [
         "A. Only the organization's physical assets",
         "B. Templates, procedures, lessons learned, and historical information",
-        "C. Team member personal files",
-        "D. Vendor marketing materials"
+        "C. Team member personal files across the project team and functional groups",
+        "D. Vendor marketing materials in coordination with external vendors"
       ],
       "correctAnswers": [
         "B"
@@ -5969,10 +5969,10 @@
       "type": "multipleChoice",
       "question": "The change management plan describes:",
       "options": [
-        "A. How team members will relocate offices",
+        "A. How team members will relocate offices through the integrated change control board",
         "B. How changes to the project will be formally managed, approved, and documented",
-        "C. How the product will be marketed",
-        "D. How stakeholders will be identified"
+        "C. How the product will be marketed following the change control process",
+        "D. How stakeholders will be identified through the integrated change control board"
       ],
       "correctAnswers": [
         "B"
@@ -5995,7 +5995,7 @@
         "A. Project deliverables into work packages",
         "B. Project resources by category and type in a hierarchical format",
         "C. Stakeholders by influence level",
-        "D. Risks by probability"
+        "D. Risks by probability per the resource management plan"
       ],
       "correctAnswers": [
         "B"
@@ -6044,7 +6044,7 @@
       "options": [
         "A. Assigning risks to the lowest-level team member",
         "B. Anonymous expert input gathered iteratively until consensus is reached",
-        "C. Using Monte Carlo simulation",
+        "C. Using Monte Carlo simulation, per the risk management plan",
         "D. Reviewing only the risk register from the previous project"
       ],
       "correctAnswers": [
@@ -6065,10 +6065,10 @@
       "type": "multipleChoice",
       "question": "Managing stakeholder engagement during execution involves:",
       "options": [
-        "A. Ignoring stakeholders until the project is complete",
+        "A. Ignoring stakeholders until the project is complete according to stakeholder requirements",
         "B. Communicating with stakeholders, addressing their concerns, and maintaining relationships",
-        "C. Only reporting to the project sponsor",
-        "D. Sending one status report at the end of the project"
+        "C. Only reporting to the project sponsor according to stakeholder requirements",
+        "D. Sending one status report at the end of the project based on stakeholder analysis and engagement"
       ],
       "correctAnswers": [
         "B"
@@ -6088,10 +6088,10 @@
       "type": "multipleChoice",
       "question": "A quality audit during execution examines:",
       "options": [
-        "A. Only the final deliverable",
+        "A. Only the final deliverable, in accordance with quality standards",
         "B. Whether project activities comply with organizational and project policies and processes",
-        "C. Team member attendance records",
-        "D. The project charter approval"
+        "C. Team member attendance records, as defined by quality metrics and criteria",
+        "D. The project charter approval, per the project charter and governance"
       ],
       "correctAnswers": [
         "B"
@@ -6114,7 +6114,7 @@
         "A. Reducing all communication to email only",
         "B. Clear communication, trust building, and technology-enabled collaboration",
         "C. Requiring all team members to relocate to one office",
-        "D. Eliminating all meetings"
+        "D. Eliminating all meetings involving team members and project staff"
       ],
       "correctAnswers": [
         "B"
@@ -6157,10 +6157,10 @@
       "type": "multipleChoice",
       "question": "A trend analysis looks at:",
       "options": [
-        "A. A single data point in time",
+        "A. A single data point in time considering project constraints and assumptions",
         "B. Project performance over time to identify patterns and forecast future results",
-        "C. Only the project budget",
-        "D. Team member satisfaction scores"
+        "C. Only the project budget, according to the budget allocation plan",
+        "D. Team member satisfaction scores involving team members and project staff"
       ],
       "correctAnswers": [
         "B"
@@ -6180,10 +6180,10 @@
       "type": "multipleChoice",
       "question": "Contract closure involves:",
       "options": [
-        "A. Only paying the vendor",
+        "A. Only paying the vendor, in coordination with external vendors",
         "B. Verifying all contract deliverables are complete, resolving disputes, and formally closing the contract",
-        "C. Starting a new contract",
-        "D. Extending the contract indefinitely"
+        "C. Starting a new contract, to support effective project delivery",
+        "D. Extending the contract indefinitely, during the planning and execution phases"
       ],
       "correctAnswers": [
         "B"
@@ -6249,10 +6249,10 @@
       "type": "multipleChoice",
       "question": "A risk owner is the person who:",
       "options": [
-        "A. Identified the risk first",
+        "A. Identified the risk first as identified in the risk register",
         "B. Is assigned to monitor and manage a specific risk and its response",
-        "C. Caused the risk to occur",
-        "D. Has the largest budget on the project"
+        "C. Caused the risk to occur, per the risk management plan",
+        "D. Has the largest budget on the project as identified in the risk register"
       ],
       "correctAnswers": [
         "B"
@@ -6272,10 +6272,10 @@
       "type": "multipleChoice",
       "question": "Passive acceptance of a risk means:",
       "options": [
-        "A. Developing a detailed contingency plan",
+        "A. Developing a detailed contingency plan per the risk management plan",
         "B. Acknowledging the risk but not taking proactive action unless it occurs",
-        "C. Transferring the risk to insurance",
-        "D. Eliminating the risk from the project"
+        "C. Transferring the risk to insurance per the risk management plan",
+        "D. Eliminating the risk from the project as identified in the risk register"
       ],
       "correctAnswers": [
         "B"
@@ -6298,7 +6298,7 @@
         "A. Only final product inspection",
         "B. Organization-wide commitment to quality involving all employees",
         "C. Quality management by external auditors only",
-        "D. Reducing quality to cut costs"
+        "D. Reducing quality to cut costs in accordance with quality standards"
       ],
       "correctAnswers": [
         "B"
@@ -6321,7 +6321,7 @@
         "A. The minimum acceptable budget for quality activities",
         "B. The quality objectives and acceptable thresholds for the project",
         "C. The number of quality auditors needed",
-        "D. The testing schedule"
+        "D. The testing schedule based on the project timeline and milestones"
       ],
       "correctAnswers": [
         "B"
@@ -6364,9 +6364,9 @@
       "type": "multipleChoice",
       "question": "A RACI chart shows 'Accountable' for a task means:",
       "options": [
-        "A. The person does the work",
+        "A. The person does the work, within the constraints of the project",
         "B. The one person ultimately answerable for the correct completion of the task",
-        "C. A person who gives input before the decision",
+        "C. A person who gives input before the decision to ensure project objectives are met",
         "D. A person who is kept up to date on progress"
       ],
       "correctAnswers": [
@@ -6389,7 +6389,7 @@
       "options": [
         "A. Fix a defect that has already occurred",
         "B. Reduce the probability of a negative consequence in the future",
-        "C. Celebrate a project milestone",
+        "C. Celebrate a project milestone aligned with key project milestones",
         "D. Add new features to the deliverable"
       ],
       "correctAnswers": [
@@ -6410,10 +6410,10 @@
       "type": "multipleChoice",
       "question": "During execution, the PM discovers that two team members have conflicting work styles. The PM should:",
       "options": [
-        "A. Immediately transfer one team member",
+        "A. Immediately transfer one team member involving team members and project staff",
         "B. Address the conflict early through facilitation and establish clear working agreements",
-        "C. Wait for the conflict to resolve itself",
-        "D. Report both team members to HR"
+        "C. Wait for the conflict to resolve itself across the project team and functional groups",
+        "D. Report both team members to HR, involving team members and project staff"
       ],
       "correctAnswers": [
         "B"
@@ -6502,10 +6502,10 @@
       "type": "multipleChoice",
       "question": "A risk report provides:",
       "options": [
-        "A. Daily task assignments for the team",
+        "A. Daily task assignments for the team involving team members and project staff",
         "B. Summary information on overall project risk exposure and individual risk status",
-        "C. The project's financial statements",
-        "D. Vendor performance evaluations"
+        "C. The project's financial statements, per the risk management plan",
+        "D. Vendor performance evaluations through the vendor management process"
       ],
       "correctAnswers": [
         "B"
@@ -6548,10 +6548,10 @@
       "type": "multipleChoice",
       "question": "A configuration management plan defines:",
       "options": [
-        "A. The project's hardware requirements",
+        "A. The project's hardware requirements to maintain project performance and compliance",
         "B. How changes to deliverables and documentation will be tracked and controlled",
-        "C. The team's seating arrangement",
-        "D. The project methodology selection"
+        "C. The team's seating arrangement involving team members and project staff",
+        "D. The project methodology selection to support informed decision-making"
       ],
       "correctAnswers": [
         "B"
@@ -6594,10 +6594,10 @@
       "type": "multipleChoice",
       "question": "To Complete Performance Index (TCPI) based on BAC tells the PM:",
       "options": [
-        "A. How fast the team is working",
+        "A. How fast the team is working across the project team and functional groups",
         "B. The cost efficiency that must be maintained for the remaining work to stay within budget",
-        "C. The project's current CPI",
-        "D. The number of resources needed"
+        "C. The project's current CPI, based on lessons learned and historical data",
+        "D. The number of resources needed, per the resource management plan"
       ],
       "correctAnswers": [
         "B"
@@ -6617,7 +6617,7 @@
       "type": "multipleChoice",
       "question": "Integration management ensures:",
       "options": [
-        "A. All software systems are connected",
+        "A. All software systems are connected to support informed decision-making",
         "B. All project management processes and activities work together coherently",
         "C. The team integrates with other departments socially",
         "D. Hardware components are physically assembled"
@@ -6640,10 +6640,10 @@
       "type": "multipleChoice",
       "question": "Knowledge management in projects ensures:",
       "options": [
-        "A. All team members pass certification exams",
+        "A. All team members pass certification exams across the project team and functional groups",
         "B. Existing knowledge is leveraged and new knowledge is captured for the organization",
-        "C. Only the PM has access to project information",
-        "D. Competitors cannot access the project plan"
+        "C. Only the PM has access to project information to address project requirements effectively",
+        "D. Competitors cannot access the project plan to address project requirements effectively"
       ],
       "correctAnswers": [
         "B"
@@ -6665,8 +6665,8 @@
       "options": [
         "A. Unstructured text files",
         "B. Tables with rows and columns linked by relationships",
-        "C. Blockchain ledgers",
-        "D. Binary code only"
+        "C. Blockchain ledgers within the constraints of the project",
+        "D. Binary code only to ensure alignment with project goals"
       ],
       "correctAnswers": [
         "B"
@@ -6712,7 +6712,7 @@
         "A. Mining, smelting, and manufacturing",
         "B. Requirements, design, development, testing, deployment, and maintenance",
         "C. Marketing, sales, and customer support only",
-        "D. Hiring, training, and termination"
+        "D. Hiring, training, and termination for the benefit of all project stakeholders"
       ],
       "correctAnswers": [
         "B"
@@ -6755,10 +6755,10 @@
       "type": "multipleChoice",
       "question": "A data breach notification requirement mandates that organizations:",
       "options": [
-        "A. Never disclose security incidents",
+        "A. Never disclose security incidents to maintain project performance and compliance",
         "B. Inform affected individuals and authorities within a specified timeframe after a breach",
-        "C. Delete all data after a breach",
-        "D. Shut down all IT systems permanently"
+        "C. Delete all data after a breach considering project constraints and assumptions",
+        "D. Shut down all IT systems permanently to facilitate project success and outcomes"
       ],
       "correctAnswers": [
         "B"
@@ -6824,10 +6824,10 @@
       "type": "multipleChoice",
       "question": "Corporate social responsibility (CSR) in project management involves:",
       "options": [
-        "A. Maximizing profits at any cost",
+        "A. Maximizing profits at any cost considering project constraints and assumptions",
         "B. Considering the project's impact on society, environment, and ethical standards",
-        "C. Only focusing on shareholder returns",
-        "D. Ignoring environmental regulations"
+        "C. Only focusing on shareholder returns based on lessons learned and historical data",
+        "D. Ignoring environmental regulations in accordance with industry best practices"
       ],
       "correctAnswers": [
         "B"
@@ -6847,10 +6847,10 @@
       "type": "multipleChoice",
       "question": "Intellectual property (IP) in project management should be:",
       "options": [
-        "A. Ignored during project planning",
+        "A. Ignored during project planning in alignment with organizational standards",
         "B. Identified, protected, and ownership clearly defined in contracts and agreements",
-        "C. Shared freely with all competitors",
-        "D. Only considered after project closure"
+        "C. Shared freely with all competitors according to the project management plan",
+        "D. Only considered after project closure to address project requirements effectively"
       ],
       "correctAnswers": [
         "B"
@@ -6870,10 +6870,10 @@
       "type": "multipleChoice",
       "question": "A project steering committee provides:",
       "options": [
-        "A. Daily task assignments to team members",
+        "A. Daily task assignments to team members across the project team and functional groups",
         "B. Strategic oversight, governance, and high-level decision-making for the project",
-        "C. Technical code reviews",
-        "D. Vendor payment processing"
+        "C. Technical code reviews to maintain project performance and compliance",
+        "D. Vendor payment processing, in coordination with external vendors"
       ],
       "correctAnswers": [
         "B"
@@ -6893,7 +6893,7 @@
       "type": "multipleChoice",
       "question": "SAFe (Scaled Agile Framework) is designed to:",
       "options": [
-        "A. Replace Scrum entirely",
+        "A. Replace Scrum entirely within the iterative development framework",
         "B. Scale Agile practices across large enterprises with multiple teams",
         "C. Simplify projects to a single team",
         "D. Eliminate the need for project managers"
@@ -6916,10 +6916,10 @@
       "type": "multipleChoice",
       "question": "Continuous delivery in Agile means:",
       "options": [
-        "A. The team works continuously without breaks",
+        "A. The team works continuously without breaks during sprint planning and execution",
         "B. Code changes are automatically prepared for release to production at any time",
         "C. All features are delivered in the first sprint",
-        "D. The project never ends"
+        "D. The project never ends, during sprint planning and execution"
       ],
       "correctAnswers": [
         "B"
@@ -6987,7 +6987,7 @@
       "options": [
         "A. Exactly 6 months",
         "B. 1 to 4 weeks, with 2 weeks being most common",
-        "C. 1 day",
+        "C. 1 day to ensure alignment with project goals",
         "D. As long as the project requires"
       ],
       "correctAnswers": [
@@ -7008,10 +7008,10 @@
       "type": "multipleChoice",
       "question": "A work package is:",
       "options": [
-        "A. The highest level of the WBS",
+        "A. The highest level of the WBS to maintain project performance and compliance",
         "B. The lowest level of the WBS that can be estimated, scheduled, and controlled",
-        "C. A shipping container for project materials",
-        "D. A collection of project risks"
+        "C. A shipping container for project materials to support informed decision-making",
+        "D. A collection of project risks, per the risk management plan"
       ],
       "correctAnswers": [
         "B"
@@ -7079,8 +7079,8 @@
       "options": [
         "A. The amount of time an activity can be delayed without delaying the project end date",
         "B. The amount of time an activity can be delayed without affecting the early start of its successor",
-        "C. The total budget available for the project",
-        "D. Unused resources on the project"
+        "C. The total budget available for the project according to the budget allocation plan",
+        "D. Unused resources on the project, based on resource availability and allocation"
       ],
       "correctAnswers": [
         "B"
@@ -7102,8 +7102,8 @@
       "options": [
         "A. Information sent directly to recipients via email",
         "B. Information placed in a central location for stakeholders to access when needed",
-        "C. Real-time conversations between parties",
-        "D. Mandatory attendance at meetings"
+        "C. Real-time conversations between parties through established communication channels",
+        "D. Mandatory attendance at meetings through established communication channels"
       ],
       "correctAnswers": [
         "B"
@@ -7149,7 +7149,7 @@
         "A. Only when the project fails",
         "B. At regular intervals throughout the project and at closure",
         "C. Only at project closure",
-        "D. Before the project begins"
+        "D. Before the project begins throughout the project life cycle"
       ],
       "correctAnswers": [
         "B"
@@ -7240,7 +7240,7 @@
       "options": [
         "A. Detailed work packages and activity sequences",
         "B. High-level project boundaries, major deliverables, and initial constraints",
-        "C. Complete resource assignments and schedule",
+        "C. Complete resource assignments and schedule per the resource management plan",
         "D. Final acceptance criteria and test results"
       ],
       "correctAnswers": [
@@ -7310,7 +7310,7 @@
         "A. Detailed activity durations and dependencies",
         "B. Key project events and their planned dates without activity details",
         "C. Resource allocation by team member",
-        "D. Budget expenditure over time"
+        "D. Budget expenditure over time at critical points in the project timeline"
       ],
       "correctAnswers": [
         "B"
@@ -7330,10 +7330,10 @@
       "type": "multipleChoice",
       "question": "Acquiring resources during execution involves:",
       "options": [
-        "A. Only hiring external contractors",
+        "A. Only hiring external contractors, per the resource management plan",
         "B. Obtaining team members, equipment, materials, and facilities needed for the project",
-        "C. Purchasing the project sponsor's approval",
-        "D. Renting office space for the PMO"
+        "C. Purchasing the project sponsor's approval with project sponsor approval and oversight",
+        "D. Renting office space for the PMO based on resource availability and allocation"
       ],
       "correctAnswers": [
         "B"
@@ -7353,10 +7353,10 @@
       "type": "multipleChoice",
       "question": "A status report during execution typically includes:",
       "options": [
-        "A. Only good news about the project",
+        "A. Only good news about the project during the planning and execution phases",
         "B. Current progress, variances from plan, risks, issues, and upcoming milestones",
-        "C. Team member personal information",
-        "D. Competitor analysis"
+        "C. Team member personal information involving team members and project staff",
+        "D. Competitor analysis, according to the project management plan"
       ],
       "correctAnswers": [
         "B"
@@ -7376,10 +7376,10 @@
       "type": "multipleChoice",
       "question": "Schedule control involves:",
       "options": [
-        "A. Only tracking whether the project is on time",
+        "A. Only tracking whether the project is on time as outlined in the schedule baseline",
         "B. Monitoring schedule status, managing changes, and taking corrective actions",
-        "C. Creating the initial project schedule",
-        "D. Assigning resources to activities"
+        "C. Creating the initial project schedule as outlined in the schedule baseline",
+        "D. Assigning resources to activities based on the project timeline and milestones"
       ],
       "correctAnswers": [
         "B"
@@ -7399,10 +7399,10 @@
       "type": "multipleChoice",
       "question": "Cost control in monitoring and controlling includes:",
       "options": [
-        "A. Setting the initial project budget",
+        "A. Setting the initial project budget according to the budget allocation plan",
         "B. Tracking expenditures, forecasting costs, and managing budget changes",
-        "C. Hiring the finance team",
-        "D. Calculating team member salaries"
+        "C. Hiring the finance team across the project team and functional groups",
+        "D. Calculating team member salaries involving team members and project staff"
       ],
       "correctAnswers": [
         "B"
@@ -7425,7 +7425,7 @@
         "A. Physical directions to the project office",
         "B. A high-level strategic plan showing planned features and releases over time",
         "C. Detailed technical architecture diagrams",
-        "D. Individual team member tasks"
+        "D. Individual team member tasks across the project team and functional groups"
       ],
       "correctAnswers": [
         "B"
@@ -7445,10 +7445,10 @@
       "type": "multipleChoice",
       "question": "A PMIS (Project Management Information System) is:",
       "options": [
-        "A. A type of programming language",
+        "A. A type of programming language, as part of the overall project management approach",
         "B. An integrated system of tools and techniques used to collect, store, and distribute project information",
-        "C. A single spreadsheet for tracking tasks",
-        "D. The project sponsor's personal dashboard"
+        "C. A single spreadsheet for tracking tasks as part of the overall project management approach",
+        "D. The project sponsor's personal dashboard, with project sponsor approval and oversight"
       ],
       "correctAnswers": [
         "B"
@@ -7468,10 +7468,10 @@
       "type": "multipleChoice",
       "question": "A status report differs from a progress report in that a status report:",
       "options": [
-        "A. Is only sent to the sponsor",
+        "A. Is only sent to the sponsor as directed by the project sponsor",
         "B. Provides a snapshot of current project health at a specific point in time",
-        "C. Only covers completed work",
-        "D. Is written by team members only"
+        "C. Only covers completed work as part of the overall project management approach",
+        "D. Is written by team members only across the project team and functional groups"
       ],
       "correctAnswers": [
         "B"
@@ -7493,7 +7493,7 @@
       "options": [
         "A. The planned budget for work scheduled",
         "B. The total cost actually incurred for work performed to date",
-        "C. The value of work completed",
+        "C. The value of work completed within the constraints of the project",
         "D. The estimated cost at project completion"
       ],
       "correctAnswers": [
@@ -7537,10 +7537,10 @@
       "type": "multipleChoice",
       "question": "A firewall in IT networking:",
       "options": [
-        "A. Cools server hardware to prevent overheating",
+        "A. Cools server hardware to prevent overheating within the constraints of the project",
         "B. Monitors and controls incoming and outgoing network traffic based on security rules",
-        "C. Accelerates internet connection speed",
-        "D. Stores backup data"
+        "C. Accelerates internet connection speed in accordance with industry best practices",
+        "D. Stores backup data, as required by the project methodology"
       ],
       "correctAnswers": [
         "B"
@@ -7560,10 +7560,10 @@
       "type": "multipleChoice",
       "question": "Load balancing distributes:",
       "options": [
-        "A. Project tasks among team members",
+        "A. Project tasks among team members involving team members and project staff",
         "B. Network traffic across multiple servers to optimize performance and availability",
-        "C. Budget across project phases",
-        "D. Risk across stakeholders"
+        "C. Budget across project phases according to the budget allocation plan",
+        "D. Risk across stakeholders, as identified in the risk register"
       ],
       "correctAnswers": [
         "B"
@@ -7583,10 +7583,10 @@
       "type": "multipleChoice",
       "question": "The Agile principle 'Welcome changing requirements, even late in development' reflects:",
       "options": [
-        "A. Poor project planning",
+        "A. Poor project planning within the iterative development framework",
         "B. Agile's embrace of change as a competitive advantage for the customer",
-        "C. A lack of scope management",
-        "D. The team's inability to say no"
+        "C. A lack of scope management during sprint planning and execution",
+        "D. The team's inability to say no during sprint planning and execution"
       ],
       "correctAnswers": [
         "B"
@@ -7629,9 +7629,9 @@
       "type": "multipleChoice",
       "question": "Data classification categorizes data based on:",
       "options": [
-        "A. File size and format",
+        "A. File size and format to facilitate project success and outcomes",
         "B. Sensitivity level and the impact if disclosed, altered, or destroyed",
-        "C. The date it was created",
+        "C. The date it was created to ensure project objectives are met",
         "D. The department that owns it"
       ],
       "correctAnswers": [
@@ -7652,10 +7652,10 @@
       "type": "multipleChoice",
       "question": "An Operational Level Agreement (OLA) differs from an SLA in that an OLA:",
       "options": [
-        "A. Is a legally binding external contract",
+        "A. Is a legally binding external contract to address project requirements effectively",
         "B. Defines service commitments between internal IT groups within the organization",
-        "C. Only applies to cloud services",
-        "D. Replaces all vendor contracts"
+        "C. Only applies to cloud services to support informed decision-making",
+        "D. Replaces all vendor contracts through the vendor management process"
       ],
       "correctAnswers": [
         "B"
@@ -7675,10 +7675,10 @@
       "type": "multipleChoice",
       "question": "Portfolio management helps organizations:",
       "options": [
-        "A. Manage individual project tasks",
+        "A. Manage individual project tasks as required by the project methodology",
         "B. Select and prioritize the right mix of projects aligned with strategic goals",
-        "C. Write project charters",
-        "D. Conduct sprint planning"
+        "C. Write project charters, as authorized in the project charter",
+        "D. Conduct sprint planning to facilitate project success and outcomes"
       ],
       "correctAnswers": [
         "B"
@@ -7698,9 +7698,9 @@
       "type": "multipleChoice",
       "question": "Ethics in project management requires:",
       "options": [
-        "A. Maximizing profit regardless of methods",
+        "A. Maximizing profit regardless of methods according to the project management plan",
         "B. Honesty, transparency, fairness, and acting in the best interest of stakeholders",
-        "C. Only following rules when being watched",
+        "C. Only following rules when being watched during the planning and execution phases",
         "D. Prioritizing the PM's career over project success"
       ],
       "correctAnswers": [
@@ -7744,10 +7744,10 @@
       "type": "multipleChoice",
       "question": "An increment in Scrum is:",
       "options": [
-        "A. A budget increase request",
+        "A. A budget increase request, according to the budget allocation plan",
         "B. The sum of all completed product backlog items during a sprint plus prior increments",
-        "C. A daily status update",
-        "D. The number of story points planned"
+        "C. A daily status update, to ensure project objectives are met",
+        "D. The number of story points planned, to support informed decision-making"
       ],
       "correctAnswers": [
         "B"
@@ -7767,10 +7767,10 @@
       "type": "multipleChoice",
       "question": "The 100% rule for WBS states that:",
       "options": [
-        "A. All team members must work at 100% capacity",
+        "A. All team members must work at 100% capacity involving team members and project staff",
         "B. The WBS must capture 100% of the project scope, including project management work",
-        "C. The project must achieve 100% of its objectives",
-        "D. All risks must be mitigated"
+        "C. The project must achieve 100% of its objectives to support informed decision-making",
+        "D. All risks must be mitigated, as identified in the risk register"
       ],
       "correctAnswers": [
         "B"
@@ -7790,7 +7790,7 @@
       "type": "multipleChoice",
       "question": "A risk that has been identified but for which no response other than monitoring has been planned is:",
       "options": [
-        "A. An avoided risk",
+        "A. An avoided risk per the risk management plan",
         "B. A transferred risk",
         "C. An accepted risk with passive acceptance",
         "D. An exploited risk"
@@ -7815,8 +7815,8 @@
       "options": [
         "A. Ask five different stakeholders for opinions",
         "B. Drill down to the root cause of a problem by repeatedly asking 'why'",
-        "C. Schedule five meetings per week",
-        "D. Create five alternative solutions"
+        "C. Schedule five meetings per week as outlined in the schedule baseline",
+        "D. Create five alternative solutions to ensure alignment with project goals"
       ],
       "correctAnswers": [
         "B"
@@ -7882,10 +7882,10 @@
       "type": "multipleChoice",
       "question": "Formal written communication is MOST appropriate when:",
       "options": [
-        "A. Discussing lunch plans with the team",
+        "A. Discussing lunch plans with the team involving team members and project staff",
         "B. Documenting contractual agreements, official notices, or complex technical specifications",
-        "C. Providing quick status updates",
-        "D. Brainstorming ideas informally"
+        "C. Providing quick status updates, as outlined in the communication plan",
+        "D. Brainstorming ideas informally, through established communication channels"
       ],
       "correctAnswers": [
         "B"
@@ -7905,10 +7905,10 @@
       "type": "multipleChoice",
       "question": "Situational leadership suggests that leaders should:",
       "options": [
-        "A. Use one leadership style for all situations",
+        "A. Use one leadership style for all situations throughout the project life cycle",
         "B. Adapt their leadership style based on the team's maturity and the situation",
-        "C. Always use a directive approach",
-        "D. Delegate all decisions to the team"
+        "C. Always use a directive approach during the planning and execution phases",
+        "D. Delegate all decisions to the team involving team members and project staff"
       ],
       "correctAnswers": [
         "B"
@@ -7928,7 +7928,7 @@
       "type": "multipleChoice",
       "question": "Forcing (directing) as a conflict resolution technique:",
       "options": [
-        "A. Produces a win-win outcome",
+        "A. Produces a win-win outcome in accordance with industry best practices",
         "B. Imposes one viewpoint at the expense of another — a win-lose outcome",
         "C. Avoids the conflict entirely",
         "D. Takes the most time but produces the best results"
@@ -7999,8 +7999,8 @@
       "options": [
         "A. Whether the project can be built technically",
         "B. Whether the organization can and will use the solution effectively",
-        "C. The exact project cost",
-        "D. The project schedule"
+        "C. The exact project cost during the planning and execution phases",
+        "D. The project schedule based on the project timeline and milestones"
       ],
       "correctAnswers": [
         "B"
@@ -8020,10 +8020,10 @@
       "type": "multipleChoice",
       "question": "Stakeholder engagement assessment matrix tracks:",
       "options": [
-        "A. Stakeholder salaries and benefits",
+        "A. Stakeholder salaries and benefits, according to stakeholder requirements",
         "B. Current vs desired stakeholder engagement levels (unaware, resistant, neutral, supportive, leading)",
-        "C. The project budget by stakeholder",
-        "D. Team member work hours"
+        "C. The project budget by stakeholder, within the approved cost baseline",
+        "D. Team member work hours, based on stakeholder analysis and engagement"
       ],
       "correctAnswers": [
         "B"
@@ -8043,10 +8043,10 @@
       "type": "multipleChoice",
       "question": "A planning package is:",
       "options": [
-        "A. A completed deliverable",
+        "A. A completed deliverable, as specified in project documentation",
         "B. A WBS element below the control account but above the work package, with known content but undetermined activities",
-        "C. A software tool for project planning",
-        "D. The project management plan document"
+        "C. A software tool for project planning, according to the project management plan",
+        "D. The project management plan document, in alignment with organizational standards"
       ],
       "correctAnswers": [
         "B"
@@ -8066,10 +8066,10 @@
       "type": "multipleChoice",
       "question": "Defect repair during execution involves:",
       "options": [
-        "A. Adding new features to the product",
+        "A. Adding new features to the product throughout the project life cycle",
         "B. Formally modifying or replacing a component that does not conform to requirements",
-        "C. Cancelling the project",
-        "D. Changing the project methodology"
+        "C. Cancelling the project, to ensure project objectives are met",
+        "D. Changing the project methodology according to the project management plan"
       ],
       "correctAnswers": [
         "B"
@@ -8089,10 +8089,10 @@
       "type": "multipleChoice",
       "question": "Procurement administration during monitoring and controlling involves:",
       "options": [
-        "A. Selecting the initial vendors",
+        "A. Selecting the initial vendors, as defined in the procurement plan",
         "B. Managing procurement relationships, monitoring contract performance, and making changes as needed",
-        "C. Writing the RFP",
-        "D. Deciding whether to make or buy"
+        "C. Writing the RFP, in accordance with procurement policies",
+        "D. Deciding whether to make or buy, in accordance with procurement policies"
       ],
       "correctAnswers": [
         "B"
@@ -8112,10 +8112,10 @@
       "type": "multipleChoice",
       "question": "A warranty period after project closure means:",
       "options": [
-        "A. The project can never be restarted",
+        "A. The project can never be restarted, according to the project management plan",
         "B. The seller/vendor guarantees the deliverables will function correctly for a specified time",
-        "C. Team members are guaranteed employment",
-        "D. The budget cannot be audited"
+        "C. Team members are guaranteed employment across the project team and functional groups",
+        "D. The budget cannot be audited, according to the budget allocation plan"
       ],
       "correctAnswers": [
         "B"
@@ -8135,10 +8135,10 @@
       "type": "multipleChoice",
       "question": "Transition to operations during closure involves:",
       "options": [
-        "A. Starting a new project immediately",
+        "A. Starting a new project immediately, to support effective project delivery",
         "B. Transferring project deliverables and knowledge to the team that will support them ongoing",
-        "C. Deleting all project files",
-        "D. Reassigning the PM to a different department"
+        "C. Deleting all project files, to ensure alignment with project goals",
+        "D. Reassigning the PM to a different department to maintain project performance and compliance"
       ],
       "correctAnswers": [
         "B"
@@ -8161,7 +8161,7 @@
         "A. Calculate earned value metrics",
         "B. Visually brainstorm and organize ideas around a central concept",
         "C. Track time spent on activities",
-        "D. Manage vendor contracts"
+        "D. Manage vendor contracts in coordination with external vendors"
       ],
       "correctAnswers": [
         "B"
@@ -8181,10 +8181,10 @@
       "type": "multipleChoice",
       "question": "An influence diagram shows:",
       "options": [
-        "A. Team member personality types",
+        "A. Team member personality types across the project team and functional groups",
         "B. Relationships between variables, decisions, and outcomes in a project",
         "C. The project organizational chart",
-        "D. Vendor pricing comparisons"
+        "D. Vendor pricing comparisons in coordination with external vendors"
       ],
       "correctAnswers": [
         "B"
@@ -8227,7 +8227,7 @@
       "type": "multipleChoice",
       "question": "An action item tracker records:",
       "options": [
-        "A. Only completed project milestones",
+        "A. Only completed project milestones aligned with key project milestones",
         "B. Specific tasks assigned to individuals with due dates and status",
         "C. The project's financial transactions",
         "D. Team member training certifications"
@@ -8250,10 +8250,10 @@
       "type": "multipleChoice",
       "question": "Stakeholder management as a knowledge area focuses on:",
       "options": [
-        "A. Tracking stakeholder salaries",
+        "A. Tracking stakeholder salaries, according to stakeholder requirements",
         "B. Identifying, analyzing, planning, and managing stakeholder engagement throughout the project",
-        "C. Removing uncooperative stakeholders",
-        "D. Only communicating with the project sponsor"
+        "C. Removing uncooperative stakeholders, according to stakeholder requirements",
+        "D. Only communicating with the project sponsor as directed by the project sponsor"
       ],
       "correctAnswers": [
         "B"
@@ -8273,10 +8273,10 @@
       "type": "multipleChoice",
       "question": "Resource management as a knowledge area covers:",
       "options": [
-        "A. Only hiring and firing team members",
+        "A. Only hiring and firing team members involving team members and project staff",
         "B. Planning, acquiring, developing, and managing team and physical resources",
-        "C. Managing the project budget",
-        "D. Scheduling project activities"
+        "C. Managing the project budget, within the approved cost baseline",
+        "D. Scheduling project activities based on resource availability and allocation"
       ],
       "correctAnswers": [
         "B"
@@ -8296,10 +8296,10 @@
       "type": "multipleChoice",
       "question": "IoT (Internet of Things) refers to:",
       "options": [
-        "A. A faster version of the internet",
+        "A. A faster version of the internet to support effective project delivery",
         "B. Physical devices connected to the internet that collect and exchange data",
-        "C. A new social media platform",
-        "D. An internal company network only"
+        "C. A new social media platform to address project requirements effectively",
+        "D. An internal company network only based on lessons learned and historical data"
       ],
       "correctAnswers": [
         "B"
@@ -8365,10 +8365,10 @@
       "type": "multipleChoice",
       "question": "Protected Health Information (PHI) under HIPAA includes:",
       "options": [
-        "A. Only patient names",
+        "A. Only patient names, throughout the project life cycle",
         "B. Any individually identifiable health information including diagnoses, treatments, and medical records",
-        "C. Only billing records",
-        "D. Public health statistics"
+        "C. Only billing records, as documented in the project management framework",
+        "D. Public health statistics, as required by the project methodology"
       ],
       "correctAnswers": [
         "B"
@@ -8388,10 +8388,10 @@
       "type": "multipleChoice",
       "question": "The NIST Cybersecurity Framework helps organizations:",
       "options": [
-        "A. Build mobile applications",
+        "A. Build mobile applications within the constraints of the project",
         "B. Manage and reduce cybersecurity risks using five core functions",
         "C. Calculate project earned value",
-        "D. Design user interfaces"
+        "D. Design user interfaces in alignment with organizational standards"
       ],
       "correctAnswers": [
         "B"
@@ -8411,10 +8411,10 @@
       "type": "multipleChoice",
       "question": "ESG (Environmental, Social, and Governance) considerations in projects include:",
       "options": [
-        "A. Only financial performance metrics",
+        "A. Only financial performance metrics per organizational governance policies",
         "B. Environmental sustainability, social impact, and ethical governance practices",
-        "C. Team member entertainment budgets",
-        "D. Marketing campaign effectiveness"
+        "C. Team member entertainment budgets within the approved cost baseline",
+        "D. Marketing campaign effectiveness per organizational governance policies"
       ],
       "correctAnswers": [
         "B"
@@ -8434,10 +8434,10 @@
       "type": "multipleChoice",
       "question": "Program management differs from project management in that program management:",
       "options": [
-        "A. Manages a single project",
+        "A. Manages a single project to facilitate project success and outcomes",
         "B. Coordinates multiple related projects to achieve strategic benefits",
-        "C. Only handles the project budget",
-        "D. Reports to the project manager"
+        "C. Only handles the project budget within the approved cost baseline",
+        "D. Reports to the project manager within the constraints of the project"
       ],
       "correctAnswers": [
         "B"
@@ -8459,7 +8459,7 @@
       "options": [
         "A. Taking advantage of team members",
         "B. Ensuring an opportunity definitely occurs by taking direct action",
-        "C. Ignoring the risk completely",
+        "C. Ignoring the risk completely per the risk management plan",
         "D. Transferring the opportunity to a competitor"
       ],
       "correctAnswers": [
@@ -8526,7 +8526,7 @@
       "type": "multipleChoice",
       "question": "A Scrum team is ideally:",
       "options": [
-        "A. 20-30 people",
+        "A. 20-30 people involving team members and project staff",
         "B. 3-9 developers plus Scrum Master and Product Owner",
         "C. A single developer",
         "D. As large as possible"
@@ -8549,7 +8549,7 @@
       "type": "multipleChoice",
       "question": "An approved change request becomes:",
       "options": [
-        "A. A new project",
+        "A. A new project through the integrated change control board",
         "B. An update to the project management plan or baselines",
         "C. A risk in the risk register",
         "D. A lesson learned"
@@ -8572,10 +8572,10 @@
       "type": "multipleChoice",
       "question": "Residual risk is:",
       "options": [
-        "A. A risk that is eliminated entirely",
+        "A. A risk that is eliminated entirely per the risk management plan",
         "B. The risk remaining after a risk response has been implemented",
-        "C. A risk that was never identified",
-        "D. The total risk of the project"
+        "C. A risk that was never identified per the risk management plan",
+        "D. The total risk of the project as identified in the risk register"
       ],
       "correctAnswers": [
         "B"
@@ -8618,10 +8618,10 @@
       "type": "multipleChoice",
       "question": "Quality metrics define:",
       "options": [
-        "A. The project's financial performance",
+        "A. The project's financial performance, as defined by quality metrics and criteria",
         "B. Specific measurable attributes used to assess quality (defect rates, test coverage, response times)",
-        "C. Team member satisfaction scores",
-        "D. The number of stakeholders"
+        "C. Team member satisfaction scores, as defined by quality metrics and criteria",
+        "D. The number of stakeholders, according to stakeholder requirements"
       ],
       "correctAnswers": [
         "B"
@@ -8735,8 +8735,8 @@
       "options": [
         "A. Individual risk responses for each identified risk",
         "B. How risk management activities will be structured, funded, and performed",
-        "C. The complete list of all project risks",
-        "D. Insurance policies for the project"
+        "C. The complete list of all project risks as identified in the risk register",
+        "D. Insurance policies for the project per the risk management plan"
       ],
       "correctAnswers": [
         "B"
@@ -8779,10 +8779,10 @@
       "type": "multipleChoice",
       "question": "Team development activities during execution may include:",
       "options": [
-        "A. Only individual performance reviews",
+        "A. Only individual performance reviews involving team members and project staff",
         "B. Training, team building, recognition, and creating a positive team environment",
-        "C. Only assigning more work",
-        "D. Reducing the team size"
+        "C. Only assigning more work across the project team and functional groups",
+        "D. Reducing the team size, involving team members and project staff"
       ],
       "correctAnswers": [
         "B"
@@ -8802,10 +8802,10 @@
       "type": "multipleChoice",
       "question": "Risk monitoring during the monitoring and controlling phase involves:",
       "options": [
-        "A. Ignoring previously identified risks",
+        "A. Ignoring previously identified risks, per the risk management plan",
         "B. Tracking identified risks, monitoring residual risks, identifying new risks, and evaluating response effectiveness",
-        "C. Creating the initial risk register",
-        "D. Transferring all risks to the vendor"
+        "C. Creating the initial risk register, per the risk management plan",
+        "D. Transferring all risks to the vendor, in coordination with external vendors"
       ],
       "correctAnswers": [
         "B"
@@ -8825,10 +8825,10 @@
       "type": "multipleChoice",
       "question": "Organizational process asset updates during closure include:",
       "options": [
-        "A. Deleting all project documentation",
+        "A. Deleting all project documentation based on lessons learned and historical data",
         "B. Adding lessons learned, templates, and historical data to the organization's knowledge base",
-        "C. Removing the project from the portfolio",
-        "D. Cancelling all vendor contracts retroactively"
+        "C. Removing the project from the portfolio during the planning and execution phases",
+        "D. Cancelling all vendor contracts retroactively in coordination with external vendors"
       ],
       "correctAnswers": [
         "B"
@@ -8848,10 +8848,10 @@
       "type": "multipleChoice",
       "question": "A resource calendar shows:",
       "options": [
-        "A. The project's holiday schedule only",
+        "A. The project's holiday schedule only as outlined in the schedule baseline",
         "B. When specific resources are available, including working days, shifts, and time off",
-        "C. The project milestone dates",
-        "D. Stakeholder meeting schedules"
+        "C. The project milestone dates based on resource availability and allocation",
+        "D. Stakeholder meeting schedules, as outlined in the schedule baseline"
       ],
       "correctAnswers": [
         "B"
@@ -8871,10 +8871,10 @@
       "type": "multipleChoice",
       "question": "The project management plan is BEST described as:",
       "options": [
-        "A. A single document listing all project tasks",
+        "A. A single document listing all project tasks, within the constraints of the project",
         "B. A comprehensive document (or set of subsidiary plans) defining how the project will be executed, monitored, and controlled",
-        "C. The project charter",
-        "D. The team's daily to-do list"
+        "C. The project charter, per the project charter and governance",
+        "D. The team's daily to-do list, across the project team and functional groups"
       ],
       "correctAnswers": [
         "B"
@@ -8895,9 +8895,9 @@
       "question": "Scope management ensures:",
       "options": [
         "A. The project includes all necessary work and only the necessary work",
-        "B. The project budget is balanced",
+        "B. The project budget is balanced according to the budget allocation plan",
         "C. Team members are properly trained",
-        "D. Vendors are selected on time"
+        "D. Vendors are selected on time through the vendor management process"
       ],
       "correctAnswers": [
         "A"
@@ -8917,10 +8917,10 @@
       "type": "multipleChoice",
       "question": "Procurement management covers:",
       "options": [
-        "A. Only the initial vendor selection",
+        "A. Only the initial vendor selection, in accordance with procurement policies",
         "B. Planning, conducting, and controlling purchases and acquisitions from outside the project team",
-        "C. Internal team resource allocation",
-        "D. Quality inspection of deliverables"
+        "C. Internal team resource allocation across the project team and functional groups",
+        "D. Quality inspection of deliverables, in accordance with procurement policies"
       ],
       "correctAnswers": [
         "B"
@@ -8940,10 +8940,10 @@
       "type": "multipleChoice",
       "question": "A WAN (Wide Area Network) connects:",
       "options": [
-        "A. Devices within a single room",
+        "A. Devices within a single room according to the project management plan",
         "B. Networks across large geographic distances, often cities or countries",
-        "C. Only wireless devices",
-        "D. A single computer to a printer"
+        "C. Only wireless devices, to support informed decision-making",
+        "D. A single computer to a printer according to the project management plan"
       ],
       "correctAnswers": [
         "B"
@@ -8965,7 +8965,7 @@
       "options": [
         "A. Strictly structured data with fixed schemas",
         "B. Unstructured or semi-structured data requiring flexibility and scalability",
-        "C. Small desktop applications only",
+        "C. Small desktop applications only to ensure alignment with project goals",
         "D. Financial accounting systems requiring ACID compliance"
       ],
       "correctAnswers": [
@@ -8988,8 +8988,8 @@
       "options": [
         "A. Two teams competing on the same feature",
         "B. Two developers working together at one workstation, taking turns coding",
-        "C. Programming only in pairs of files",
-        "D. Duplicating code for redundancy"
+        "C. Programming only in pairs of files to facilitate project success and outcomes",
+        "D. Duplicating code for redundancy as required by the project methodology"
       ],
       "correctAnswers": [
         "B"
@@ -9032,10 +9032,10 @@
       "type": "multipleChoice",
       "question": "Export controls like ITAR restrict:",
       "options": [
-        "A. Import of consumer electronics",
+        "A. Import of consumer electronics within the constraints of the project",
         "B. Export of defense-related articles, services, and technical data",
-        "C. Domestic software sales",
-        "D. Cloud computing usage"
+        "C. Domestic software sales as required by the project methodology",
+        "D. Cloud computing usage in accordance with industry best practices"
       ],
       "correctAnswers": [
         "B"
@@ -9405,10 +9405,10 @@
       "type": "multipleChoice",
       "question": "The difference between scope creep and gold plating is:",
       "options": [
-        "A. There is no difference",
+        "A. There is no difference, according to the project scope statement",
         "B. Scope creep comes from external pressure; gold plating comes from the team adding unrequested extras",
-        "C. Gold plating reduces scope; scope creep adds scope",
-        "D. Scope creep is planned; gold plating is unplanned"
+        "C. Gold plating reduces scope; scope creep adds scope as defined in the scope baseline and WBS",
+        "D. Scope creep is planned; gold plating is unplanned as defined in the scope baseline and WBS"
       ],
       "correctAnswers": [
         "B"
@@ -9477,7 +9477,7 @@
         "A. Customer warranty claims",
         "B. Rework and scrap identified before delivery to the customer",
         "C. Quality training programs",
-        "D. Quality audits"
+        "D. Quality audits as defined by quality metrics and criteria"
       ],
       "correctAnswers": [
         "B"
@@ -9497,9 +9497,9 @@
       "type": "multipleChoice",
       "question": "A facilitator in meetings is responsible for:",
       "options": [
-        "A. Making all decisions for the group",
+        "A. Making all decisions for the group to ensure alignment with project goals",
         "B. Guiding discussion, ensuring participation, and keeping the meeting on track",
-        "C. Taking meeting minutes",
+        "C. Taking meeting minutes considering project constraints and assumptions",
         "D. Providing technical expertise on all topics"
       ],
       "correctAnswers": [
@@ -9522,7 +9522,7 @@
       "options": [
         "A. Personal charisma and likability",
         "B. A person's formal position or title in the organization",
-        "C. Technical expertise",
+        "C. Technical expertise to support effective project delivery",
         "D. The ability to give bonuses"
       ],
       "correctAnswers": [
@@ -9543,10 +9543,10 @@
       "type": "multipleChoice",
       "question": "A Non-Disclosure Agreement (NDA) in procurement:",
       "options": [
-        "A. Defines the project schedule",
+        "A. Defines the project schedule, in accordance with procurement policies",
         "B. Protects confidential information shared between parties during a business relationship",
-        "C. Sets the final contract price",
-        "D. Replaces the project charter"
+        "C. Sets the final contract price, in accordance with procurement policies",
+        "D. Replaces the project charter, as authorized in the project charter"
       ],
       "correctAnswers": [
         "B"
@@ -9566,10 +9566,10 @@
       "type": "multipleChoice",
       "question": "A market analysis during discovery helps determine:",
       "options": [
-        "A. The project schedule",
+        "A. The project schedule based on the project timeline and milestones",
         "B. Whether there is demand for the product and how competitors are positioned",
-        "C. Team member skill gaps",
-        "D. The risk register entries"
+        "C. Team member skill gaps involving team members and project staff",
+        "D. The risk register entries, as identified in the risk register"
       ],
       "correctAnswers": [
         "B"
@@ -9612,7 +9612,7 @@
       "type": "multipleChoice",
       "question": "A communication plan should be reviewed and updated:",
       "options": [
-        "A. Only at project closure",
+        "A. Only at project closure through established communication channels",
         "B. Regularly throughout the project as stakeholder needs change",
         "C. Once during initiation and never again",
         "D. Only when problems occur"
@@ -9635,10 +9635,10 @@
       "type": "multipleChoice",
       "question": "Conducting procurements during execution involves:",
       "options": [
-        "A. Planning what to procure",
+        "A. Planning what to procure as defined in the procurement plan",
         "B. Obtaining seller responses, selecting sellers, and awarding contracts",
-        "C. Closing vendor contracts",
-        "D. Writing the RFP"
+        "C. Closing vendor contracts in accordance with procurement policies",
+        "D. Writing the RFP, in accordance with procurement policies"
       ],
       "correctAnswers": [
         "B"
@@ -9658,10 +9658,10 @@
       "type": "multipleChoice",
       "question": "A performance report synthesizes:",
       "options": [
-        "A. Only positive project outcomes",
+        "A. Only positive project outcomes, to ensure alignment with project goals",
         "B. Work performance information into comprehensive reports for stakeholder decision-making",
-        "C. Team member personality profiles",
-        "D. Vendor marketing materials"
+        "C. Team member personality profiles involving team members and project staff",
+        "D. Vendor marketing materials, through the vendor management process"
       ],
       "correctAnswers": [
         "B"
@@ -9681,10 +9681,10 @@
       "type": "multipleChoice",
       "question": "Final acceptance during closure requires:",
       "options": [
-        "A. Only the PM's signature",
+        "A. Only the PM's signature, to facilitate project success and outcomes",
         "B. Formal sign-off from the customer or sponsor confirming deliverables meet requirements",
-        "C. A team vote",
-        "D. Vendor approval"
+        "C. A team vote, involving team members and project staff",
+        "D. Vendor approval, through the vendor management process"
       ],
       "correctAnswers": [
         "B"
@@ -9706,8 +9706,8 @@
       "options": [
         "A. Shows task durations as horizontal bars",
         "B. Emphasizes task dependencies and the flow of activities in a network format",
-        "C. Is used only in Agile projects",
-        "D. Shows resource allocation"
+        "C. Is used only in Agile projects within the iterative development framework",
+        "D. Shows resource allocation, per the resource management plan"
       ],
       "correctAnswers": [
         "B"
@@ -9727,10 +9727,10 @@
       "type": "multipleChoice",
       "question": "The scope management plan describes:",
       "options": [
-        "A. The project budget allocation",
+        "A. The project budget allocation according to the budget allocation plan",
         "B. How scope will be defined, validated, and controlled throughout the project",
-        "C. Team member responsibilities",
-        "D. The project risk responses"
+        "C. Team member responsibilities as defined in the scope baseline and WBS",
+        "D. The project risk responses as defined in the scope baseline and WBS"
       ],
       "correctAnswers": [
         "B"
@@ -9750,10 +9750,10 @@
       "type": "multipleChoice",
       "question": "Schedule management as a knowledge area includes:",
       "options": [
-        "A. Only creating the Gantt chart",
+        "A. Only creating the Gantt chart, as outlined in the schedule baseline",
         "B. Defining activities, sequencing them, estimating durations, developing and controlling the schedule",
-        "C. Managing the project budget",
-        "D. Conducting quality audits"
+        "C. Managing the project budget, according to the budget allocation plan",
+        "D. Conducting quality audits, based on the project timeline and milestones"
       ],
       "correctAnswers": [
         "B"
@@ -9773,10 +9773,10 @@
       "type": "multipleChoice",
       "question": "Cost management as a knowledge area covers:",
       "options": [
-        "A. Only tracking expenditures",
+        "A. Only tracking expenditures, to ensure alignment with project goals",
         "B. Planning, estimating, budgeting, funding, financing, managing, and controlling costs",
-        "C. Setting team member salaries",
-        "D. Negotiating vendor contracts"
+        "C. Setting team member salaries across the project team and functional groups",
+        "D. Negotiating vendor contracts, in coordination with external vendors"
       ],
       "correctAnswers": [
         "B"
@@ -9796,10 +9796,10 @@
       "type": "multipleChoice",
       "question": "A data warehouse is:",
       "options": [
-        "A. A physical storage room for servers",
+        "A. A physical storage room for servers as part of the overall project management approach",
         "B. A centralized repository that stores integrated data from multiple sources for analysis",
-        "C. A type of NoSQL database",
-        "D. A backup tape storage system"
+        "C. A type of NoSQL database, to ensure alignment with project goals",
+        "D. A backup tape storage system, to address project requirements effectively"
       ],
       "correctAnswers": [
         "B"
@@ -9819,10 +9819,10 @@
       "type": "multipleChoice",
       "question": "Microservices architecture designs applications as:",
       "options": [
-        "A. A single monolithic codebase",
+        "A. A single monolithic codebase in alignment with organizational standards",
         "B. A collection of loosely coupled, independently deployable services",
-        "C. One large database",
-        "D. A series of stored procedures"
+        "C. One large database according to the project management plan",
+        "D. A series of stored procedures to support effective project delivery"
       ],
       "correctAnswers": [
         "B"
@@ -9842,10 +9842,10 @@
       "type": "multipleChoice",
       "question": "The Agile principle of 'sustainable pace' means:",
       "options": [
-        "A. The team should work as fast as possible",
+        "A. The team should work as fast as possible during sprint planning and execution",
         "B. Teams should maintain a constant, sustainable work pace indefinitely without burnout",
-        "C. Sprints should get shorter over time",
-        "D. Only senior developers should set the pace"
+        "C. Sprints should get shorter over time within the iterative development framework",
+        "D. Only senior developers should set the pace during sprint planning and execution"
       ],
       "correctAnswers": [
         "B"
@@ -9865,10 +9865,10 @@
       "type": "multipleChoice",
       "question": "A compliance audit in an IT project verifies:",
       "options": [
-        "A. That the project is under budget",
+        "A. That the project is under budget according to the budget allocation plan",
         "B. That the project adheres to applicable laws, regulations, and organizational policies",
-        "C. That the team is working overtime",
-        "D. That all risks have been eliminated"
+        "C. That the team is working overtime involving team members and project staff",
+        "D. That all risks have been eliminated, per the risk management plan"
       ],
       "correctAnswers": [
         "B"
@@ -9888,10 +9888,10 @@
       "type": "multipleChoice",
       "question": "Configuration management in IT governance tracks:",
       "options": [
-        "A. Team member locations",
+        "A. Team member locations per organizational governance policies",
         "B. IT assets, their versions, relationships, and authorized changes",
         "C. The project's marketing strategy",
-        "D. Customer satisfaction scores"
+        "D. Customer satisfaction scores under the project governance framework"
       ],
       "correctAnswers": [
         "B"
@@ -9957,10 +9957,10 @@
       "type": "multipleChoice",
       "question": "Quality management as a knowledge area ensures:",
       "options": [
-        "A. The team works the fastest possible speed",
+        "A. The team works the fastest possible speed across the project team and functional groups",
         "B. The project satisfies the needs for which it was undertaken by meeting quality requirements",
-        "C. All defects are hidden from the customer",
-        "D. The cheapest materials are used"
+        "C. All defects are hidden from the customer in accordance with quality standards",
+        "D. The cheapest materials are used, in accordance with quality standards"
       ],
       "correctAnswers": [
         "B"
@@ -9980,10 +9980,10 @@
       "type": "multipleChoice",
       "question": "Risk management as a knowledge area includes:",
       "options": [
-        "A. Only avoiding all risks",
+        "A. Only avoiding all risks as identified in the risk register",
         "B. Planning, identifying, analyzing, responding to, and monitoring risks",
         "C. Eliminating all uncertainty from the project",
-        "D. Only tracking positive risks"
+        "D. Only tracking positive risks as identified in the risk register"
       ],
       "correctAnswers": [
         "B"
@@ -10003,10 +10003,10 @@
       "type": "multipleChoice",
       "question": "Communication management as a knowledge area ensures:",
       "options": [
-        "A. The team has the best communication devices",
+        "A. The team has the best communication devices, across the project team and functional groups",
         "B. Timely and appropriate planning, collection, creation, distribution, storage, and management of project information",
-        "C. All conversations are recorded",
-        "D. Only written communication is used"
+        "C. All conversations are recorded, through established communication channels",
+        "D. Only written communication is used, through established communication channels"
       ],
       "correctAnswers": [
         "B"
@@ -10028,8 +10028,8 @@
       "options": [
         "A. Physical or legal requirements that cannot be changed",
         "B. Best practices, preferences, or lessons learned from past projects",
-        "C. External regulatory mandates",
-        "D. Equipment limitations"
+        "C. External regulatory mandates within the constraints of the project",
+        "D. Equipment limitations for the benefit of all project stakeholders"
       ],
       "correctAnswers": [
         "B"
@@ -10072,10 +10072,10 @@
       "type": "multipleChoice",
       "question": "Quality control during monitoring and controlling includes:",
       "options": [
-        "A. Creating the quality management plan",
+        "A. Creating the quality management plan in accordance with quality standards",
         "B. Inspecting deliverables and measuring results against quality standards",
-        "C. Defining quality metrics",
-        "D. Selecting quality tools"
+        "C. Defining quality metrics as defined by quality metrics and criteria",
+        "D. Selecting quality tools as defined by quality metrics and criteria"
       ],
       "correctAnswers": [
         "B"
@@ -10095,10 +10095,10 @@
       "type": "multipleChoice",
       "question": "Communication monitoring ensures:",
       "options": [
-        "A. All team members have phones",
+        "A. All team members have phones, as outlined in the communication plan",
         "B. Communication needs of stakeholders are being met and the communication plan is effective",
-        "C. Only the PM receives project updates",
-        "D. All meetings are cancelled"
+        "C. Only the PM receives project updates through established communication channels",
+        "D. All meetings are cancelled, through established communication channels"
       ],
       "correctAnswers": [
         "B"
@@ -10164,10 +10164,10 @@
       "type": "multipleChoice",
       "question": "An internal stakeholder is someone who:",
       "options": [
-        "A. Works outside the organization",
+        "A. Works outside the organization according to stakeholder requirements",
         "B. Is a member of the performing organization such as a team member or executive",
-        "C. Is a customer or end user only",
-        "D. Has no influence on the project"
+        "C. Is a customer or end user only based on stakeholder analysis and engagement",
+        "D. Has no influence on the project according to stakeholder requirements"
       ],
       "correctAnswers": [
         "B"
@@ -10213,7 +10213,7 @@
         "A. Only during the planning phase",
         "B. Throughout the entire project from initiation through closure",
         "C. Only when the customer requests changes",
-        "D. Only during project closure"
+        "D. Only during project closure following the change control process"
       ],
       "correctAnswers": [
         "B"
@@ -10233,10 +10233,10 @@
       "type": "multipleChoice",
       "question": "A risk category groups risks by:",
       "options": [
-        "A. Their monetary value only",
+        "A. Their monetary value only, per the risk management plan",
         "B. Common sources such as technical, external, organizational, or project management",
-        "C. The team member who identified them",
-        "D. The date they were identified"
+        "C. The team member who identified them, per the risk management plan",
+        "D. The date they were identified, as identified in the risk register"
       ],
       "correctAnswers": [
         "B"
@@ -10256,10 +10256,10 @@
       "type": "multipleChoice",
       "question": "When an issue is resolved, the PM should:",
       "options": [
-        "A. Delete it from the issue log",
+        "A. Delete it from the issue log throughout the project life cycle",
         "B. Update the issue log to reflect the resolution and lessons learned",
-        "C. File it with the risk register",
-        "D. Ignore it going forward"
+        "C. File it with the risk register as identified in the risk register",
+        "D. Ignore it going forward to address project requirements effectively"
       ],
       "correctAnswers": [
         "B"
@@ -10279,10 +10279,10 @@
       "type": "multipleChoice",
       "question": "External failure costs include:",
       "options": [
-        "A. Rework identified during internal testing",
+        "A. Rework identified during internal testing based on lessons learned and historical data",
         "B. Warranty claims, returns, and reputation damage from defects reaching customers",
-        "C. Quality planning and training",
-        "D. Inspection equipment maintenance"
+        "C. Quality planning and training as defined by quality metrics and criteria",
+        "D. Inspection equipment maintenance for the benefit of all project stakeholders"
       ],
       "correctAnswers": [
         "B"
@@ -10305,7 +10305,7 @@
         "A. Conduct team building exercises",
         "B. Review current project progress, issues, and upcoming milestones",
         "C. Celebrate project completion",
-        "D. Negotiate vendor contracts"
+        "D. Negotiate vendor contracts through the vendor management process"
       ],
       "correctAnswers": [
         "B"
@@ -10348,10 +10348,10 @@
       "type": "multipleChoice",
       "question": "Reward power is based on:",
       "options": [
-        "A. The leader's personal charisma",
+        "A. The leader's personal charisma as required by the project methodology",
         "B. The ability to provide desired rewards such as bonuses, promotions, or recognition",
-        "C. The leader's technical knowledge",
-        "D. The leader's formal title"
+        "C. The leader's technical knowledge to facilitate project success and outcomes",
+        "D. The leader's formal title for the benefit of all project stakeholders"
       ],
       "correctAnswers": [
         "B"
@@ -10371,10 +10371,10 @@
       "type": "multipleChoice",
       "question": "A problem statement in the business case describes:",
       "options": [
-        "A. The project schedule",
+        "A. The project schedule based on the project timeline and milestones",
         "B. The specific business problem or opportunity the project addresses",
-        "C. Team member qualifications",
-        "D. Vendor selection criteria"
+        "C. Team member qualifications across the project team and functional groups",
+        "D. Vendor selection criteria through the vendor management process"
       ],
       "correctAnswers": [
         "B"
@@ -10394,10 +10394,10 @@
       "type": "multipleChoice",
       "question": "Governance structure established during initiation defines:",
       "options": [
-        "A. The technical architecture",
+        "A. The technical architecture per organizational governance policies",
         "B. Decision-making authority, escalation paths, and reporting relationships",
-        "C. The coding standards",
-        "D. The testing framework"
+        "C. The coding standards, per organizational governance policies",
+        "D. The testing framework, under the project governance framework"
       ],
       "correctAnswers": [
         "B"
@@ -10417,10 +10417,10 @@
       "type": "multipleChoice",
       "question": "A baseline in project management is:",
       "options": [
-        "A. A rough estimate that can change at any time",
+        "A. A rough estimate that can change at any time following the change control process",
         "B. An approved version of a plan used as a reference for measuring performance",
-        "C. The first draft of any document",
-        "D. The lowest acceptable quality level"
+        "C. The first draft of any document relative to the established project baselines",
+        "D. The lowest acceptable quality level in accordance with quality standards"
       ],
       "correctAnswers": [
         "B"
@@ -10440,10 +10440,10 @@
       "type": "multipleChoice",
       "question": "Implementing approved changes during execution requires:",
       "options": [
-        "A. Skipping impact analysis",
+        "A. Skipping impact analysis through the integrated change control board",
         "B. Following the change management plan to ensure changes are properly implemented",
-        "C. Ignoring the change control board's decision",
-        "D. Only verbal communication to the team"
+        "C. Ignoring the change control board's decision following the change control process",
+        "D. Only verbal communication to the team involving team members and project staff"
       ],
       "correctAnswers": [
         "B"
@@ -10486,10 +10486,10 @@
       "type": "multipleChoice",
       "question": "A project evaluation at closure assesses:",
       "options": [
-        "A. Only the team's technical skills",
+        "A. Only the team's technical skills, involving team members and project staff",
         "B. Whether the project achieved its objectives, delivered on time/budget, and met quality standards",
-        "C. The vendor's future product roadmap",
-        "D. The next project's requirements"
+        "C. The vendor's future product roadmap, in coordination with external vendors",
+        "D. The next project's requirements, to ensure alignment with project goals"
       ],
       "correctAnswers": [
         "B"
@@ -10509,10 +10509,10 @@
       "type": "multipleChoice",
       "question": "A collaboration tool in project management includes:",
       "options": [
-        "A. Only email",
+        "A. Only email, within the constraints of the project",
         "B. Shared workspaces, instant messaging, video conferencing, and document sharing platforms",
-        "C. Only physical whiteboards",
-        "D. Only the project charter"
+        "C. Only physical whiteboards, to facilitate project success and outcomes",
+        "D. Only the project charter, as authorized in the project charter"
       ],
       "correctAnswers": [
         "B"
@@ -10532,10 +10532,10 @@
       "type": "multipleChoice",
       "question": "Requirements documentation serves as:",
       "options": [
-        "A. A daily task list for developers",
+        "A. A daily task list for developers to facilitate project success and outcomes",
         "B. A detailed description of what the project must deliver to satisfy stakeholder needs",
-        "C. The project budget",
-        "D. Team member performance goals"
+        "C. The project budget, according to the budget allocation plan",
+        "D. Team member performance goals, involving team members and project staff"
       ],
       "correctAnswers": [
         "B"
@@ -10601,10 +10601,10 @@
       "type": "multipleChoice",
       "question": "Backup strategies for data protection include:",
       "options": [
-        "A. Only full backups daily",
+        "A. Only full backups daily based on established project management practices",
         "B. Full, incremental, and differential backups with varying frequencies",
-        "C. Never backing up data",
-        "D. Only printing hard copies"
+        "C. Never backing up data in accordance with industry best practices",
+        "D. Only printing hard copies within the constraints of the project"
       ],
       "correctAnswers": [
         "B"
@@ -10624,10 +10624,10 @@
       "type": "multipleChoice",
       "question": "The Agile principle of face-to-face communication states it is:",
       "options": [
-        "A. Optional and rarely useful",
+        "A. Optional and rarely useful, during sprint planning and execution",
         "B. The most efficient and effective method of conveying information within a development team",
-        "C. Only for conflict resolution",
-        "D. Less effective than email"
+        "C. Only for conflict resolution, within the iterative development framework",
+        "D. Less effective than email, during sprint planning and execution"
       ],
       "correctAnswers": [
         "B"
@@ -10647,10 +10647,10 @@
       "type": "multipleChoice",
       "question": "Continuous integration requires developers to:",
       "options": [
-        "A. Work in isolation for weeks before sharing code",
+        "A. Work in isolation for weeks before sharing code as required by the project methodology",
         "B. Merge code changes into a shared repository frequently with automated builds and tests",
-        "C. Only integrate code at the end of the project",
-        "D. Skip testing to save time"
+        "C. Only integrate code at the end of the project throughout the project life cycle",
+        "D. Skip testing to save time, for the benefit of all project stakeholders"
       ],
       "correctAnswers": [
         "B"
@@ -10693,10 +10693,10 @@
       "type": "multipleChoice",
       "question": "An audit trail in IT governance provides:",
       "options": [
-        "A. A path through a hiking trail",
+        "A. A path through a hiking trail, under the project governance framework",
         "B. A chronological record of system activities that can be reviewed to reconstruct events",
-        "C. A list of project milestones",
-        "D. Team member attendance records"
+        "C. A list of project milestones, under the project governance framework",
+        "D. Team member attendance records, under the project governance framework"
       ],
       "correctAnswers": [
         "B"
@@ -10785,10 +10785,10 @@
       "type": "multipleChoice",
       "question": "Knowledge transfer during execution involves:",
       "options": [
-        "A. Deleting all project documentation",
+        "A. Deleting all project documentation to support informed decision-making",
         "B. Sharing expertise, information, and skills among team members to build capability",
-        "C. Only sending emails about deadlines",
-        "D. Restricting information to the PM only"
+        "C. Only sending emails about deadlines considering project constraints and assumptions",
+        "D. Restricting information to the PM only to ensure project objectives are met"
       ],
       "correctAnswers": [
         "B"
@@ -10808,10 +10808,10 @@
       "type": "multipleChoice",
       "question": "The make-or-buy analysis compares:",
       "options": [
-        "A. Two vendors' proposals",
+        "A. Two vendors' proposals, through the vendor management process",
         "B. The cost and benefits of producing work internally versus outsourcing it",
-        "C. Different project methodologies",
-        "D. Quality standards across industries"
+        "C. Different project methodologies within the constraints of the project",
+        "D. Quality standards across industries in accordance with quality standards"
       ],
       "correctAnswers": [
         "B"
@@ -10831,10 +10831,10 @@
       "type": "multipleChoice",
       "question": "A web service allows:",
       "options": [
-        "A. Only browsing web pages",
+        "A. Only browsing web pages to maintain project performance and compliance",
         "B. Applications to communicate over the internet using standardized protocols",
-        "C. Physical server maintenance",
-        "D. Printing web pages"
+        "C. Physical server maintenance considering project constraints and assumptions",
+        "D. Printing web pages as documented in the project management framework"
       ],
       "correctAnswers": [
         "B"
@@ -10854,10 +10854,10 @@
       "type": "multipleChoice",
       "question": "Change control vs change management: change control manages:",
       "options": [
-        "A. People's reactions to organizational change",
+        "A. People's reactions to organizational change through the integrated change control board",
         "B. Formal processes for requesting, reviewing, approving, and implementing changes to project deliverables",
-        "C. Employee training programs",
-        "D. Team morale"
+        "C. Employee training programs, through the integrated change control board",
+        "D. Team morale, across the project team and functional groups"
       ],
       "correctAnswers": [
         "B"
@@ -10877,10 +10877,10 @@
       "type": "multipleChoice",
       "question": "A project phase is:",
       "options": [
-        "A. The same as a milestone",
+        "A. The same as a milestone, aligned with key project milestones",
         "B. A collection of logically related activities culminating in the completion of one or more deliverables",
-        "C. A single task in the WBS",
-        "D. The project sponsor's decision period"
+        "C. A single task in the WBS, during the planning and execution phases",
+        "D. The project sponsor's decision period, with project sponsor approval and oversight"
       ],
       "correctAnswers": [
         "B"
@@ -10923,7 +10923,7 @@
       "type": "multipleChoice",
       "question": "A change request should document:",
       "options": [
-        "A. Only the desired change",
+        "A. Only the desired change through the integrated change control board",
         "B. The change description, reason, impact assessment, and urgency",
         "C. Only who requested the change",
         "D. The team's opinion about the change"
@@ -10946,9 +10946,9 @@
       "type": "multipleChoice",
       "question": "A risk breakdown structure (RBS) organizes risks by:",
       "options": [
-        "A. Alphabetical order",
+        "A. Alphabetical order as identified in the risk register",
         "B. Categories and subcategories in a hierarchical structure",
-        "C. Budget impact only",
+        "C. Budget impact only within the approved cost baseline",
         "D. The date they were identified"
       ],
       "correctAnswers": [
@@ -10969,10 +10969,10 @@
       "type": "multipleChoice",
       "question": "Activities on the critical path have:",
       "options": [
-        "A. The most float",
+        "A. The most float based on established project management practices",
         "B. Zero float — any delay directly extends the project end date",
         "C. Unlimited duration flexibility",
-        "D. The highest budget allocation"
+        "D. The highest budget allocation within the approved cost baseline"
       ],
       "correctAnswers": [
         "B"
@@ -10992,10 +10992,10 @@
       "type": "multipleChoice",
       "question": "A quality audit is:",
       "options": [
-        "A. A financial review of the project budget",
+        "A. A financial review of the project budget as defined by quality metrics and criteria",
         "B. A structured review to determine if project activities comply with policies and processes",
-        "C. A team performance evaluation",
-        "D. A vendor price comparison"
+        "C. A team performance evaluation, in accordance with quality standards",
+        "D. A vendor price comparison, as defined by quality metrics and criteria"
       ],
       "correctAnswers": [
         "B"
@@ -11061,10 +11061,10 @@
       "type": "multipleChoice",
       "question": "Organizational readiness assessment evaluates:",
       "options": [
-        "A. The budget for office renovations",
+        "A. The budget for office renovations, within the approved cost baseline",
         "B. Whether the organization is prepared to implement and sustain the project outcomes",
-        "C. The availability of parking spaces",
-        "D. The project schedule only"
+        "C. The availability of parking spaces as part of the overall project management approach",
+        "D. The project schedule only, as outlined in the schedule baseline"
       ],
       "correctAnswers": [
         "B"
@@ -11084,10 +11084,10 @@
       "type": "multipleChoice",
       "question": "High-level risk identification during initiation:",
       "options": [
-        "A. Creates the complete risk register with all responses",
+        "A. Creates the complete risk register with all responses per the risk management plan",
         "B. Identifies major risks that could impact project feasibility and includes them in the charter",
-        "C. Eliminates all project risks",
-        "D. Is performed only by external consultants"
+        "C. Eliminates all project risks, per the risk management plan",
+        "D. Is performed only by external consultants, per the risk management plan"
       ],
       "correctAnswers": [
         "B"
@@ -11107,10 +11107,10 @@
       "type": "multipleChoice",
       "question": "Schedule development involves:",
       "options": [
-        "A. Only creating a list of activities",
+        "A. Only creating a list of activities, as outlined in the schedule baseline",
         "B. Analyzing activity sequences, durations, resource requirements, and constraints to create the project schedule",
-        "C. Setting team member work hours",
-        "D. Planning project celebrations"
+        "C. Setting team member work hours, involving team members and project staff",
+        "D. Planning project celebrations, based on the project timeline and milestones"
       ],
       "correctAnswers": [
         "B"
@@ -11130,10 +11130,10 @@
       "type": "multipleChoice",
       "question": "Vendor management during execution includes:",
       "options": [
-        "A. Only signing the contract",
+        "A. Only signing the contract, through the vendor management process",
         "B. Monitoring vendor performance, managing relationships, and ensuring contract compliance",
-        "C. Ignoring vendor deliverables",
-        "D. Allowing vendors unlimited scope changes"
+        "C. Ignoring vendor deliverables, as specified in project documentation",
+        "D. Allowing vendors unlimited scope changes through the integrated change control board"
       ],
       "correctAnswers": [
         "B"
@@ -11153,10 +11153,10 @@
       "type": "multipleChoice",
       "question": "Milestone tracking during monitoring and controlling:",
       "options": [
-        "A. Is unnecessary if the schedule is complete",
+        "A. Is unnecessary if the schedule is complete as outlined in the schedule baseline",
         "B. Monitors progress toward key project events to assess overall schedule health",
-        "C. Only tracks the final project milestone",
-        "D. Is performed only by the sponsor"
+        "C. Only tracks the final project milestone aligned with key project milestones",
+        "D. Is performed only by the sponsor aligned with key project milestones"
       ],
       "correctAnswers": [
         "B"
@@ -11176,10 +11176,10 @@
       "type": "multipleChoice",
       "question": "Recognition and celebration during project closure:",
       "options": [
-        "A. Is unprofessional and should be avoided",
+        "A. Is unprofessional and should be avoided during the planning and execution phases",
         "B. Acknowledges team contributions, builds morale, and promotes positive organizational culture",
-        "C. Is only for projects that succeed",
-        "D. Should be expensive and elaborate"
+        "C. Is only for projects that succeed, within the constraints of the project",
+        "D. Should be expensive and elaborate, in accordance with industry best practices"
       ],
       "correctAnswers": [
         "B"
@@ -11199,10 +11199,10 @@
       "type": "multipleChoice",
       "question": "A Gantt chart's primary advantage over a network diagram is:",
       "options": [
-        "A. It shows dependencies more clearly",
+        "A. It shows dependencies more clearly considering project constraints and assumptions",
         "B. It provides an intuitive timeline view showing task durations and progress at a glance",
-        "C. It calculates the critical path automatically",
-        "D. It identifies all project risks"
+        "C. It calculates the critical path automatically during the planning and execution phases",
+        "D. It identifies all project risks, as identified in the risk register"
       ],
       "correctAnswers": [
         "B"
@@ -11222,10 +11222,10 @@
       "type": "multipleChoice",
       "question": "A project schedule documents:",
       "options": [
-        "A. Only the project start and end dates",
+        "A. Only the project start and end dates as outlined in the schedule baseline",
         "B. Activities, sequences, durations, resources, milestones, and the project timeline",
-        "C. Team member salaries",
-        "D. Vendor contract terms"
+        "C. Team member salaries, across the project team and functional groups",
+        "D. Vendor contract terms, through the vendor management process"
       ],
       "correctAnswers": [
         "B"
@@ -11314,10 +11314,10 @@
       "type": "multipleChoice",
       "question": "An Agile Release Train (ART) in SAFe is:",
       "options": [
-        "A. A physical train for transporting software",
+        "A. A physical train for transporting software during sprint planning and execution",
         "B. A team of Agile teams that plan, commit, and execute together in a program increment",
-        "C. A single Scrum team",
-        "D. A software deployment tool"
+        "C. A single Scrum team, during sprint planning and execution",
+        "D. A software deployment tool, during sprint planning and execution"
       ],
       "correctAnswers": [
         "B"
@@ -11337,10 +11337,10 @@
       "type": "multipleChoice",
       "question": "An organization discovers a data breach affecting customer PII. Under most regulations, they must:",
       "options": [
-        "A. Keep it secret to avoid negative publicity",
+        "A. Keep it secret to avoid negative publicity in accordance with industry best practices",
         "B. Notify affected individuals and regulatory authorities within specified timeframes",
-        "C. Delete all records of the breach",
-        "D. Wait until the next quarterly report"
+        "C. Delete all records of the breach as required by the project methodology",
+        "D. Wait until the next quarterly report as required by the project methodology"
       ],
       "correctAnswers": [
         "B"
@@ -11360,10 +11360,10 @@
       "type": "multipleChoice",
       "question": "A conflict of interest in project management occurs when:",
       "options": [
-        "A. Two team members disagree on a technical approach",
+        "A. Two team members disagree on a technical approach involving team members and project staff",
         "B. A PM's personal interests could compromise their professional judgment or obligations",
-        "C. The project has competing priorities",
-        "D. Two projects share the same resources"
+        "C. The project has competing priorities for the benefit of all project stakeholders",
+        "D. Two projects share the same resources, per the resource management plan"
       ],
       "correctAnswers": [
         "B"
@@ -11386,7 +11386,7 @@
         "A. Has no opinion about the project",
         "B. Opposes the project or its outcomes and may try to prevent its success",
         "C. Only provides negative feedback on deliverables",
-        "D. Was removed from the project team"
+        "D. Was removed from the project team according to stakeholder requirements"
       ],
       "correctAnswers": [
         "B"
@@ -11431,8 +11431,8 @@
       "options": [
         "A. Track version control of source code",
         "B. Record all change requests and their status throughout the project",
-        "C. Log team member attendance",
-        "D. Document vendor negotiations"
+        "C. Log team member attendance involving team members and project staff",
+        "D. Document vendor negotiations through the vendor management process"
       ],
       "correctAnswers": [
         "B"
@@ -11452,10 +11452,10 @@
       "type": "multipleChoice",
       "question": "An overall project risk is:",
       "options": [
-        "A. The sum of all individual risks",
+        "A. The sum of all individual risks, as identified in the risk register",
         "B. The effect of uncertainty on the project as a whole, beyond individual risk events",
-        "C. Only the highest-priority individual risk",
-        "D. A risk that affects only the PM"
+        "C. Only the highest-priority individual risk per the risk management plan",
+        "D. A risk that affects only the PM, per the risk management plan"
       ],
       "correctAnswers": [
         "B"
@@ -11477,7 +11477,7 @@
       "options": [
         "A. Making one large change at the end of the project",
         "B. Systematically and regularly seeking ways to improve processes and deliverables",
-        "C. Continuously increasing the project budget",
+        "C. Continuously increasing the project budget as defined by quality metrics and criteria",
         "D. Never accepting the current quality level as adequate"
       ],
       "correctAnswers": [
@@ -11498,10 +11498,10 @@
       "type": "multipleChoice",
       "question": "A cost-benefit analysis compares:",
       "options": [
-        "A. Team member salaries to industry averages",
+        "A. Team member salaries to industry averages across the project team and functional groups",
         "B. The expected costs of a project against its anticipated benefits to determine feasibility",
-        "C. Different Agile methodologies",
-        "D. Hardware prices from multiple vendors"
+        "C. Different Agile methodologies, during sprint planning and execution",
+        "D. Hardware prices from multiple vendors in coordination with external vendors"
       ],
       "correctAnswers": [
         "B"
@@ -11521,10 +11521,10 @@
       "type": "multipleChoice",
       "question": "Activity definition involves:",
       "options": [
-        "A. Setting the project budget",
+        "A. Setting the project budget, within the approved cost baseline",
         "B. Identifying and documenting the specific actions to be performed to produce project deliverables",
-        "C. Assigning resources to the project",
-        "D. Creating the project charter"
+        "C. Assigning resources to the project, per the resource management plan",
+        "D. Creating the project charter, as authorized in the project charter"
       ],
       "correctAnswers": [
         "B"
@@ -11546,8 +11546,8 @@
       "options": [
         "A. In different cities to maximize diversity",
         "B. In the same physical location to improve communication and collaboration",
-        "C. In separate offices for privacy",
-        "D. On different time zones"
+        "C. In separate offices for privacy across the project team and functional groups",
+        "D. On different time zones involving team members and project staff"
       ],
       "correctAnswers": [
         "B"
@@ -11567,10 +11567,10 @@
       "type": "multipleChoice",
       "question": "Forecasting using EVM data helps the PM:",
       "options": [
-        "A. Predict the weather",
+        "A. Predict the weather, to ensure project objectives are met",
         "B. Estimate future project cost and schedule performance based on current trends",
-        "C. Forecast team member turnover",
-        "D. Predict stakeholder reactions"
+        "C. Forecast team member turnover across the project team and functional groups",
+        "D. Predict stakeholder reactions according to stakeholder requirements"
       ],
       "correctAnswers": [
         "B"
@@ -11593,7 +11593,7 @@
         "A. Extra accountability for important tasks",
         "B. An error — each task should have exactly one Accountable person",
         "C. A shared leadership model",
-        "D. Redundancy for risk mitigation"
+        "D. Redundancy for risk mitigation as identified in the risk register"
       ],
       "correctAnswers": [
         "B"
@@ -11659,9 +11659,9 @@
       "type": "multipleChoice",
       "question": "The Agile principle of simplicity means:",
       "options": [
-        "A. Using the simplest tools possible",
+        "A. Using the simplest tools possible during sprint planning and execution",
         "B. Maximizing the amount of work NOT done — avoiding unnecessary complexity",
-        "C. Having simple project goals",
+        "C. Having simple project goals during sprint planning and execution",
         "D. Keeping the team as small as possible"
       ],
       "correctAnswers": [
@@ -11684,8 +11684,8 @@
       "options": [
         "A. Ignore the change since the project started before the regulation",
         "B. Assess the impact, submit a change request, and update the plan to ensure compliance",
-        "C. Cancel the project immediately",
-        "D. Continue as planned and comply after delivery"
+        "C. Cancel the project immediately through the integrated change control board",
+        "D. Continue as planned and comply after delivery following the change control process"
       ],
       "correctAnswers": [
         "B"
@@ -11705,10 +11705,10 @@
       "type": "multipleChoice",
       "question": "A project's business value can include intangible benefits such as:",
       "options": [
-        "A. Only financial profit",
+        "A. Only financial profit in accordance with industry best practices",
         "B. Brand recognition, customer satisfaction, and employee morale",
-        "C. Hardware inventory",
-        "D. Office space square footage"
+        "C. Hardware inventory as required by the project methodology",
+        "D. Office space square footage to support informed decision-making"
       ],
       "correctAnswers": [
         "B"
@@ -11728,10 +11728,10 @@
       "type": "multipleChoice",
       "question": "The Fibonacci sequence (1, 2, 3, 5, 8, 13, 21) is used in Agile for:",
       "options": [
-        "A. Calculating the project budget",
+        "A. Calculating the project budget within the iterative development framework",
         "B. Story point estimation to reflect increasing uncertainty in larger items",
-        "C. Setting sprint duration",
-        "D. Counting team members"
+        "C. Setting sprint duration, during sprint planning and execution",
+        "D. Counting team members across the project team and functional groups"
       ],
       "correctAnswers": [
         "B"
@@ -11751,10 +11751,10 @@
       "type": "multipleChoice",
       "question": "A quality management plan defines:",
       "options": [
-        "A. The project's communication channels",
+        "A. The project's communication channels, in accordance with quality standards",
         "B. Quality standards, metrics, processes, and responsibilities for achieving quality objectives",
-        "C. The team's holiday schedule",
-        "D. Vendor contract terms"
+        "C. The team's holiday schedule, as outlined in the schedule baseline",
+        "D. Vendor contract terms, in coordination with external vendors"
       ],
       "correctAnswers": [
         "B"
@@ -11774,10 +11774,10 @@
       "type": "multipleChoice",
       "question": "A configuration management system supports change control by:",
       "options": [
-        "A. Managing team member configurations",
+        "A. Managing team member configurations involving team members and project staff",
         "B. Tracking versions of deliverables and ensuring only approved changes are implemented",
-        "C. Configuring project management software",
-        "D. Setting up the project office"
+        "C. Configuring project management software following the change control process",
+        "D. Setting up the project office through the integrated change control board"
       ],
       "correctAnswers": [
         "B"
@@ -11797,10 +11797,10 @@
       "type": "multipleChoice",
       "question": "The stakeholder register should be updated when:",
       "options": [
-        "A. The project is completed",
+        "A. The project is completed based on stakeholder analysis and engagement",
         "B. New stakeholders are identified or existing stakeholder information changes",
-        "C. Only during the planning phase",
-        "D. The budget is revised"
+        "C. Only during the planning phase based on stakeholder analysis and engagement",
+        "D. The budget is revised, according to stakeholder requirements"
       ],
       "correctAnswers": [
         "B"
@@ -11820,10 +11820,10 @@
       "type": "multipleChoice",
       "question": "Benefits realization as a knowledge area ensures:",
       "options": [
-        "A. Team members receive their salary benefits",
+        "A. Team members receive their salary benefits across the project team and functional groups",
         "B. The project delivers the business outcomes and value promised in the business case",
-        "C. Insurance benefits are maintained",
-        "D. Vendor profit margins are reasonable"
+        "C. Insurance benefits are maintained to address project requirements effectively",
+        "D. Vendor profit margins are reasonable in coordination with external vendors"
       ],
       "correctAnswers": [
         "B"
@@ -11843,10 +11843,10 @@
       "type": "multipleChoice",
       "question": "A community cloud is:",
       "options": [
-        "A. A public cloud available to everyone",
+        "A. A public cloud available to everyone throughout the project life cycle",
         "B. Cloud infrastructure shared by several organizations with common concerns",
-        "C. A social media platform",
-        "D. A cloud used only by non-profits"
+        "C. A social media platform in accordance with industry best practices",
+        "D. A cloud used only by non-profits throughout the project life cycle"
       ],
       "correctAnswers": [
         "B"
@@ -11866,10 +11866,10 @@
       "type": "multipleChoice",
       "question": "An Agile team at the end of each sprint should reflect and adjust its behavior. This principle of:",
       "options": [
-        "A. Is optional and rarely practiced",
+        "A. Is optional and rarely practiced within the iterative development framework",
         "B. At regular intervals, the team reflects on how to be more effective, then adjusts",
-        "C. Only applies to new teams",
-        "D. Is handled exclusively by management"
+        "C. Only applies to new teams within the iterative development framework",
+        "D. Is handled exclusively by management within the iterative development framework"
       ],
       "correctAnswers": [
         "B"
@@ -11912,10 +11912,10 @@
       "type": "multipleChoice",
       "question": "A project governance framework should define:",
       "options": [
-        "A. Only the project budget",
+        "A. Only the project budget, per organizational governance policies",
         "B. Decision rights, accountability, roles, escalation paths, and oversight mechanisms",
-        "C. The programming language to use",
-        "D. Individual team member goals"
+        "C. The programming language to use under the project governance framework",
+        "D. Individual team member goals involving team members and project staff"
       ],
       "correctAnswers": [
         "B"
@@ -11937,8 +11937,8 @@
       "options": [
         "A. The exact number of hours for a task",
         "B. Relative effort considering complexity, uncertainty, and volume of work",
-        "C. The cost of development in dollars",
-        "D. The number of developers needed"
+        "C. The cost of development in dollars in alignment with organizational standards",
+        "D. The number of developers needed based on lessons learned and historical data"
       ],
       "correctAnswers": [
         "B"
@@ -11958,10 +11958,10 @@
       "type": "multipleChoice",
       "question": "Ground rules for a project team:",
       "options": [
-        "A. Are unnecessary for experienced teams",
+        "A. Are unnecessary for experienced teams involving team members and project staff",
         "B. Establish expected behaviors, communication norms, and working agreements",
-        "C. Are set only by the project sponsor",
-        "D. Can never be modified once set"
+        "C. Are set only by the project sponsor involving team members and project staff",
+        "D. Can never be modified once set involving team members and project staff"
       ],
       "correctAnswers": [
         "B"
@@ -12004,10 +12004,10 @@
       "type": "multipleChoice",
       "question": "Containerization (e.g., Docker) allows:",
       "options": [
-        "A. Physical shipping of hardware",
+        "A. Physical shipping of hardware, to ensure alignment with project goals",
         "B. Applications to run in isolated, lightweight environments with all dependencies packaged",
-        "C. Only one application per server",
-        "D. Permanent storage of data"
+        "C. Only one application per server as part of the overall project management approach",
+        "D. Permanent storage of data, according to the project management plan"
       ],
       "correctAnswers": [
         "B"
